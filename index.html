@@ -1,286 +1,122 @@
 <!DOCTYPE html>
-<html>
-
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-        <link rel="stylesheet" href="css/style.css">
-
-        <link rel="stylesheet" href="./index.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
-
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="css/swiper-bundle.min.css">
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/style.css">
-
-
-    </head>
-
-    <body>
-        <!-- Hero Section -->
-        <div class="desktop-1">
-            <section class="frame-parent">
-                <div class="frame-group">
-                    <div class="frame-container">
-                        <div class="logo-upscalled-1-parent">
-                            <img class="logo-upscalled-1-icon" loading="lazy" alt="simtestlab-logo" src="images/logo.png" />
-
-                            <div class="frame-child"></div>
-                        </div>
-                        <h1 class="simtestlab">Simtestlab</h1>
-                    </div>
-                    <header class="navbar-wrapper">
-                        <nav class="navbar">
-                            <a class="home">home</a>
-                            <a class="about">about</a>
-                            <a class="service">service</a>
-                            <a class="contact">contact</a>
-                        </nav>
-                    </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simtestlab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" width="40" height="40" alt="Simtestlab Logo">
+                Simtestlab
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="contrast-section">
+            <div class="hero-content">
+                <h1>Innovative Simulation Testing Solutions for Your Industry</h1>
+                <p>Delivering accurate, reliable, and comprehensive testing services to ensure your products meet the highest standards</p>
+                <div class="hero-buttons">
+                    <a href="#learn-more" class="btn">Learn More</a>
+                    <a href="#contact" class="btn">Contact Us</a>
                 </div>
-                <div class="frame-wrapper">
-                    <div class="frame-div">
-                        <div class="frame-parent1">
-                            <div class="frame-wrapper1">
-                                <div class="innovative-simulation-testing-parent">
-                                    <h1 class="innovative-simulation-testing-container">
-                                        <p class="innovative-simulation-testing">
-                                            Innovative Simulation Testing
-                                        </p>
-                                        <p class="solutions-for-your">
-                                            Solutions for Your Industry
-                                        </p>
-                                    </h1>
-                                    <img class="services-automation-1950x140" loading="lazy" alt="Service automation image"
-                                        src="images/automation.png" />
-                                </div>
+            </div>
+            <img src="images/automation.png" alt="Hero Image">
+        </section>
+        <section id="about" class="contrast-section">
+            <h2>About Us</h2>
+            <p>Founded in 2022, SimTest Solutions has been at the forefront of simulation testing, providing top-notch services to industries worldwide.</p>
+        </section>
+        <section id="team">
+            <h2>Our Team Members</h2>
+            <div id="teamCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center">
+                            <div class="team-member mx-3">
+                                <img src="images/profile1.jpg" alt="John Doe">
+                                <h3>John Doe – Chief Engineer</h3>
+                                <p>Oversees the entire simulation testing project. Ensures that all engineering aspects of the project are accurately addressed. Serves as the primary point of contact between the client and the company.</p>
                             </div>
-                            <div class="delivering-accurate-reliable-container">
-                                <p class="delivering-accurate-reliable">
-                                    Delivering accurate, reliable, and comprehensive testing
-                                    services to ensure
-                                </p>
-                                <p class="your-products-meet">
-                                    your products meet the highest standards
-                                </p>
+                            <div class="team-member mx-3">
+                                <img src="images/profile2.jpg" alt="Emily Brown">
+                                <h3>Emily Brown – Data Analyst</h3>
+                                <p>Develops and sets up simulation tests. Ensures that simulations are accurately configured to reflect real-world conditions. Works closely with John to align simulations with project goals.</p>
                             </div>
-                        </div>
-                        <div class="call-to-action-wrapper">
-                            <div class="call-to-action">
-                                <button class="menu">
-                                    <b class="learn-more">Learn More</b>
-                                </button>
-                                <button class="counter">
-                                    <b class="contact-us">Contact Us</b>
-                                </button>
+                            <div class="team-member mx-3">
+                                <img src="images/profile3.jpg" alt="Jane Smith">
+                                <h3>Jane Smith – Simulation Specialist</h3>
+                                <p>Analyzes data generated from simulations. Identifies trends, weaknesses, and areas for improvement. Provides actionable insights based on data analysis.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-
-            <section class="desktop-1-inner">
-                <div class="frame-parent2">
-                    <div class="frame-wrapper2">
-                        <div class="frame-parent3">
-                            <div class="about-us-title-parent">
-                                <div class="about-us-title">
-                                    <h2 class="about-us">
-                                        <p class="about-us1">About Us</p>
-                                    </h2>
-                                </div>
-                                <div class="frame-parent4">
-                                    <div class="company-history-wrapper">
-                                        <div class="company-history">Company History</div>
-                                    </div>
-                                    <div class="founded-in-2022">
-                                        Founded in 2022, SimTest Solutions has been at the forefront
-                                        of simulation testing, providing top-notch services to
-                                        industries worldwide.
-                                    </div>
-                                </div>
-                            </div>                            
-                    </div>
-                </div>
-            </section>
-
-            <section class="desktop-1-inner">
-                <div class="frame-parent2">
-                    <div class="frame-wrapper2">
-                        <div class="frame-parent3">                            
-                            <div class="team-members-title">
-                                <h2 class="our-team-members">Our Team Members</h2>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="team-member mx-3">
+                                <img src="images/profile4.jpg" alt="John Doe">
+                                <h3>John Doe – Chief Engineer</h3>
+                                <p>Oversees the entire simulation testing project. Ensures that all engineering aspects of the project are accurately addressed. Serves as the primary point of contact between the client and the company.</p>
+                            </div>
+                            <div class="team-member mx-3">
+                                <img src="images/profile5.jpg" alt="Emily Brown">
+                                <h3>Emily Brown – Data Analyst</h3>
+                                <p>Develops and sets up simulation tests. Ensures that simulations are accurately configured to reflect real-world conditions. Works closely with John to align simulations with project goals.</p>
+                            </div>
+                            <div class="team-member mx-3">
+                                <img src="images/profile6.jpg" alt="Jane Smith">
+                                <h3>Jane Smith – Simulation Specialist</h3>
+                                <p>Analyzes data generated from simulations. Identifies trends, weaknesses, and areas for improvement. Provides actionable insights based on data analysis.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Testimonials -->
-            <div class="slide-container swiper">
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/Maari1.png" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">Maari</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile2.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile3.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile4.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>                                    
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile5.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile6.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-    
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile7.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile8.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-    
-                                <div class="card-image">
-                                    <img src="images/profile9.jpg" alt="" class="card-img">
-                                </div>
-                            </div>
-    
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
-            </div>        
-        </div>
-    </body>
-    <!-- Swiper JS -->
-    <script src="js/swiper-bundle.min.js"></script>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-
+                <a class="carousel-control-prev" href="#teamCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#teamCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Simtestlab. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Initialize the carousel
+        $('#teamCarousel').carousel({
+            interval: 2000,
+            pause: 'hover'
+        });
+    </script>
+</body>
 </html>
