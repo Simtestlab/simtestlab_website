@@ -2,12 +2,23 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #050818;
-  color: #fff;
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 .custom-navbar {
   background-color: #01265e !important;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+  color: #fff !important;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+  color: #00b894 !important;
+  transform: scale(1.1);
 }
 
 header {
@@ -30,6 +41,7 @@ header {
 }
 
 #hero h1 {
+  font-family: 'Arial', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -106,23 +118,23 @@ footer {
 /* Ensuring the same height and width for testimonials */
 .testimonials-item {
   background-color: #ffffff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 30px;
   color: #000;
-  box-sizing: border-box; /* Include padding in the element's total width and height */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px; /* Add some margin for spacing between items */
+  margin: 10px;
+  max-width: 600px;
 }
 
-/* Ensuring images are circular and properly sized */
 .testimonials-item img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   margin-right: 20px;
-  object-fit: cover; /* Ensures the image covers the circular shape */
+  object-fit: cover;
 }
 
 .testimonials-item .info {
@@ -147,94 +159,98 @@ footer {
 }
 
 .testimonials-item p {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #666;
   flex-grow: 1;
 }
 
-/* Swiper slide alignment */
 .swiper-slide {
   display: flex;
-  justify-content: center; /* Center the testimonial items */
-  align-items: center; /* Center the testimonial items vertically */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* Media Queries for Responsiveness */
+.testimonials-content {
+  overflow: hidden;
+  padding: 0 15px;
+}
+
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      align-items: center;
   }
 
   .hero-content {
-    max-width: 100%;
+      max-width: 100%;
   }
 
   #hero img {
-    max-width: 80%;
-    margin-top: 2rem;
+      max-width: 80%;
+      margin-top: 2rem;
   }
 
   .carousel-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
 
   .carousel-item {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+      display: flex;
+      justify-content: center;
+      width: 100%;
   }
 
   .carousel-item .team-member {
-    width: 90%;
-    margin: 1rem auto;
+      width: 90%;
+      margin: 1rem auto;
   }
 
   .testimonials-item {
-    padding: 20px;
-    margin: 10px;
+      padding: 20px;
+      margin: 10px;
   }
 
   .testimonials-item img {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
   }
 
   .testimonials-item h3.name {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
   }
 
   .testimonials-item span.job {
-    font-size: 0.9rem;
+      font-size: 0.9rem;
   }
 
   .testimonials-item p {
-    margin-top: 15px;
-    font-size: 0.9rem;
+      margin-top: 15px;
+      font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .carousel-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
 
   .carousel-item {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
   }
 
   .carousel-item .team-member {
-    width: 90%;
-    margin: 1rem auto;
+      width: 90%;
+      margin: 1rem auto;
   }
 }
 
@@ -242,15 +258,15 @@ footer {
   padding: 2rem 1rem;
   text-align: center;
   background-color: #fff;
-  color: #000; /* Adjusted for better readability */
+  color: #000;
 }
 
 #additionalCarousel .carousel-item img {
-  max-height: 50vh; /* Adjust the height as needed */
+  max-height: 50vh;
   width: 100%;
   object-fit: cover;
-  filter: blur(8px); /* Adjust the blur radius as needed */
-  -webkit-filter: blur(8px); /* For Safari */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 
 .container {
@@ -261,40 +277,42 @@ footer {
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .section-header .title {
   font-size: 35px;
   font-weight: 600;
   text-transform: capitalize;
-  color: #fff; /* Adjusted for consistency */
+  color: #fff;
   line-height: 1.2;
+  margin-top: 50px;
 }
 
-/* Testimonials */
 .testimonials {
-  background-color: #00163b; /* Adjusted for better contrast */
-  color: #fff; /* Adjusted for better readability */
+  background-color: #1e60d3;
+  color: #fff;
+  padding-top: 50px;
 }
 
 .testimonials-item {
   background-color: #ffffff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 30px;
   color: #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px; /* Add some margin for spacing between items */
-  box-sizing: border-box; /* Include padding in the element's total width and height */
-  max-width: 600px; /* Optional: Add a maximum width for better layout control */
+  margin: 10px;
+  box-sizing: border-box;
+  max-width: 600px;
 }
 
 .testimonials-item .info {
   display: flex;
   align-items: center;
-  margin-bottom: 20px; /* Add space between image and text */
+  margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 .testimonials-item img {
@@ -302,7 +320,7 @@ footer {
   height: 80px;
   border-radius: 50%;
   margin-right: 20px;
-  object-fit: cover; /* Ensures the image covers the circular shape */
+  object-fit: cover;
 }
 
 .testimonials-item .text-box {
@@ -322,7 +340,8 @@ footer {
 }
 
 .testimonials-item p {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-right: 50px;
   color: #666;
   flex-grow: 1;
 }
@@ -341,6 +360,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .testimonials .swiper-pagination {
@@ -355,34 +375,156 @@ footer {
   background-color: #fff;
 }
 
-.swiper-slide {
-  display: flex;
-  justify-content: center; /* Center the testimonial items */
-  align-items: center; /* Center the testimonial items vertically */
-}
-
 @media (max-width: 768px) {
   .testimonials-item {
-    padding: 20px;
-    margin: 10px;
+      padding: 20px;
+      margin: 10px;
   }
 
   .testimonials-item img {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
   }
 
   .testimonials-item h3.name {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
   }
 
   .testimonials-item span.job {
-    font-size: 0.9rem;
+      font-size: 0.9rem;
   }
 
   .testimonials-item p {
-    margin-top: 15px;
-    font-size: 0.9rem;
+      margin-top: 15px;
+      font-size: 0.9rem;
   }
+}
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.about-section .about-item {
+  flex: 1 1 calc(33.333% - 1rem);
+  margin: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-section .about-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-section .about-item:hover img {
+  transform: scale(1.1);
+}
+
+.about-section .about-item .title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 768px) {
+  .about-section .about-item {
+      flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section .about-item {
+      flex: 1 1 100%;
+  }
+}
+
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+.slider .controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.slider .controls > div {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.slider .wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider .wrapper .left,
+.slider .wrapper .right {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider .wrapper .left > div,
+.slider .wrapper .right > div {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+}
+
+.slider .wrapper .left > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  background: #fff;
+  color: #000;
+}
+
+.slider .wrapper .left > div h2 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.slider .wrapper .left > div p {
+  font-size: 18px;
+}
+
+.slider .wrapper .right > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
