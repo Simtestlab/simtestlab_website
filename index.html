@@ -6,11 +6,12 @@
     <title>Simtestlab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
             <a class="navbar-brand" href="#">
                 <img src="images/logo.png" width="40" height="40" alt="Simtestlab Logo">
                 Simtestlab
@@ -137,10 +138,10 @@
             <div class="slider">
                 <div class="controls">
                     <div class="up">
-                        <i class="fa fa-chevron-up"></i>
+                        <i class="fas fa-chevron-up"></i>
                     </div>
                     <div class="down">
-                        <i class="fa fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
                 <div class="wrapper" style="background-color: white;">
@@ -162,7 +163,7 @@
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                         <div>
-                            <h2>Trainned Professionals</h2>
+                            <h2>Trained Professionals</h2>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                     </div>
@@ -188,83 +189,46 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Simtestlab. All rights reserved.</p>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Advertising</a></li>
+                <li><a href="#">Talent</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Network</h4>
+            <ul>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Professional</a></li>
+                <li><a href="#">API</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Follow us</h4>
+            <div class="links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.testimonials-slider', {
-            grabCursor: true,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            effect: 'slide',
-            speed: 600,
-            slidesPerView: 1,
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                }
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const upButton = document.querySelector('.controls .up');
-            const downButton = document.querySelector('.controls .down');
-            const leftSlides = document.querySelectorAll('.wrapper .left > div');
-            const rightSlides = document.querySelectorAll('.wrapper .right > div');
-            let currentSlide = 0;
-            const totalSlides = leftSlides.length;
-
-            function updateSlides() {
-                leftSlides.forEach((slide, index) => {
-                    slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-                });
-                rightSlides.forEach((slide, index) => {
-                    slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-                });
-            }
-
-            upButton.addEventListener('click', () => {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updateSlides();
-                }
-            });
-
-            downButton.addEventListener('click', () => {
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                    updateSlides();
-                }
-            });
-
-            // Initialize the slides' positions
-            updateSlides();
-        });
-
-        // Smooth scroll to services section
-        document.querySelector('.nav-link[href="#services"]').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+    <script src="script/script.js"></script>
 </body>
 </html>
