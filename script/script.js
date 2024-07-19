@@ -95,3 +95,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observer.observe(document.querySelector('#services'));
 });
+
+// Tab switching functionality
+document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.getAttribute('data-tab');
+
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    document.querySelectorAll('.services-images').forEach(item => {
+      if (item.getAttribute('data-category') === category) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Initialize by showing the first tab's content
+document.querySelector('.tab-button[data-tab="it-services"]').click();

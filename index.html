@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simtestlab</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+
+    
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    <link rel="manifest" href="images/logo.png">
+
+
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
             <a class="navbar-brand" href="#">
                 <img src="images/logo.png" width="40" height="40" alt="Simtestlab Logo">
                 Simtestlab
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#hero">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#employees">Employees</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
@@ -37,6 +52,7 @@
             </div>
         </nav>
     </header>
+    
     <main>
         <section id="hero" class="contrast-section">
             <div class="video-container">
@@ -49,30 +65,135 @@
                 <h1>Innovative Simulation Testing Solutions for Your Industry</h1>
                 <p>Delivering accurate, reliable, and comprehensive testing services to ensure your products meet the highest standards</p>
                 <div class="hero-buttons">
-                    <a href="#learn-more" class="btn">Learn More</a>
+                    <a href="#about" class="btn">Learn More</a>
                     <a href="#contact" class="btn">Contact Us</a>
                 </div>
             </div>
         </section>
-
-        <!-- About Us Section -->
-        <section id="about-us" class="about-us-section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h2>About Us</h2>
-                        <p>Simtestlab is a new-generation, dynamic team solely dedicated and committed to providing you turn-key solutions with 200+ man years of experiences in Hardware and Software.</p>
-                        <a href="#learn-more" class="btn btn-outline-dark">View More <i class="fas fa-chevron-right"></i></a>
+        <section class="about-section" id="about">
+            <div class="content">
+                <div class="about-header">
+                    <h2>OUR SERVICES</h2>
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="it-services">MODEL BASED DEVELOPMENT</button>
+                        <button class="tab-button" data-tab="business-services">BATTERY MANAGEMENT SYSTEM</button>
+                        <button class="tab-button" data-tab="product-information">TESTING AUTOMATION</button>
+                    </div>                    
+                </div>
+                
+                <div class="services-images" data-category="it-services">
+                    <div class="service-item">
+                        <img src="images/models/board.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Model in Loop</h5>
+                            <p>Validates the model by testing its behavior and functionality without any physical hardware or software implementation.</p>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <img src="images/automation.png" alt="About Us" class="img-fluid">
+                    <div class="service-item">
+                        <img src="images/models/software.jpg" alt="Software in Loop">
+                        <div class="service-caption">
+                            <h5>Software in Loop</h5>
+                            <p>Evaluates the correctness of the generated code by executing it within a simulation model.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/testing.jpg" alt="Hardware in Loop">
+                        <div class="service-caption">
+                            <h5>Hardware in Loop</h5>
+                            <p>Integrates the actual hardware components with the control software in a real-time simulation environment.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/process.jpg" alt="IT Outsourcing Services">
+                        <div class="service-caption">
+                            <h5>Process in Loop</h5>
+                            <p>Innovative testing methods for modern development.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-images" data-category="business-services" style="display:none;">
+                    <div class="service-item">
+                        <img src="images/models/monitoring.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Monitoring</h5>
+                            <p>Comprehensive testing solutions for battery cells, including performance, safety, and reliability tests.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/battery.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Management</h5>
+                            <p>Advanced testing services for battery packs to ensure optimal performance and longevity.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/security.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Protection</h5>
+                            <p>Advanced testing services for battery packs to ensure optimal performance and longevity.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/connections.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Communication</h5>
+                            <p>Advanced testing services for battery packs to ensure optimal performance and longevity.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/prognostics.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Prognostics</h5>
+                            <p>Advanced testing services for battery packs to ensure optimal performance and longevity.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-images" data-category="product-information" style="display:none;">
+                    <div class="service-item">
+                        <img src="images/models/function.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Automated Functional Testing</h5>
+                            <p>Automate your functional testing processes to improve accuracy and efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/analysis.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Requirement Specification and Analysis</h5>
+                            <p>Integrate automated testing into your CI pipeline for faster and more reliable releases.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/modeling.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Modeling and Simulation</h5>
+                            <p>Integrate automated testing into your CI pipeline for faster and more reliable releases.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/scripting.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Test Case and Script Development</h5>
+                            <p>Integrate automated testing into your CI pipeline for faster and more reliable releases.</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/models/environment.jpg" alt="Model in Loop">
+                        <div class="service-caption">
+                            <h5>Test Environment Setup</h5>
+                            <p>Integrate automated testing into your CI pipeline for faster and more reliable releases.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Our Employees Section -->
-        <section class="testimonials">
+        
+                    
+        
+        
+        <section class="testimonials" id="employees">
             <div class="container">
                 <div class="section-header">
                     <h2 class="title">Our Employees</h2>
@@ -82,53 +203,58 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide testimonials-item">
                                 <div class="info">
-                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <img src="images/profile1.jpg" alt="Image">
                                     <div class="text-box">
                                         <h3 class="name">John Doe</h3>
                                         <span class="job">Web Developer</span>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur
+                                    laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
                             </div>
                             <div class="swiper-slide testimonials-item">
                                 <div class="info">
-                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <img src="images/profile2.jpg" alt="Image">
                                     <div class="text-box">
                                         <h3 class="name">John Doe</h3>
                                         <span class="job">Web Developer</span>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur
+                                    laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
                             </div>
                             <div class="swiper-slide testimonials-item">
                                 <div class="info">
-                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <img src="images/profile3.jpg" alt="Image">
                                     <div class="text-box">
                                         <h3 class="name">John Doe</h3>
                                         <span class="job">Web Developer</span>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur
+                                    laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
                             </div>
                             <div class="swiper-slide testimonials-item">
                                 <div class="info">
-                                    <img src="images/profile2.jpg" alt="Image">                                    
+                                    <img src="images/profile4.jpg" alt="Image">
                                     <div class="text-box">
                                         <h3 class="name">Jane Doe</h3>
                                         <span class="job">Project Manager</span>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur
+                                    laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
                             </div>
                             <div class="swiper-slide testimonials-item">
                                 <div class="info">
-                                    <img src="images/profile3.jpg" alt="Image">                                    
+                                    <img src="images/profile5.jpg" alt="Image">
                                     <div class="text-box">
                                         <h3 class="name">Alice Smith</h3>
                                         <span class="job">Designer</span>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur
+                                    laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -138,7 +264,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="services">
             <div class="slider">
                 <div class="controls">
@@ -149,27 +275,37 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
-                <div class="wrapper" style="background-color: white;">
+                <div class="wrapper" style="background-color: #287094;">
                     <div class="left">
                         <div>
                             <h2>Statistics</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in quidem maiores ratione? Debitis veniam, modi, temporibus, dolore doloribus explicabo officiis nobis iure iste eos et voluptas ex est dolor.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in quidem maiores ratione?
+                                Debitis veniam, modi, temporibus, dolore doloribus explicabo officiis nobis iure iste eos et
+                                voluptas ex est dolor.</p>
                         </div>
                         <div>
                             <h2>Data Analysis</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur
+                                doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta
+                                laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                         <div>
                             <h2>Precision</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur
+                                doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta
+                                laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                         <div>
                             <h2>Expert Team</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur
+                                doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta
+                                laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                         <div>
                             <h2>Trainned Professionals</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur
+                                doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta
+                                laboriosam numquam voluptate, placeat aspernatur?</p>
                         </div>
                     </div>
                     <div class="right">
@@ -193,40 +329,32 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer id="contact">
         <div class="footer-col">
-            <h4>Products</h4>
+            <h4>Contact Us</h4>
             <ul>
-                <li><a href="">teams</a></li>
-                <li><a href="">advertising</a></li>
-                <li><a href="">talent</a></li>
+                <li>SWEDEN (HQ) - Sprintergången 7</li>
+                <li>ramesh@simtestlab.se</li>
+                <li>+46 (0) 73 9768 263</li>
+                <li>Copyright 2022. All Rights Reserved.</li>
             </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Network</h4>
-            <ul>
-                <li><a href="">technology</a></li>
-                <li><a href="">science</a></li>
-                <li><a href="">business</a></li>
-                <li><a href="">professional</a></li>
-                <li><a href="">API</a></li>
-            </ul>
-        </div>
+        </div>        
         <div class="footer-col">
             <h4>Company</h4>
             <ul>
-                <li><a href="">about</a></li>
-                <li><a href="">legal</a></li>
-                <li><a href="">contact us</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#employees">Emplyoees</a></li>
+                <li><a href="#services">Services</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Follow us</h4>
             <div class="links">
-                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/simtestlab"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
@@ -236,4 +364,5 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>
+
 </html>
