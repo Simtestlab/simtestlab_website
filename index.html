@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simtestlab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" width="40" height="40" alt="Simtestlab Logo">
+                Simtestlab
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="contrast-section">
+            <div class="video-container">
+                <video autoplay muted loop id="heroVideo">
+                    <source src="video/background.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="hero-content">
+                <h1>Innovative Simulation Testing Solutions for Your Industry</h1>
+                <p>Delivering accurate, reliable, and comprehensive testing services to ensure your products meet the highest standards</p>
+                <div class="hero-buttons">
+                    <a href="#learn-more" class="btn">Learn More</a>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-us" class="about-us-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>About Us</h2>
+                        <p>Simtestlab is a new-generation, dynamic team solely dedicated and committed to providing you turn-key solutions with 200+ man years of experiences in Hardware and Software.</p>
+                        <a href="#learn-more" class="btn btn-outline-dark">View More <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/automation.png" alt="About Us" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Employees Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="title">Our Employees</h2>
+                </div>
+                <div class="testimonials-content">
+                    <div class="swiper testimonials-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide testimonials-item">
+                                <div class="info">
+                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <div class="text-box">
+                                        <h3 class="name">John Doe</h3>
+                                        <span class="job">Web Developer</span>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                            </div>
+                            <div class="swiper-slide testimonials-item">
+                                <div class="info">
+                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <div class="text-box">
+                                        <h3 class="name">John Doe</h3>
+                                        <span class="job">Web Developer</span>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                            </div>
+                            <div class="swiper-slide testimonials-item">
+                                <div class="info">
+                                    <img src="images/profile1.jpg" alt="Image">                                    
+                                    <div class="text-box">
+                                        <h3 class="name">John Doe</h3>
+                                        <span class="job">Web Developer</span>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                            </div>
+                            <div class="swiper-slide testimonials-item">
+                                <div class="info">
+                                    <img src="images/profile2.jpg" alt="Image">                                    
+                                    <div class="text-box">
+                                        <h3 class="name">Jane Doe</h3>
+                                        <span class="job">Project Manager</span>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                            </div>
+                            <div class="swiper-slide testimonials-item">
+                                <div class="info">
+                                    <img src="images/profile3.jpg" alt="Image">                                    
+                                    <div class="text-box">
+                                        <h3 class="name">Alice Smith</h3>
+                                        <span class="job">Designer</span>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?</p>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="slider">
+                <div class="controls">
+                    <div class="up">
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div class="down">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="wrapper" style="background-color: white;">
+                    <div class="left">
+                        <div>
+                            <h2>Statistics</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in quidem maiores ratione? Debitis veniam, modi, temporibus, dolore doloribus explicabo officiis nobis iure iste eos et voluptas ex est dolor.</p>
+                        </div>
+                        <div>
+                            <h2>Data Analysis</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                        </div>
+                        <div>
+                            <h2>Precision</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                        </div>
+                        <div>
+                            <h2>Expert Team</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                        </div>
+                        <div>
+                            <h2>Trainned Professionals</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <img src="images/image1.png" alt="">
+                        </div>
+                        <div>
+                            <img src="images/image2.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="images/image3.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="images/image4.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="images/image5.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="">teams</a></li>
+                <li><a href="">advertising</a></li>
+                <li><a href="">talent</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Network</h4>
+            <ul>
+                <li><a href="">technology</a></li>
+                <li><a href="">science</a></li>
+                <li><a href="">business</a></li>
+                <li><a href="">professional</a></li>
+                <li><a href="">API</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="">about</a></li>
+                <li><a href="">legal</a></li>
+                <li><a href="">contact us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Follow us</h4>
+            <div class="links">
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>
