@@ -6,7 +6,7 @@ function Hero() {
   return (
     <section id="hero" className="contrast-section">
       <div className="video-container">
-        <video autoplay muted loop id="heroVideo">
+        <video autoPlay muted loop id="heroVideo">
           <source src={content.hero.videoSrc} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>

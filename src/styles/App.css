@@ -5,3 +5,6 @@ body {
   background-color: #f4fbfd;
   color: #012641;
 }
+
+/* Swiper styles */
+@import '~swiper/swiper-bundle.min.css';

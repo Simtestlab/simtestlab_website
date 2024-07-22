@@ -6,6 +6,9 @@ import About from './components/About';
 import Employees from './components/Employees';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import Slider from './components/Slider';
+
+import 'swiper/swiper-bundle.min.css';
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
         <About />
         <Employees />
         <Services />
+        <Slider />
       </main>
       <Contact />
     </div>
