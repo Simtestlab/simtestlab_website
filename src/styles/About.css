@@ -1,0 +1,140 @@
+.about-section {
+  position: relative;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  height: auto;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  color: #1a1a1a;
+  border-bottom: 2px solid red;
+}
+
+.tab-button:focus {
+  outline: none;
+}
+
+.about-header p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* Service section styles */
+.services-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  position: relative;
+  width: calc(25% - 20px);
+  margin: 10px;
+}
+
+.service-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: blur(3px); /* Apply blur to images */
+}
+
+.service-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height
+
+: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff; /* Darker text color */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+  text-align: center;
+}
+
+.service-caption h5 {
+  margin: 0;
+  font-size: 1.5rem; /* Increase font size */
+}
+
+.service-caption p {
+  margin: 0;
+  font-size: 1rem; /* Increase font size */
+}
+
+.btn.see-all {
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.btn.see-all:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    margin: 5px 0;
+  }
+
+  .services-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-item {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .service-item img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}

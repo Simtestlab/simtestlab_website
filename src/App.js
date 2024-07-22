@@ -1,16 +1,24 @@
 import React from 'react';
+import './styles/App.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import './App.css';
+import Hero from './components/Hero';
+import About from './components/About';
+import Employees from './components/Employees';
+import Services from './components/Services';
+import Contact from './components/Contact';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Header />
-      <Home />
-      <Footer />
-    </>
+      <main>
+        <Hero />
+        <About />
+        <Employees />
+        <Services />
+      </main>
+      <Contact />
+    </div>
   );
 }
 
