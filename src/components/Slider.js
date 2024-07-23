@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.min.css';
+import content from '../data/content';
 
 const Slider = () => {
   const swiperContainerRef = useRef(null);
@@ -41,109 +42,25 @@ const Slider = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const upButton = document.querySelector('.controls .up');
-    const downButton = document.querySelector('.controls .down');
-    const leftSlides = document.querySelectorAll('.wrapper .left > div');
-    const rightSlides = document.querySelectorAll('.wrapper .right > div');
-    let currentSlide = 0;
-    const totalSlides = leftSlides.length;
-    let intervalId = null;
-
-    function updateSlides() {
-      leftSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-      });
-      rightSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(currentSlide - index) * 100}%)`;
-      });
-    }
-
-    function startAutoSlide() {
-      if (!intervalId) {
-        intervalId = setInterval(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          updateSlides();
-        }, 3000);
-      }
-    }
-
-    function stopAutoSlide() {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-
-    upButton.addEventListener('click', () => {
-      if (currentSlide > 0) {
-        currentSlide--;
-        updateSlides();
-      }
-    });
-
-    downButton.addEventListener('click', () => {
-      if (currentSlide < totalSlides - 1) {
-        currentSlide++;
-        updateSlides();
-      }
-    });
-
-    upButton.addEventListener('mouseenter', stopAutoSlide);
-    downButton.addEventListener('mouseenter', stopAutoSlide);
-    upButton.addEventListener('mouseleave', startAutoSlide);
-    downButton.addEventListener('mouseleave', startAutoSlide);
-
-    // Initialize the slides' positions
-    updateSlides();
-
-    // Start auto sliding when the section is in view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startAutoSlide();
-        } else {
-          stopAutoSlide();
-        }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(document.querySelector('#services'));
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    // Tab switching functionality
-    const buttons = document.querySelectorAll('.tab-button');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const category = button.getAttribute('data-tab');
-
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        document.querySelectorAll('.services-images').forEach(item => {
-          if (item.getAttribute('data-category') === category) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Initialize by showing the first tab's content
-    document.querySelector('.tab-button[data-tab="it-services"]').click();
-
-    return () => {
-      buttons.forEach(button => button.removeEventListener('click', null));
-    };
-  }, []);
-
   return (
     <div ref={swiperContainerRef} className="swiper-container testimonials-slider">
-      {/* Swiper content here */}
+      <div className="swiper-wrapper">
+        {content.employees.members.map((member, index) => (
+          <div className="swiper-slide testimonials-item" key={index}>
+            <div className="info">
+              <img src={member.imgSrc} alt={member.name} />
+              <div className="text-box">
+                <h3 className="name">{member.name}</h3>
+                <span className="job">{member.job}</span>
+              </div>
+            </div>
+            <p>{member.feedback}</p>
+          </div>
+        ))}
+      </div>
+      <div className="swiper-pagination"></div>
+      <div className="swiper-button-next"></div>
+      <div className="swiper-button-prev"></div>
     </div>
   );
 };

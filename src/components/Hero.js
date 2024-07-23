@@ -1,23 +1,20 @@
 import React from 'react';
-import content from '../data/content';
 import '../styles/Hero.css';
-
 function Hero() {
   return (
     <section id="hero" className="contrast-section">
       <div className="video-container">
         <video autoPlay muted loop id="heroVideo">
-          <source src={content.hero.videoSrc} type="video/mp4" />
+          <source src="video/background.mp4" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
       </div>
       <div className="hero-content">
-        <h1>{content.hero.title}</h1>
-        <p>{content.hero.text}</p>
+        <h1>Innovative Simulation Testing Solutions for Your Industry</h1>
+        <p>Delivering accurate, reliable, and comprehensive testing services to ensure your products meet the highest standards</p>
         <div className="hero-buttons">
-          {content.hero.buttons.map((button, index) => (
-            <a href={button.href} className="btn" key={index}>{button.label}</a>
-          ))}
+          <a href="#about" className="btn">Learn More</a>
+          <a href="#contact" className="btn">Contact Us</a>
         </div>
       </div>
     </section>

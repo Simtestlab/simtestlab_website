@@ -2,7 +2,7 @@ import React from 'react';
 import content from '../data/content';
 import '../styles/Employees.css';
 
-function Employees() {
+const Employees = () => {
   return (
     <section className="testimonials" id="employees">
       <div className="container">
@@ -33,6 +33,6 @@ function Employees() {
       </div>
     </section>
   );
-}
+};
 
 export default Employees;

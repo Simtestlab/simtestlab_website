@@ -1,8 +1,7 @@
 import React from 'react';
 import content from '../data/content';
 import '../styles/Contact.css';
-
-function Contact() {
+const Contact = () => {
   return (
     <footer id="contact">
       <div className="footer-col">
@@ -18,7 +17,9 @@ function Contact() {
         <h4>Company</h4>
         <ul>
           {content.contact.companyLinks.map((link, index) => (
-            <li key={index}><a href={link.href}>{link.label}</a></li>
+            <li key={index}>
+              <a href={link.href}>{link.label}</a>
+            </li>
           ))}
         </ul>
       </div>
@@ -26,12 +27,12 @@ function Contact() {
         <h4>Follow us</h4>
         <div className="links">
           {content.contact.socialLinks.map((link, index) => (
-            <a href={link.href} key={index}><i className={link.icon}></i></a>
+            <a key={index} href={link.href}><i className={link.icon}></i></a>
           ))}
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Contact;

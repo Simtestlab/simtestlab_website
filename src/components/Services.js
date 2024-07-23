@@ -2,7 +2,7 @@ import React from 'react';
 import content from '../data/content';
 import '../styles/Services.css';
 
-function Services() {
+const Services = () => {
   return (
     <section id="services">
       <div className="slider">
@@ -34,6 +34,6 @@ function Services() {
       </div>
     </section>
   );
-}
+};
 
 export default Services;
