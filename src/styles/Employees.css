@@ -7,6 +7,13 @@
   background-color: #287094;
 }
 
+.testimonials .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .testimonials-item {
   background-color: #f6f6f6;
   padding: 20px;
@@ -15,21 +22,24 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 10px;
+  justify-content: center;
+  align-items: center;
   max-width: 600px;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
 }
 
 .testimonials-item img {
-  width: 120px; /* Increase width */
-  height: 120px; /* Increase height */
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin: 0 auto 20px auto;
   object-fit: cover;
 }
 
 .testimonials-item .info {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -37,15 +47,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .testimonials-item h3.name {
-  font-size: 1.8rem; /* Increase font size */
+  font-size: 1.8rem;
   margin: 0;
 }
 
 .testimonials-item span.job {
-  font-size: 1.2rem; /* Increase font size */
+  font-size: 1.2rem;
   color: #666;
 }
 
@@ -53,7 +64,7 @@
   margin-top: 10px;
   color: #666;
   flex-grow: 1;
-  font-size: 1.1rem; /* Increase font size */
+  font-size: 1.1rem;
 }
 
 .swiper-slide {
@@ -61,74 +72,48 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  filter: blur(5px); /* Apply blur to all slides initially */
+  opacity: 0.5; /* Reduce opacity of non-active slides */
+  transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.swiper-slide-active {
+  filter: blur(0); /* Remove blur from the active slide */
+  opacity: 1; /* Full opacity for active slide */
 }
 
 .testimonials-content {
   overflow: hidden;
   padding: 0 15px;
   position: relative;
+  width: 100%;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  background-color: transparent; /* Transparent background */
-  color: #fff;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10; /* Ensure buttons are above other content */
-}
-
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  font-size: 20px; /* Adjust the icon size if necessary */
-  color: #fff; /* White color for the arrow icons */
-}
-
-.swiper-button-next {
-  right: -60px; /* Move next button further outside the card */
-}
-
-.swiper-button-prev {
-  left: -60px; /* Move prev button further outside the card */
-}
-
-/* Ensure the buttons are visible and above other elements */
-.swiper-container {
-  position: relative;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.swiper-pagination-bullet {
+  background: #00cc66;
 }
 
 @media (max-width: 768px) {
   .testimonials-item {
     padding: 20px;
-    margin: 10px;
   }
 
   .testimonials-item img {
-    width: 80px; /* Adjust width for smaller screens */
-    height: 80px; /* Adjust height for smaller screens */
+    width: 80px;
+    height: 80px;
     margin-right: 15px;
   }
 
   .testimonials-item h3.name {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
+    font-size: 1.5rem;
   }
 
   .testimonials-item span.job {
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    font-size: 1rem;
   }
 
   .testimonials-item p {
     margin-top: 15px;
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    font-size: 1rem;
   }
 }

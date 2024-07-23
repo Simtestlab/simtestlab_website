@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import SwiperCore, { Pagination, Autoplay, EffectCoverflow } from 'swiper';
 import content from '../data/content';
 import '../styles/Employees.css';
 
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
 
 const Employees = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -31,7 +31,6 @@ const Employees = () => {
         slide.addEventListener('mouseleave', handleMouseLeave);
       });
 
-      // Cleanup event listeners on component unmount
       return () => {
         swiperSlides.forEach((slide) => {
           slide.removeEventListener('mouseenter', handleMouseEnter);
@@ -45,7 +44,7 @@ const Employees = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio === 1) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 1) {
             setIsVisible(true);
             if (swiperInstance) {
               swiperInstance.autoplay.start();
@@ -81,22 +80,20 @@ const Employees = () => {
         <div className="testimonials-content">
           <Swiper
             className="testimonials-slider"
-            spaceBetween={10}
+            effect="coverflow"
             grabCursor={true}
-            pagination={{ clickable: true }}
-            onSwiper={setSwiperInstance}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            slidesPerView={1}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
+            centeredSlides={true}
+            slidesPerView="auto"
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
             }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            onSwiper={setSwiperInstance}
           >
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
@@ -110,7 +107,6 @@ const Employees = () => {
                 <p>{member.feedback}</p>
               </SwiperSlide>
             ))}
-            <div className="swiper-pagination"></div>
           </Swiper>
         </div>
       </div>
