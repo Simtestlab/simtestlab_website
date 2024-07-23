@@ -144,28 +144,28 @@ const content = {
     title: "Services",
     items: [
       {
-        title: "Statistics",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in quidem maiores ratione? Debitis veniam, modi, temporibus, dolore doloribus explicabo officiis nobis iure iste eos et voluptas ex est dolor.",
+        title: "Simulation Statistics",
+        text: "We provide comprehensive statistical analysis for simulation tests, ensuring accuracy and reliability in every model-based development project.",
         imgSrc: "/images/image1.png",
       },
       {
-        title: "Data Analysis",
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?",
+        title: "Advanced Data Analysis",
+        text: "Our advanced data analysis services help you make informed decisions by thoroughly analyzing simulation test data to optimize model performance.",
         imgSrc: "/images/image2.jpg",
       },
       {
-        title: "Precision",
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?",
+        title: "Precision Testing",
+        text: "Our precision testing services ensure that every model performs optimally under various conditions, providing you with dependable and consistent results.",
         imgSrc: "/images/image3.jpg",
       },
       {
-        title: "Expert Team",
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?",
+        title: "Expert Simulation Team",
+        text: "Our team of experts specializes in model-based development and testing, delivering high-quality simulation services to meet your specific needs.",
         imgSrc: "/images/image4.jpg",
       },
       {
-        title: "Trainned Professionals",
-        text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sapiente consectetur doloremque possimus facere id earum velit aut eveniet a voluptatem illo unde inventore dicta laboriosam numquam voluptate, placeat aspernatur?",
+        title: "Trained Simulation Professionals",
+        text: "Our trained professionals are dedicated to providing top-notch simulation testing services, ensuring that your models are robust and reliable.",
         imgSrc: "/images/image5.jpg",
       },
     ],

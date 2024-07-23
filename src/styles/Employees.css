@@ -21,8 +21,8 @@
 }
 
 .testimonials-item img {
-  width: 80px;
-  height: 80px;
+  width: 120px; /* Increase width */
+  height: 120px; /* Increase height */
   border-radius: 50%;
   margin-right: 20px;
   object-fit: cover;
@@ -40,12 +40,12 @@
 }
 
 .testimonials-item h3.name {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Increase font size */
   margin: 0;
 }
 
 .testimonials-item span.job {
-  font-size: 1rem;
+  font-size: 1.2rem; /* Increase font size */
   color: #666;
 }
 
@@ -53,6 +53,7 @@
   margin-top: 10px;
   color: #666;
   flex-grow: 1;
+  font-size: 1.1rem; /* Increase font size */
 }
 
 .swiper-slide {
@@ -71,7 +72,9 @@
 .swiper-button-next,
 .swiper-button-prev {
   background-color: transparent; /* Transparent background */
-  color: #000000;
+  color: #fff;
+  width: 44px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,15 +84,15 @@
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 20px; /* Adjust the icon size if necessary */
-  color: #000000; /* White color for the arrow icons */
+  color: #fff; /* White color for the arrow icons */
 }
 
 .swiper-button-next {
-  right: -30px; /* Move next button further outside the card */
+  right: -60px; /* Move next button further outside the card */
 }
 
 .swiper-button-prev {
-  left: -200px; /* Move prev button further outside the card */
+  left: -60px; /* Move prev button further outside the card */
 }
 
 /* Ensure the buttons are visible and above other elements */
@@ -111,21 +114,21 @@
   }
 
   .testimonials-item img {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Adjust width for smaller screens */
+    height: 80px; /* Adjust height for smaller screens */
     margin-right: 15px;
   }
 
   .testimonials-item h3.name {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
 
   .testimonials-item span.job {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
 
   .testimonials-item p {
     margin-top: 15px;
-    font-size: 0.9rem;
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
 }

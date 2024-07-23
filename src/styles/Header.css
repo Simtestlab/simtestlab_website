@@ -9,11 +9,12 @@
   
   .custom-navbar .navbar-brand {
     display: flex;
-    align-items: center;
+    align-items: center;    
   }
   
   .custom-navbar .navbar-brand img {
     margin-right: 10px;
+    margin-left: 10px;
   }
   
   .custom-navbar .navbar-nav {

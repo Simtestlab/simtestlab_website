@@ -10,8 +10,6 @@ Simtestlab is a comprehensive website that provides detailed information about o
 3. [Setup and Run](#setup-and-run)
 4. [Project Structure](#project-structure)
 5. [Dependencies](#dependencies)
-6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Introduction
 
@@ -50,7 +48,7 @@ Make sure you have the following installed on your system:
 1. **Clone the repository**
 
    \```bash
-   git clone https://github.com/yourusername/simtestlab-website.git
+   git clone https://github.com/Simtestlab/simtestlab_website.git
    cd simtestlab-website
    \```
 
@@ -112,6 +110,8 @@ simtestlab-website/
 ├── package.json
 └── README.md
 \```
+
+The file inside the `src/data/content.js` contains all data or image location as java script objects
 
 ## Dependencies
 
