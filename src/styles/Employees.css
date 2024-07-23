@@ -1,11 +1,10 @@
 .testimonials {
-  background-color: #287094;
-  color: #fff;
-  padding-top: 50px;
   height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  background-color: #287094;
 }
 
 .testimonials-item {
@@ -66,24 +65,43 @@
 .testimonials-content {
   overflow: hidden;
   padding: 0 15px;
-}
-
-.testimonials .swiper-pagination {
   position: relative;
-  margin-top: 40px;
-  bottom: auto;
-}
-
-.testimonials .swiper-pagination-bullet {
-  height: 12px;
-  width: 12px;
-  background-color: #fff;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #287094;
-  z-index: 10;
+  background-color: transparent; /* Transparent background */
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Ensure buttons are above other content */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px; /* Adjust the icon size if necessary */
+  color: #000000; /* White color for the arrow icons */
+}
+
+.swiper-button-next {
+  right: -30px; /* Move next button further outside the card */
+}
+
+.swiper-button-prev {
+  left: -200px; /* Move prev button further outside the card */
+}
+
+/* Ensure the buttons are visible and above other elements */
+.swiper-container {
+  position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 768px) {

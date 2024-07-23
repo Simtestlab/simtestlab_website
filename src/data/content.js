@@ -109,15 +109,15 @@ const content = {
     title: "Our Employees",
     members: [
       {
-        imgSrc: "/images/profile1.jpg",
-        name: "John Doe",
-        job: "Web Developer",
+        imgSrc: "/images/Agilan.png",
+        name: "Agilan",
+        job: "Machine Learning Engineer",
         feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
       },
       {
-        imgSrc: "/images/profile2.jpg",
-        name: "John Doe",
-        job: "Web Developer",
+        imgSrc: "/images/Nallasivam.png",
+        name: "Nalla Shivam",
+        job: "DevOps Engineer",
         feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
       },
       {

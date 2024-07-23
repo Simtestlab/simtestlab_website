@@ -1,21 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import content from '../data/content';
 import '../styles/About.css';
 
 const About = () => {
+  const [activeTab, setActiveTab] = useState('it-services');
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
+  useEffect(() => {
+    // Simulate the initial click to show the first tab content
+    document.querySelector('.tab-button[data-tab="it-services"]').click();
+  }, []);
+
   return (
     <section className="about-section" id="about">
       <div className="content">
         <div className="about-header">
           <h2>{content.about.title}</h2>
           <div className="tabs">
-            {content.about.tabs.map((tab, index) => (
-              <button className="tab-button" key={index} data-tab={tab.id}>{tab.label}</button>
+            {content.about.tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+                data-tab={tab.id}
+                onClick={() => handleTabClick(tab.id)}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
         </div>
-        {Object.keys(content.about.services).map(category => (
-          <div key={category} className="services-images" data-category={category}>
+        {Object.keys(content.about.services).map((category) => (
+          <div key={category} className={`services-images ${activeTab === category ? 'active' : 'hidden'}`} data-category={category}>
             {content.about.services[category].map((service, index) => (
               <div className="service-item" key={index}>
                 <img src={service.imgSrc} alt={service.title} />
