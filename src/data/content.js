@@ -32,7 +32,7 @@ const content = {
     ],
   },
   about: {
-    title: "OUR SERVICES",
+    title: "ABOUT US",
     tabs: [
       { id: "it-services", label: "MODEL BASED DEVELOPMENT" },
       { id: "business-services", label: "BATTERY MANAGEMENT SYSTEM" },
@@ -124,34 +124,35 @@ const content = {
         imgSrc: "/images/Agilan.png",
         name: "Agilan",
         job: "Machine Learning Engineer",
-        feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
+        github: "https://github.com/AgilanArulchelvam",
       },
       {
         imgSrc: "/images/Nallasivam.png",
         name: "Nalla Shivam",
         job: "DevOps Engineer",
-        feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
+        github: "https://github.com/nallasivamselvaraj",
       },
       {
         imgSrc: "/images/profile3.jpg",
         name: "John Doe",
         job: "Web Developer",
-        feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
+        github: "https://github.com/johndoe",
       },
       {
         imgSrc: "/images/profile4.jpg",
         name: "Jane Doe",
         job: "Project Manager",
-        feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
+        github: "https://github.com/janedoe",
       },
       {
         imgSrc: "/images/profile5.jpg",
         name: "Alice Smith",
         job: "Designer",
-        feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis consequatur laudantium excepturi alias expedita placeat earum sit, voluptate molestias?",
+        github: "https://github.com/alicesmith",
       },
     ],
   },
+
   services: {
     title: "Services",
     items: [
@@ -195,9 +196,9 @@ const content = {
     ],
     socialLinks: [
       { href: "https://www.linkedin.com/company/simtestlab", icon: "fab fa-linkedin-in" },
-      { href: "https://www.facebook.com/", icon: "fab fa-facebook-f" },
-      { href: "https://x.com/", icon: "fab fa-twitter" },
-      { href: "https://www.instagram.com/", icon: "fab fa-instagram" },
+      // { href: "https://www.facebook.com/", icon: "fab fa-facebook-f" },
+      //{ href: "https://x.com/", icon: "fab fa-twitter" },
+      //{ href: "https://www.instagram.com/", icon: "fab fa-instagram" },
     ],
   },
 };

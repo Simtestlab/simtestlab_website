@@ -1,4 +1,9 @@
+section {
+  scroll-margin-top: 80px; 
+}
+
 .testimonials {
+  scroll-margin-top: 80px;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -91,6 +96,45 @@
 
 .swiper-pagination-bullet {
   background: #00cc66;
+}
+
+.testimonials-slider {
+  position: relative;
+}
+
+.swiper-pagination {
+  bottom: 20px; /* Adjust the value as needed to move the dots further down */
+}
+
+.github-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0;
+  background-color: #287094;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.github-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none; /* Ensure underline is removed on hover */
+}
+
+.github-button i {
+  margin-right: 8px; /* Add some spacing between the icon and the text */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #287094;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #000000;
 }
 
 @media (max-width: 768px) {

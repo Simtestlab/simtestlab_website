@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
-import SwiperCore, { Pagination, Autoplay, EffectCoverflow } from 'swiper';
+import SwiperCore, { Pagination, Navigation, Autoplay, EffectCoverflow } from 'swiper';
 import content from '../data/content';
 import '../styles/Employees.css';
 
-SwiperCore.use([Pagination, Autoplay, EffectCoverflow]);
+SwiperCore.use([Pagination, Navigation, Autoplay, EffectCoverflow]);
 
 const Employees = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -20,7 +20,7 @@ const Employees = () => {
       };
 
       const handleMouseLeave = () => {
-        if (isVisible && swiperInstance.autoplay) {
+        if (isVisible) {
           swiperInstance.autoplay.start();
         }
       };
@@ -92,6 +92,7 @@ const Employees = () => {
               slideShadows: false,
             }}
             pagination={{ clickable: true }}
+            navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             onSwiper={setSwiperInstance}
           >
@@ -104,7 +105,9 @@ const Employees = () => {
                     <span className="job">{member.job}</span>
                   </div>
                 </div>
-                <p>{member.feedback}</p>
+                <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-github"></i> GitHub Profile
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>

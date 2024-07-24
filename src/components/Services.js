@@ -1,45 +1,96 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import content from '../data/content';
 import '../styles/Services.css';
 
 const Services = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = content.services.items.length;
+  const intervalId = useRef(null);
+  const isHovering = useRef(false);
+
+  const updateSlides = () => {
+    const leftSlides = document.querySelectorAll('.wrapper .left > div');
+    const rightSlides = document.querySelectorAll('.wrapper .right > div');
+    leftSlides.forEach((slide, index) => {
+      slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
+    });
+    rightSlides.forEach((slide, index) => {
+      slide.style.transform = `translateY(${(currentSlide - index) * 100}%)`;
+    });
+  };
+
+  const startAutoSlide = () => {
+    if (!intervalId.current) {
+      intervalId.current = setInterval(() => {
+        if (!isHovering.current) {
+          setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+        }
+      }, 3000);
+    }
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(intervalId.current);
+    intervalId.current = null;
+  };
 
   useEffect(() => {
-    const updateSlides = () => {
-      const leftSlides = document.querySelectorAll('.wrapper .left > div');
-      const rightSlides = document.querySelectorAll('.wrapper .right > div');
-      leftSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-      });
-      rightSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(currentSlide - index) * 100}%)`;
-      });
+    updateSlides();
+    startAutoSlide();
+
+    const upButton = document.querySelector('.controls .up');
+    const downButton = document.querySelector('.controls .down');
+
+    const handleMouseEnter = () => {
+      isHovering.current = true;
+      stopAutoSlide();
     };
 
-    updateSlides();
-    const intervalId = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
-    }, 3000);
+    const handleMouseLeave = () => {
+      isHovering.current = false;
+      startAutoSlide();
+    };
 
-    return () => clearInterval(intervalId);
+    upButton.addEventListener('mouseenter', handleMouseEnter);
+    downButton.addEventListener('mouseenter', handleMouseEnter);
+    upButton.addEventListener('mouseleave', handleMouseLeave);
+    downButton.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      stopAutoSlide();
+      upButton.removeEventListener('mouseenter', handleMouseEnter);
+      downButton.removeEventListener('mouseenter', handleMouseEnter);
+      upButton.removeEventListener('mouseleave', handleMouseLeave);
+      downButton.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, [currentSlide, totalSlides]);
 
   useEffect(() => {
-    const updateSlides = () => {
-      const leftSlides = document.querySelectorAll('.wrapper .left > div');
-      const rightSlides = document.querySelectorAll('.wrapper .right > div');
-      leftSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(index - currentSlide) * 100}%)`;
-      });
-      rightSlides.forEach((slide, index) => {
-        slide.style.transform = `translateY(${(currentSlide - index) * 100}%)`;
-      });
-    };
-
     updateSlides();
   }, [currentSlide]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAutoSlide();
+          } else {
+            stopAutoSlide();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(document.querySelector('#services'));
+
+    return () => {
+      if (document.querySelector('#services')) {
+        observer.unobserve(document.querySelector('#services'));
+      }
+    };
+  }, []);
 
   const handleUpClick = () => {
     if (currentSlide > 0) {

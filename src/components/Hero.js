@@ -4,13 +4,12 @@ import content from '../data/content';
 
 const Hero = () => {
   const slides = content.hero.slides;
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000); // Total interval for the animation (2 seconds visible + 1 second slide time)
+    }, 4000); // Change slides every 4 seconds to match the CSS animation duration
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -23,17 +22,13 @@ const Hero = () => {
           Your browser does not support HTML5 video.
         </video>
       </div>
+      <div className="overlay"></div>
       <div className="hero-content">
         <div className="hero-carousel">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`hero-slide ${index === currentSlide ? 'visible' : ''}`}
-            >
-              <h1 className="hero-title">{slide.title}</h1>
-              <p className="hero-text">{slide.text}</p>
-            </div>
-          ))}
+          <div className="hero-slide">
+            <h1 className="hero-title">{slides[currentSlide].title}</h1>
+            <p className="hero-text">{slides[currentSlide].text}</p>
+          </div>
         </div>
         <div className="hero-buttons">
           {content.hero.buttons.map((button, index) => (
