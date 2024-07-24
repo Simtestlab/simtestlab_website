@@ -143,9 +143,8 @@ section {
   }
 
   .testimonials-item img {
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
+    width: 60px;
+    height: 60px;
   }
 
   .testimonials-item h3.name {

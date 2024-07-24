@@ -9,7 +9,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 4000); // Change slides every 4 seconds to match the CSS animation duration
+    }, 6000); // Change slides every 6 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -21,8 +21,8 @@ const Hero = () => {
           <source src={content.hero.videoSrc} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
+        <div className="overlay"></div>
       </div>
-      <div className="overlay"></div>
       <div className="hero-content">
         <div className="hero-carousel">
           <div className="hero-slide">
