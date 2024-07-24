@@ -12,8 +12,20 @@ const content = {
   },
   hero: {
     videoSrc: "/video/background.mp4",
-    title: "Innovative Simulation Testing Solutions for Your Industry",
-    text: "Delivering accurate, reliable, and comprehensive testing services to ensure your products meet the highest standards",
+    slides: [
+      {
+        title: "Model Based Development",
+        text: "Validates the model by testing its behavior and functionality without any physical hardware or software implementation."
+      },
+      {
+        title: "Battery Management System",
+        text: "Advanced testing services for battery packs to ensure optimal performance and longevity."
+      },
+      {
+        title: "Testing Automation",
+        text: "Automate your functional testing processes to improve accuracy and efficiency."
+      }
+    ],
     buttons: [
       { href: "#about", label: "Learn More" },
       { href: "#contact", label: "Contact Us" },

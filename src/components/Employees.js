@@ -14,13 +14,13 @@ const Employees = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (swiperInstance) {
+    if (swiperInstance && swiperInstance.autoplay) {
       const handleMouseEnter = () => {
         swiperInstance.autoplay.stop();
       };
 
       const handleMouseLeave = () => {
-        if (isVisible) {
+        if (isVisible && swiperInstance.autoplay) {
           swiperInstance.autoplay.start();
         }
       };
@@ -46,12 +46,12 @@ const Employees = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio >= 1) {
             setIsVisible(true);
-            if (swiperInstance) {
+            if (swiperInstance && swiperInstance.autoplay) {
               swiperInstance.autoplay.start();
             }
           } else {
             setIsVisible(false);
-            if (swiperInstance) {
+            if (swiperInstance && swiperInstance.autoplay) {
               swiperInstance.autoplay.stop();
             }
           }
