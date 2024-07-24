@@ -5,11 +5,16 @@ import content from '../data/content';
 const Hero = () => {
   const slides = content.hero.slides;
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 6000); // Change slides every 6 seconds
+      setIsVisible(false);
+      setTimeout(() => {
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+        setIsVisible(true);
+      }, 800); // Match the duration of the slide transition
+    }, 4000); // Change slides every 4 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -21,11 +26,11 @@ const Hero = () => {
           <source src={content.hero.videoSrc} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
-        <div className="overlay"></div>
       </div>
+      <div className="overlay"></div> {/* Light black overlay */}
       <div className="hero-content">
         <div className="hero-carousel">
-          <div className="hero-slide">
+          <div className={`hero-slide ${isVisible ? 'visible' : 'hidden'}`}>
             <h1 className="hero-title">{slides[currentSlide].title}</h1>
             <p className="hero-text">{slides[currentSlide].text}</p>
           </div>

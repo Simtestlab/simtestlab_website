@@ -61,17 +61,19 @@
 .hero-slide {
   position: absolute;
   width: 100%;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 .hero-slide.hidden {
-  transform: translateY(-100%);
   opacity: 0;
+  transform: translateY(-100%);
 }
 
 .hero-slide.visible {
-  transform: translateY(0);
   opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-title {
@@ -87,7 +89,7 @@
 }
 
 .hero-buttons {
-  margin-top: 20px;
+  margin-top: 50px; /* Adjusted margin for better spacing */
 }
 
 .hero-buttons .btn {
