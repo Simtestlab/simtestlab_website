@@ -1,0 +1,162 @@
+section {
+  scroll-margin-top: 80px; 
+}
+
+.testimonials {
+  scroll-margin-top: 80px;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #287094;
+}
+
+.testimonials .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.testimonials-item {
+  background-color: #f6f6f6;
+  padding: 20px;
+  border-radius: 30px;
+  color: #012641;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonials-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  object-fit: cover;
+}
+
+.testimonials-item .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials-item .text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-item h3.name {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.testimonials-item span.job {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.testimonials-item p {
+  margin-top: 10px;
+  color: #666;
+  flex-grow: 1;
+  font-size: 1.1rem;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  filter: blur(5px); /* Apply blur to all slides initially */
+  opacity: 0.5; /* Reduce opacity of non-active slides */
+  transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.swiper-slide-active {
+  filter: blur(0); /* Remove blur from the active slide */
+  opacity: 1; /* Full opacity for active slide */
+}
+
+.testimonials-content {
+  overflow: hidden;
+  padding: 0 15px;
+  position: relative;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #00cc66;
+}
+
+.testimonials-slider {
+  position: relative;
+}
+
+.swiper-pagination {
+  bottom: 20px; /* Adjust the value as needed to move the dots further down */
+}
+
+.github-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0;
+  background-color: #287094;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.github-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none; /* Ensure underline is removed on hover */
+}
+
+.github-button i {
+  margin-right: 8px; /* Add some spacing between the icon and the text */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #287094;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .testimonials-item {
+    padding: 20px;
+  }
+
+  .testimonials-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonials-item h3.name {
+    font-size: 1.5rem;
+  }
+
+  .testimonials-item span.job {
+    font-size: 1rem;
+  }
+
+  .testimonials-item p {
+    margin-top: 15px;
+    font-size: 1rem;
+  }
+}
