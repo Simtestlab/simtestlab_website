@@ -1,0 +1,157 @@
+footer {
+  background-color: #023246;
+  padding: 60px 10%;
+  color: #f6f6f6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col {
+  flex: 1 1 20%;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  position: relative;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #60B3D1;
+  text-transform: capitalize;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: #287094;
+  height: 2px;
+  width: 40px;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  display: block;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #d4d4ce;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+.footer-col ul li a:hover {
+  color: #f6f6f6;
+}
+
+.links a {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  color: white;
+  transition: background-color 0.4s;
+}
+
+.links a:hover {
+  background-color: white;
+  color: #4d4f55;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 48%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.contact-form .btn {
+  display: inline-block;
+  height: 44px;
+  width: auto;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.4s;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 20px; /* Adjust padding for a wider button */
+}
+
+.contact-form .btn:hover {
+  background-color: white;
+  color: #4d4f55;
+}
+
+
+@media (max-width: 768px) {
+  .footer-col {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .footer-col h4::before {
+    display: none;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-col {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
+    display: flex;
+  }
+
+  .links a {
+    margin: 0 5px;
+  }
+}

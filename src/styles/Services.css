@@ -1,0 +1,145 @@
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+.slider .controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.slider .controls > div {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.slider .wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider .wrapper .left,
+.slider .wrapper .right {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider .wrapper .left > div,
+.slider .wrapper .right > div {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+}
+
+.slider .wrapper .left > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  background: #60B3D1;
+  color: #ffffff;
+}
+
+.slider .wrapper .left > div h2 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.slider .wrapper .left > div p {
+  font-size: 18px;
+}
+
+.slider .wrapper .right > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .slider {
+    flex-direction: column;
+  }
+
+  .slider .controls {
+    flex-direction: row;
+    top: 95%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slider .controls > div {
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .slider .wrapper {
+    flex-direction: column;
+  }
+
+  .slider .wrapper .left,
+  .slider .wrapper .right {
+    width: 100%;
+    height: 50%;
+  }
+
+  .slider .wrapper .left > div,
+  .slider .wrapper .right > div {
+    height: 100%;
+    top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    flex-direction: column;
+  }
+
+  .slider .controls {
+    flex-direction: row;
+    top: 95%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slider .controls > div {
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .slider .wrapper {
+    flex-direction: column;
+  }
+
+  .slider .wrapper .left,
+  .slider .wrapper .right {
+    width: 100%;
+    height: 50%;
+  }
+
+  .slider .wrapper .left > div,
+  .slider .wrapper .right > div {
+    height: 100%;
+    top: 0;
+  }
+}

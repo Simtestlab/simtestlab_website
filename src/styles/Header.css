@@ -1,0 +1,58 @@
+section {
+  scroll-margin-top: 80px; 
+}
+
+.custom-navbar {
+    background-color: rgba(0, 0, 0, 0.507) !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .custom-navbar .navbar-brand {
+    display: flex;
+    align-items: center;    
+  }
+  
+  .custom-navbar .navbar-brand img {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .custom-navbar .navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .custom-navbar .navbar-nav .nav-item {
+    margin: 0 20px;
+    margin-right: 150px;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link {
+    color: #f6f6f6 !important;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: #02b7ff !important;
+    transform: scale(1.1);
+  }
+  
+  .custom-navbar .navbar-toggler {
+    border: none;
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+  }
+  
+  @media (max-width: 768px) {
+    .custom-navbar .navbar-nav .nav-item {
+      margin: 0;
+    }
+  }
