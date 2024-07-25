@@ -63,7 +63,7 @@ const Services = () => {
       upButton.removeEventListener('mouseleave', handleMouseLeave);
       downButton.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [currentSlide, totalSlides]);
+  }, [currentSlide, totalSlides, startAutoSlide, updateSlides]);
 
   useEffect(() => {
     updateSlides();
@@ -90,7 +90,7 @@ const Services = () => {
         observer.unobserve(document.querySelector('#services'));
       }
     };
-  }, []);
+  }, [startAutoSlide, stopAutoSlide]);
 
   const handleUpClick = () => {
     if (currentSlide > 0) {
