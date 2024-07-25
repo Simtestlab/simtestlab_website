@@ -1,0 +1,7 @@
+{
+  "name": "Simtestlab Website",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14",
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000],
+  "postStartCommand": "npm start"
+}

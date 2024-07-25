@@ -1,0 +1,21 @@
+/* Add padding to the body or main content */
+body {
+  padding-top: 70px; /* Adjust this value based on the height of your navbar */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+  margin: 0;
+  padding-top: 0;
+  background-color: #f4fbfd;
+  color: #012641;
+}
+
+/* Ensure the navbar is fixed at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #fff; /* Adjust based on your design */
+}
