@@ -8,6 +8,10 @@
       "cors": "^2.8.5",
       "helmet": "^4.6.0",
       "dotenv": "^16.4.5"
+    },
+    "scripts": {
+      "build": "CI=false react-scripts build"
     }
   }
+
   
