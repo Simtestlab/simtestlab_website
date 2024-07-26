@@ -69,7 +69,7 @@ const Employees = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, [swiperInstance]);
+  }, [swiperInstance, sectionRef]);
 
   return (
     <section className="testimonials" id="employees" ref={sectionRef}>

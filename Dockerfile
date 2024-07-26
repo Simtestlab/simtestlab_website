@@ -22,21 +22,20 @@ FROM node:14
 # Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and package-lock.json for functions
+COPY netlify/functions/package.json ./functions/package.json
 
-# Install only production dependencies
-RUN npm install --production
+# Install only production dependencies for functions
+RUN cd functions && npm install --production
 
 # Copy the build from the previous stage
 COPY --from=build /app/build ./build
 
-# Copy the server files and the .env file
-COPY server.js ./
-COPY .env ./
+# Copy the server files
+COPY netlify/functions/send-email.js ./functions/send-email.js
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 3001
 
 # Start the server
-CMD ["node", "server.js"]
+CMD ["node", "./functions/send-email.js"]

@@ -63,11 +63,11 @@ const Services = () => {
       upButton.removeEventListener('mouseleave', handleMouseLeave);
       downButton.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [currentSlide, totalSlides, startAutoSlide, updateSlides]);
+  }, [currentSlide, totalSlides, updateSlides, startAutoSlide]);
 
   useEffect(() => {
     updateSlides();
-  }, [currentSlide]);
+  }, [currentSlide, updateSlides]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,7 +90,7 @@ const Services = () => {
         observer.unobserve(document.querySelector('#services'));
       }
     };
-  }, [startAutoSlide, stopAutoSlide]);
+  }, [startAutoSlide]);
 
   const handleUpClick = () => {
     if (currentSlide > 0) {
