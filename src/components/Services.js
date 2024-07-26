@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import content from '../data/content';
 import '../styles/Services.css';
 
@@ -8,7 +8,7 @@ const Services = () => {
   const intervalId = useRef(null);
   const isHovering = useRef(false);
 
-  const updateSlides = () => {
+  const updateSlides = useCallback(() => {
     const leftSlides = document.querySelectorAll('.wrapper .left > div');
     const rightSlides = document.querySelectorAll('.wrapper .right > div');
     leftSlides.forEach((slide, index) => {
@@ -17,9 +17,9 @@ const Services = () => {
     rightSlides.forEach((slide, index) => {
       slide.style.transform = `translateY(${(currentSlide - index) * 100}%)`;
     });
-  };
+  }, [currentSlide]);
 
-  const startAutoSlide = () => {
+  const startAutoSlide = useCallback(() => {
     if (!intervalId.current) {
       intervalId.current = setInterval(() => {
         if (!isHovering.current) {
@@ -27,12 +27,12 @@ const Services = () => {
         }
       }, 3000);
     }
-  };
+  }, [totalSlides]);
 
-  const stopAutoSlide = () => {
+  const stopAutoSlide = useCallback(() => {
     clearInterval(intervalId.current);
     intervalId.current = null;
-  };
+  }, []);
 
   useEffect(() => {
     updateSlides();
@@ -63,7 +63,7 @@ const Services = () => {
       upButton.removeEventListener('mouseleave', handleMouseLeave);
       downButton.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [currentSlide, totalSlides, updateSlides, startAutoSlide]);
+  }, [updateSlides, startAutoSlide, stopAutoSlide]);
 
   useEffect(() => {
     updateSlides();
@@ -83,14 +83,18 @@ const Services = () => {
       { threshold: 0.5 }
     );
 
-    observer.observe(document.querySelector('#services'));
+    const servicesElement = document.querySelector('#services');
+
+    if (servicesElement) {
+      observer.observe(servicesElement);
+    }
 
     return () => {
-      if (document.querySelector('#services')) {
-        observer.unobserve(document.querySelector('#services'));
+      if (servicesElement) {
+        observer.unobserve(servicesElement);
       }
     };
-  }, [startAutoSlide]);
+  }, [startAutoSlide, stopAutoSlide]);
 
   const handleUpClick = () => {
     if (currentSlide > 0) {
