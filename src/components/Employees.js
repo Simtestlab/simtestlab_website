@@ -45,7 +45,7 @@ const Employees = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+          if (entry.isIntersecting) {
             setIsVisible(true);
             if (swiperInstance && swiperInstance.autoplay) {
               swiperInstance.autoplay.start();
@@ -58,7 +58,7 @@ const Employees = () => {
           }
         });
       },
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
 
     const currentSectionRef = sectionRef.current;
@@ -75,7 +75,7 @@ const Employees = () => {
   }, [swiperInstance]);
 
   return (
-    <section className="testimonials" id="employees" ref={sectionRef}>
+    <section className="testimonials" id="employees" ref={sectionRef} style={{ height: '100vh' }}>
       <div className="container">
         <div className="section-header">
           <h2 className="title">{content.employees.title}</h2>
