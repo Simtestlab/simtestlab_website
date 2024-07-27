@@ -4,7 +4,7 @@ section {
 
 .testimonials {
   scroll-margin-top: 80px;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,6 +138,9 @@ section {
 }
 
 @media (max-width: 768px) {
+  .testimonials {
+    height: 100vh;
+  }
   .testimonials-item {
     padding: 20px;
   }

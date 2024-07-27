@@ -11500,16 +11500,15 @@ var require_nodemailer = __commonJS({
 
 // netlify/functions-build/send-email.js
 (() => {
-  var e = { 229: (e2, s2, r2) => {
-    const o = r2(572);
-    r2(818).config(), e2.exports = { handler: async (e3, s3) => {
-      console.log("Received event:", e3.body), console.log("Environment Variables:", { EMAIL_USER: process.env.EMAIL_USER, EMAIL_PASS: process.env.EMAIL_PASS, EMAIL_RECEIVER: process.env.EMAIL_RECEIVER });
+  var e = { 229: (e2, r2, s2) => {
+    const o = s2(572);
+    s2(818).config(), e2.exports = { handler: async (e3, r3) => {
       try {
-        const { name: s4, email: r3, phone: n, subject: t, message: a } = JSON.parse(e3.body);
+        const { name: r4, email: s3, phone: n, subject: t, message: a } = JSON.parse(e3.body);
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_RECEIVER)
           throw new Error("Missing required environment variables");
-        const i = o.createTransport({ service: "gmail", auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS } }), c = { from: r3, to: process.env.EMAIL_RECEIVER, subject: `Contact Form Submission: ${t}`, text: `Name: ${s4}
-Email: ${r3}
+        const i = o.createTransport({ service: "gmail", auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS } }), c = { from: s3, to: process.env.EMAIL_RECEIVER, subject: `Contact Form Submission: ${t}`, text: `Name: ${r4}
+Email: ${s3}
 Phone: ${n}
 Message: ${a}` };
         try {
@@ -11527,13 +11526,13 @@ Message: ${a}` };
   }, 572: (e2) => {
     "use strict";
     e2.exports = require_nodemailer();
-  } }, s = {}, r = function r2(o) {
-    var n = s[o];
+  } }, r = {}, s = function s2(o) {
+    var n = r[o];
     if (void 0 !== n)
       return n.exports;
-    var t = s[o] = { exports: {} };
-    return e[o](t, t.exports, r2), t.exports;
+    var t = r[o] = { exports: {} };
+    return e[o](t, t.exports, s2), t.exports;
   }(229);
-  module.exports = r;
+  module.exports = s;
 })();
 //# sourceMappingURL=send-email.js.map
