@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 import content from '../data/content';
 import '../styles/Header.css';
 
@@ -6,7 +7,9 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
       <a className="navbar-brand" href="#hero">
-        <img src={content.header.logoSrc} width="40" height="40" alt="Simtestlab Logo" />
+        <LazyLoad height={40} offset={100}>
+          <img src={content.header.logoSrc} width="40" height="40" alt="Simtestlab Logo" />
+        </LazyLoad>
         {content.header.brand}
       </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"

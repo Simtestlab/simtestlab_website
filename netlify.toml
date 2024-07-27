@@ -6,11 +6,3 @@
 [functions]
   directory = "netlify/functions-build"
   node_bundler = "esbuild"
-
-[[plugins]]
-  package = "netlify-plugin-functions-install-node-modules"
-
-[context.production.environment]
-  EMAIL_USER = "your-email@example.com"
-  EMAIL_PASS = "your-email-password"
-  EMAIL_RECEIVER = "receiver-email@example.com"

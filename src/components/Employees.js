@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import LazyLoad from 'react-lazyload';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -101,10 +102,13 @@ const Employees = () => {
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
                 <div className="info">
-                  <img src={member.imgSrc} alt="Employee" />
+                  <LazyLoad height={200} offset={100}>
+                    <img src={member.imgSrc} alt="Employee" />
+                  </LazyLoad>
                   <div className="text-box">
                     <h3 className="name">{member.name}</h3>
                     <span className="job">{member.job}</span>
+                    <p>{member.description}</p>
                   </div>
                 </div>
                 <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">

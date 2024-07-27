@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LazyLoad from 'react-lazyload';
 import '../styles/Hero.css';
 import content from '../data/content';
 
@@ -21,12 +22,14 @@ const Hero = () => {
 
   return (
     <section id="hero" className="contrast-section">
-      <div className="video-container">
-        <video autoPlay muted loop id="heroVideo">
-          <source src={content.hero.videoSrc} type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
-      </div>
+      <LazyLoad height={500} offset={100}>
+        <div className="video-container">
+          <video autoPlay muted loop id="heroVideo" preload="metadata">
+            <source src={content.hero.videoSrc} type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </LazyLoad>
       <div className="overlay"></div> {/* Light black overlay */}
       <div className="hero-content">
         <div className="hero-carousel">

@@ -49,7 +49,7 @@ const Contact = () => {
 
   return (
     <footer id="contact">
-      <div className="footer-col">
+      <div className="footer-col center-align">
         <h4>Contact Us</h4>
         <ul>
           <li>{content.contact.address}</li>
@@ -58,7 +58,7 @@ const Contact = () => {
           <li>{content.contact.copyright}</li>
         </ul>
       </div>
-      <div className="footer-col">
+      <div className="footer-col center-align">
         <h4>Company</h4>
         <ul>
           {content.contact.companyLinks.map((link, index) => (

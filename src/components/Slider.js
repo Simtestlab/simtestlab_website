@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.min.css';
+import LazyLoad from 'react-lazyload';
 import content from '../data/content';
 
 const Slider = () => {
@@ -48,7 +49,9 @@ const Slider = () => {
         {content.employees.members.map((member, index) => (
           <div className="swiper-slide testimonials-item" key={index}>
             <div className="info">
-              <img src={member.imgSrc} alt={member.name} />
+              <LazyLoad height={200} offset={100}>
+                <img src={member.imgSrc} alt={member.name} />
+              </LazyLoad>
               <div className="text-box">
                 <h3 className="name">{member.name}</h3>
                 <span className="job">{member.job}</span>
