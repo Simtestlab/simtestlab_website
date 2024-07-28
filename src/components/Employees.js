@@ -103,9 +103,9 @@ const Employees = () => {
                 <div className="info">                  
                     <img src={member.imgSrc} alt="Employee" />                  
                   <div className="text-box">
-                    <h3 className="name">{member.name}</h3>
+                    <h3 className="name">{member.name}</h3>                    
+                    <span className="job"><strong>{member.job}</strong></span>
                     <p>{member.description}</p>
-                    <span className="job">{member.job}</span>
                   </div>
                 </div>
                 <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
