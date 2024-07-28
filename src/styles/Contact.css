@@ -111,14 +111,13 @@ ul {
   transition: background-color 0.4s;
   text-decoration: none;
   cursor: pointer;
-  padding: 0 20px; /* Adjust padding for a wider button */
+  padding: 0 20px;
 }
 
 .contact-form .btn:hover {
   background-color: white;
   color: #4d4f55;
 }
-
 
 @media (max-width: 768px) {
   .footer-col {

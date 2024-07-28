@@ -44,7 +44,7 @@ const Employees = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
             setIsVisible(true);
             if (swiperInstance && swiperInstance.autoplay) {
               swiperInstance.autoplay.start();
@@ -57,7 +57,7 @@ const Employees = () => {
           }
         });
       },
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
 
     const currentSectionRef = sectionRef.current;
@@ -100,15 +100,16 @@ const Employees = () => {
           >
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
-                <div className="info">
-                  <img src={member.imgSrc} alt="Employee" />
+                <div className="info">                  
+                    <img src={member.imgSrc} alt="Employee" />                  
                   <div className="text-box">
                     <h3 className="name">{member.name}</h3>
+                    <p>{member.description}</p>
                     <span className="job">{member.job}</span>
                   </div>
                 </div>
                 <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i> GitHub Profile
+                  <i className="fab fa-github"></i> GitHub
                 </a>
               </SwiperSlide>
             ))}
