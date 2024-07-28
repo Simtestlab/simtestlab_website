@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import LazyLoad from 'react-lazyload';
 import content from '../data/content';
 import '../styles/About.css';
 
@@ -41,9 +40,7 @@ const About = () => {
           >
             {content.about.services[category].map((service, index) => (
               <div className="service-item" key={index}>
-                <LazyLoad height={200} offset={100}>
-                  <img src={service.imgSrc} alt={service.title} />
-                </LazyLoad>
+                <img src={service.imgSrc} alt={service.title} />
                 <div className="service-caption">
                   <h5>{service.title}</h5>
                   <p>{service.text}</p>

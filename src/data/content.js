@@ -11,7 +11,7 @@ const content = {
     logoSrc: "/images/logo.png"
   },
   hero: {
-    videoSrc: "/video/background-3.mp4",
+    videoSrc: "/video/background.mp4",
     slides: [
       {
         title: "Model Based Development",
@@ -122,35 +122,33 @@ const content = {
     members: [
       {
         imgSrc: "/images/Agilan.png",
-        name: "Agilan Arulchelvam",
+        name: "Agilan",
         job: "Machine Learning Engineer",
-        description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. ",
         github: "https://github.com/AgilanArulchelvam",
       },
       {
         imgSrc: "/images/Nallasivam.png",
-        name: "Nallasivam Selvaraj",
-        description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design.",
-        job: "Software Engineer",
+        name: "Nalla Shivam",
+        job: "DevOps Engineer",
         github: "https://github.com/nallasivamselvaraj",
       },
       {
-        imgSrc: "/images/Vinay.png",
-        name: "Vinay Kumar don",
-        job: "Embedded Engineer",
-        github: "https://github.com/vinaykumarsl2000",
+        imgSrc: "/images/profile3.jpg",
+        name: "John Doe",
+        job: "Web Developer",
+        github: "https://github.com/johndoe",
       },
       {
-        imgSrc: "/images/Akila-Sekar.jpeg",
-        name: "Akilasekar Kalirajan",
-        job: "Model Based Developer",
-        github: "https://github.com/akil7700",
+        imgSrc: "/images/profile4.jpg",
+        name: "Jane Doe",
+        job: "Project Manager",
+        github: "https://github.com/janedoe",
       },
       {
-        imgSrc: "/images/Maari.jpeg",
-        name: "Maari Muthu",
-        job: "Embedded Engineer",
-        github: "https://github.com/crmaarimuthu",
+        imgSrc: "/images/profile5.jpg",
+        name: "Alice Smith",
+        job: "Designer",
+        github: "https://github.com/alicesmith",
       },
     ],
   },

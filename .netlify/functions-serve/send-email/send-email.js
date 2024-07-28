@@ -1,1 +1,1 @@
-module.exports = require('./netlify/functions-build/send-email.js')
+module.exports = require('./netlify/functions/send-email.js')

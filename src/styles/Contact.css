@@ -4,7 +4,7 @@ footer {
   color: #f6f6f6;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; /* Adjusted to space-around for centering */
+  justify-content: space-between;
 }
 
 ul {
@@ -16,9 +16,6 @@ ul {
 .footer-col {
   flex: 1 1 20%;
   margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center align items */
 }
 
 .footer-col h4 {
@@ -28,14 +25,12 @@ ul {
   font-size: 18px;
   color: #60B3D1;
   text-transform: capitalize;
-  text-align: center; /* Center align text */
 }
 
 .footer-col h4::before {
   content: '';
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   bottom: -6px;
   background-color: #287094;
   height: 2px;
@@ -44,7 +39,6 @@ ul {
 
 .footer-col ul li {
   margin-bottom: 10px;
-  text-align: center; /* Center align text */
 }
 
 .footer-col ul li a {
@@ -125,13 +119,10 @@ ul {
   color: #4d4f55;
 }
 
-@media (max-width: 768px) {
-  footer {
-    padding: 40px 5%;
-  }
 
+@media (max-width: 768px) {
   .footer-col {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
     text-align: center;
   }
 
@@ -147,10 +138,6 @@ ul {
   .form-group textarea {
     width: 100%;
   }
-
-  .links {
-    justify-content: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -161,14 +148,10 @@ ul {
 
   .links {
     justify-content: center;
+    display: flex;
   }
 
-  .form-group {
-    width: 100%;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
+  .links a {
+    margin: 0 5px;
   }
 }

@@ -26,7 +26,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await fetch('/.netlify/functions/send-email', {
         method: 'POST',
@@ -35,7 +35,7 @@ const Contact = () => {
         },
         body: JSON.stringify(formData)
       });
-  
+
       if (response.ok) {
         alert('Email sent successfully');
         setIsSubmitted(true);
@@ -45,11 +45,11 @@ const Contact = () => {
     } catch (error) {
       alert('Error sending email');
     }
-  };  
+  };
 
   return (
     <footer id="contact">
-      <div className="footer-col center-align">
+      <div className="footer-col">
         <h4>Contact Us</h4>
         <ul>
           <li>{content.contact.address}</li>
@@ -58,7 +58,7 @@ const Contact = () => {
           <li>{content.contact.copyright}</li>
         </ul>
       </div>
-      <div className="footer-col center-align">
+      <div className="footer-col">
         <h4>Company</h4>
         <ul>
           {content.contact.companyLinks.map((link, index) => (

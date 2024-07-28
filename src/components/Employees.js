@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import LazyLoad from 'react-lazyload';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -45,7 +44,7 @@ const Employees = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 1) {
             setIsVisible(true);
             if (swiperInstance && swiperInstance.autoplay) {
               swiperInstance.autoplay.start();
@@ -58,7 +57,7 @@ const Employees = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
 
     const currentSectionRef = sectionRef.current;
@@ -75,7 +74,7 @@ const Employees = () => {
   }, [swiperInstance]);
 
   return (
-    <section className="testimonials" id="employees" ref={sectionRef} style={{ height: '100vh' }}>
+    <section className="testimonials" id="employees" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
           <h2 className="title">{content.employees.title}</h2>
@@ -102,17 +101,14 @@ const Employees = () => {
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
                 <div className="info">
-                  <LazyLoad height={200} offset={100}>
-                    <img src={member.imgSrc} alt="Employee" />
-                  </LazyLoad>
+                  <img src={member.imgSrc} alt="Employee" />
                   <div className="text-box">
                     <h3 className="name">{member.name}</h3>
                     <span className="job">{member.job}</span>
-                    <p>{member.description}</p>
                   </div>
                 </div>
                 <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i> GitHub
+                  <i className="fab fa-github"></i> GitHub Profile
                 </a>
               </SwiperSlide>
             ))}
