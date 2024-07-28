@@ -112,7 +112,7 @@ const Employees = () => {
                   </div>
                 </div>
                 <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i> GitHub Profile
+                  <i className="fab fa-github"></i> GitHub
                 </a>
               </SwiperSlide>
             ))}

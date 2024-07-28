@@ -11,7 +11,7 @@ const content = {
     logoSrc: "/images/logo.png"
   },
   hero: {
-    videoSrc: "/video/background.mp4",
+    videoSrc: "/video/background-3.mp4",
     slides: [
       {
         title: "Model Based Development",
@@ -129,14 +129,14 @@ const content = {
       },
       {
         imgSrc: "/images/Nallasivam.png",
-        name: "Nalla Sivam Selvaraj",
+        name: "Nallasivam Selvaraj",
         description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design.",
         job: "Software Engineer",
         github: "https://github.com/nallasivamselvaraj",
       },
       {
         imgSrc: "/images/Vinay.png",
-        name: "Vinay Kumar",
+        name: "Vinay Kumar don",
         job: "Embedded Engineer",
         github: "https://github.com/vinaykumarsl2000",
       },
