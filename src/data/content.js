@@ -3,9 +3,9 @@ const content = {
     brand: "Simtestlab",
     navItems: [
       { href: "#hero", label: "Home" },
-      { href: "#about", label: "About" },
-      { href: "#employees", label: "Employees" },
       { href: "#services", label: "Services" },
+      { href: "#employees", label: "Employees" },
+      { href: "#about", label: "About" },
       { href: "#contact", label: "Contact" },
     ],
     logoSrc: "/images/logo.png"
@@ -32,7 +32,7 @@ const content = {
     ],
   },
   about: {
-    title: "ABOUT US",
+    title: "OUR SERVICES",
     tabs: [
       { id: "it-services", label: "MODEL BASED DEVELOPMENT" },
       { id: "business-services", label: "BATTERY MANAGEMENT SYSTEM" },
@@ -125,12 +125,14 @@ const content = {
         name: "Agilan Arulchelvam",
         job: "Machine Learning Engineer",
         description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. ",
+        full_description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. I've leveraged my expertise in Machine Learning across diverse projects, delivering actionable insights.",
         github: "https://github.com/AgilanArulchelvam",
       },
       {
         imgSrc: "/images/Nallasivam.png",
         name: "Nallasivam Selvaraj",
         description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design.",
+        full_description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design. Skilled in DevOps practices and cloud for efficient software delivery. Passionate about creating scalable, reliable solutions and staying updated with emerging technologies.",
         job: "Software Engineer",
         github: "https://github.com/nallasivamselvaraj",
       },
@@ -138,6 +140,7 @@ const content = {
         imgSrc: "/images/Vinay.png",
         name: "Vinay Kumar S Lokare",
         description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
+        full_description: "As an Embedded Software Engineer, I design and optimize software for embedded systems, focusing on microcontrollers and real-time operating systems. I ensure seamless hardware-software integration to deliver high-performance, reliable, and scalable solutions.",
         job: "Embedded Engineer",
         github: "https://github.com/vinaykumarsl2000",
       },

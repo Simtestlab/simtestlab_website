@@ -12,6 +12,8 @@ const Employees = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeMember, setActiveMember] = useState(null);
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
 
   useEffect(() => {
     if (swiperInstance && swiperInstance.autoplay) {
@@ -20,7 +22,7 @@ const Employees = () => {
       };
 
       const handleMouseLeave = () => {
-        if (isVisible) {
+        if (isVisible && activeMember === null) {
           swiperInstance.autoplay.start();
         }
       };
@@ -38,7 +40,7 @@ const Employees = () => {
         });
       };
     }
-  }, [swiperInstance, isVisible]);
+  }, [swiperInstance, isVisible, activeMember]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,6 +75,28 @@ const Employees = () => {
     };
   }, [swiperInstance]);
 
+  const handleButtonClick = (index, event) => {
+    const buttonRect = event.target.getBoundingClientRect();
+    const parentRect = event.target.parentNode.getBoundingClientRect();
+    setPopupPosition({
+      top: buttonRect.top + window.scrollY,
+      left: buttonRect.left + window.scrollX,
+      width: parentRect.width,
+      height: parentRect.height,
+    });
+    setActiveMember(index);
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.stop();
+    }
+  };
+
+  const closePopup = () => {
+    setActiveMember(null);
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.start();
+    }
+  };
+
   return (
     <section className="testimonials" id="employees" ref={sectionRef}>
       <div className="container">
@@ -100,17 +124,37 @@ const Employees = () => {
           >
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
-                <div className="info">                  
-                    <img src={member.imgSrc} alt="Employee" />                  
+                <div className="info">
+                  <img src={member.imgSrc} alt="Employee" />
                   <div className="text-box">
-                    <h3 className="name">{member.name}</h3>                    
+                    <h3 className="name">{member.name}</h3>
                     <span className="job"><strong>{member.job}</strong></span>
                     <p>{member.description}</p>
                   </div>
                 </div>
-                <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i> GitHub
-                </a>
+                <button
+                  className="see-more-button"
+                  onClick={(event) => handleButtonClick(index, event)}
+                >
+                  See More
+                </button>
+                {activeMember === index && (
+                  <div
+                    className={`popup-container ${activeMember !== null ? 'open' : ''}`}
+                    style={{
+                      top: popupPosition.top,
+                      left: popupPosition.left,
+                      width: popupPosition.width,
+                      height: popupPosition.height,
+                      transform: `translate(-50%, -50%)`,
+                    }}
+                  >
+                    <div className="popup-content">
+                      <button className="close-popup" onClick={closePopup}>&times;</button>
+                      <p>{member.full_description}</p>
+                    </div>
+                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>

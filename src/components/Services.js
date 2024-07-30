@@ -109,7 +109,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services">
+    <section id="about">
       <div className="slider">
         <div className="controls">
           <div className="up" onClick={handleUpClick}>
