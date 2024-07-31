@@ -121,6 +121,26 @@ const content = {
     title: "Our Employees",
     members: [
       {
+        imgSrc: "/images/Tiberiu.png",
+        name: "Tiberiu Stanciu",
+        job: "Renewable Energy Specialist",
+      },
+      {
+        imgSrc: "images/Faouzi.png",
+        name: "Faouzi AL MOUTAMID",
+        job: "Battery Management Specialist",
+      },
+      {
+        imgSrc: "images/Fabio.png",
+        name: "Fabio Delgado Cabrera",
+        job: "Senior Data Engineer",
+      },
+      {
+        imgSrc: "images/Yashar.png",
+        name: "Yashar Mohammed",
+        job: "Senior Lead Engineer Connectivity",
+      },
+      {
         imgSrc: "/images/Agilan.png",
         name: "Agilan Arulchelvam",
         job: "Machine Learning Engineer",

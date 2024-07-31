@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -14,6 +14,13 @@ const Employees = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeMember, setActiveMember] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
+
+  const closePopup = useCallback(() => {
+    setActiveMember(null);
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.start();
+    }
+  }, [swiperInstance]);
 
   useEffect(() => {
     if (swiperInstance && swiperInstance.autoplay) {
@@ -33,14 +40,27 @@ const Employees = () => {
         slide.addEventListener('mouseleave', handleMouseLeave);
       });
 
+      const prevButton = document.querySelector('.swiper-button-prev');
+      const nextButton = document.querySelector('.swiper-button-next');
+
+      if (prevButton && nextButton) {
+        prevButton.addEventListener('click', closePopup);
+        nextButton.addEventListener('click', closePopup);
+      }
+
       return () => {
         swiperSlides.forEach((slide) => {
           slide.removeEventListener('mouseenter', handleMouseEnter);
           slide.removeEventListener('mouseleave', handleMouseLeave);
         });
+
+        if (prevButton && nextButton) {
+          prevButton.removeEventListener('click', closePopup);
+          nextButton.removeEventListener('click', closePopup);
+        }
       };
     }
-  }, [swiperInstance, isVisible, activeMember]);
+  }, [swiperInstance, isVisible, activeMember, closePopup]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,13 +110,6 @@ const Employees = () => {
     }
   };
 
-  const closePopup = () => {
-    setActiveMember(null);
-    if (swiperInstance && swiperInstance.autoplay) {
-      swiperInstance.autoplay.start();
-    }
-  };
-
   return (
     <section className="testimonials" id="employees" ref={sectionRef}>
       <div className="container">
@@ -121,6 +134,16 @@ const Employees = () => {
             navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => {
+              const activeSlide = document.querySelector('.swiper-slide-active .testimonials-item');
+              if (activeSlide) {
+                activeSlide.classList.add('testimonials-item-active');
+              }
+              const inactiveSlides = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active) .testimonials-item');
+              inactiveSlides.forEach((slide) => {
+                slide.classList.remove('testimonials-item-active');
+              });
+            }}
           >
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
@@ -151,7 +174,7 @@ const Employees = () => {
                   >
                     <div className="popup-content">
                       <button className="close-popup" onClick={closePopup}>&times;</button>
-                      <p>{member.full_description}</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                   </div>
                 )}

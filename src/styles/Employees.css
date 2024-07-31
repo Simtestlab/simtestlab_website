@@ -31,9 +31,16 @@ section {
   align-items: center;
   max-width: 600px;
   text-align: center;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   min-height: 300px; /* Ensure a consistent height */
   position: relative; /* Add relative positioning */
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.testimonials-item-active {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .testimonials-item img {
@@ -173,7 +180,7 @@ section {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: slideUpFromButton 0.3s ease-in-out; /* Add slide-up animation */
+  animation: slideUpFromButton 0.5s ease-in-out forwards; /* Add slide-up animation */
 }
 
 .popup-container.open {
@@ -183,23 +190,27 @@ section {
 }
 
 .popup-container.closing {
-  animation: slideDownToButton 0.3s ease-in-out; /* Add slide-down animation */
+  animation: slideDownToButton 0.5s ease-in-out forwards; /* Add slide-down animation */
 }
 
 @keyframes slideUpFromButton {
   from {
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes slideDownToButton {
   from {
+    transform: translateY(0);
     opacity: 1;
   }
   to {
+    transform: translateY(100%);
     opacity: 0;
   }
 }
@@ -215,6 +226,11 @@ section {
   overflow-y: auto; /* Handle overflow */
   width: calc(100% - 10px); /* Ensure it is slightly smaller than the parent container */
   height: calc(100% - 10px); /* Ensure it is slightly smaller than the parent container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center align text */
 }
 
 .popup-content h2 {
