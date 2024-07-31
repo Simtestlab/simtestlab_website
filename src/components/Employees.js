@@ -133,6 +133,7 @@ const Employees = () => {
             pagination={{ clickable: true }}
             navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
+            speed={1500} // Slow down the transition speed
             onSwiper={setSwiperInstance}
             onSlideChange={(swiper) => {
               const activeSlide = document.querySelector('.swiper-slide-active .testimonials-item');

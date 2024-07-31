@@ -31,7 +31,7 @@ section {
   align-items: center;
   max-width: 600px;
   text-align: center;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Slow down the animation */
   min-height: 300px; /* Ensure a consistent height */
   position: relative; /* Add relative positioning */
   transform: translateX(-100%);
@@ -90,7 +90,7 @@ section {
   box-sizing: border-box;
   filter: blur(5px); /* Apply blur to all slides initially */
   opacity: 0.5; /* Reduce opacity of non-active slides */
-  transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: filter 1s ease-in-out, opacity 1s ease-in-out; /* Slow down the transition */
 }
 
 .swiper-slide-active {
