@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -12,6 +12,14 @@ const Employees = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeMember, setActiveMember] = useState(null);
+
+  const closePopup = useCallback(() => {
+    setActiveMember(null);
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.start();
+    }
+  }, [swiperInstance]);
 
   useEffect(() => {
     if (swiperInstance && swiperInstance.autoplay) {
@@ -20,7 +28,7 @@ const Employees = () => {
       };
 
       const handleMouseLeave = () => {
-        if (isVisible) {
+        if (isVisible && activeMember === null) {
           swiperInstance.autoplay.start();
         }
       };
@@ -31,14 +39,27 @@ const Employees = () => {
         slide.addEventListener('mouseleave', handleMouseLeave);
       });
 
+      const prevButton = document.querySelector('.swiper-button-prev');
+      const nextButton = document.querySelector('.swiper-button-next');
+
+      if (prevButton && nextButton) {
+        prevButton.addEventListener('click', closePopup);
+        nextButton.addEventListener('click', closePopup);
+      }
+
       return () => {
         swiperSlides.forEach((slide) => {
           slide.removeEventListener('mouseenter', handleMouseEnter);
           slide.removeEventListener('mouseleave', handleMouseLeave);
         });
+
+        if (prevButton && nextButton) {
+          prevButton.removeEventListener('click', closePopup);
+          nextButton.removeEventListener('click', closePopup);
+        }
       };
     }
-  }, [swiperInstance, isVisible]);
+  }, [swiperInstance, isVisible, activeMember, closePopup]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,6 +94,13 @@ const Employees = () => {
     };
   }, [swiperInstance]);
 
+  const handleButtonClick = (index) => {
+    setActiveMember(index);
+    if (swiperInstance && swiperInstance.autoplay) {
+      swiperInstance.autoplay.stop();
+    }
+  };
+
   return (
     <section className="testimonials" id="employees" ref={sectionRef}>
       <div className="container">
@@ -96,26 +124,59 @@ const Employees = () => {
             pagination={{ clickable: true }}
             navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
+            speed={1500}
             onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => {
+              const activeSlide = document.querySelector('.swiper-slide-active .testimonials-item');
+              if (activeSlide) {
+                activeSlide.classList.add('testimonials-item-active');
+              }
+              const inactiveSlides = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active) .testimonials-item');
+              inactiveSlides.forEach((slide) => {
+                slide.classList.remove('testimonials-item-active');
+              });
+            }}
           >
             {content.employees.members.map((member, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
-                <div className="info">                  
-                    <img src={member.imgSrc} alt="Employee" />                  
+                <div className="info">
+                  <img src={member.imgSrc} alt="Employee" />
                   <div className="text-box">
-                    <h3 className="name">{member.name}</h3>                    
+                    <h3 className="name">{member.name}</h3>
                     <span className="job"><strong>{member.job}</strong></span>
                     <p>{member.description}</p>
                   </div>
                 </div>
-                <a href={member.github} className="github-button" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i> GitHub
-                </a>
+                <button
+                  className="see-more-button"
+                  onClick={() => handleButtonClick(index)}
+                >
+                  See More
+                </button>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
+      {activeMember !== null && (
+        <div className="popup-container open">
+          <div className="popup-content">
+            <button className="close-popup" onClick={closePopup}>&times;</button>
+            <h2>{content.employees.members[activeMember].name}</h2>
+            <img src={content.employees.members[activeMember].imgSrc} alt={content.employees.members[activeMember].name} className="popup-img"/>
+            {content.employees.members[activeMember].job && (
+              <h4>{content.employees.members[activeMember].job}</h4>
+            )}
+            <p>{content.employees.members[activeMember].full_description || content.employees.members[activeMember].description}</p>
+            {content.employees.members[activeMember].github && (
+              <a href={content.employees.members[activeMember].github} target="_blank" rel="noopener noreferrer" className="github-link">View GitHub Profile</a>
+            )}
+            {content.employees.members[activeMember].linkedin && (
+              <a href={content.employees.members[activeMember].linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">View LinkedIn Profile</a>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

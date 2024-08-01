@@ -50,24 +50,32 @@ const Contact = () => {
   return (
     <footer id="contact">
       <div className="footer-col">
-        <h4>Contact Us</h4>
+        <h4>Main Branch</h4>
         <ul>
-          <li>{content.contact.address}</li>
-          <li>{content.contact.email}</li>
-          <li>{content.contact.phone}</li>
-          <li>{content.contact.copyright}</li>
+          <li>{content.contact.main_branch.name}</li>
+          <li>{content.contact.main_branch.address}</li>
+          <li>{content.contact.main_branch.email}</li>
+          <li>{content.contact.main_branch.phone}</li>
+          <li>{content.contact.main_branch.copyright}</li>
         </ul>
       </div>
       <div className="footer-col">
-        <h4>Company</h4>
+        <h4>India Branch</h4>
         <ul>
-          {content.contact.companyLinks.map((link, index) => (
-            <li key={index}>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
+          <li>{content.contact.branch1.name}</li>
+          <li>{content.contact.branch1.address}</li>
+          <li>{content.contact.branch1.email}</li>
+          <li>{content.contact.branch1.phone}</li>        
         </ul>
       </div>
+      <div className="footer-col">
+        <h4>Battery Lab Facility</h4>
+        <ul>
+          <li>{content.contact.branch2.address}</li>
+          <li>{content.contact.branch2.email}</li>
+          <li>{content.contact.branch2.phone}</li>          
+        </ul>
+      </div>      
       <div className="footer-col">
         <h4>Follow us</h4>
         <div className="links">
@@ -76,8 +84,8 @@ const Contact = () => {
           ))}
         </div>
       </div>
-      <div className="footer-col">
-        <h4>Get In Touch</h4>
+      <div className="footer-col centered-form-container">
+        <h4 className="centered-header">Get In Touch</h4>
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <input
