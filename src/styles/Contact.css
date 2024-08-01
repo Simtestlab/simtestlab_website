@@ -5,6 +5,9 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  text-align: left; /* Left align text */
+  gap: 50px; /* Increase gap between footer columns */
 }
 
 ul {
@@ -14,13 +17,14 @@ ul {
 }
 
 .footer-col {
-  flex: 1 1 20%;
+  flex: 1 1 calc(20% - 50px); /* Adjust flex basis for more spacing */
   margin-bottom: 20px;
+  min-width: 250px; /* Ensure minimum width for columns */
 }
 
 .footer-col h4 {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Add more space between heading and content */
   font-weight: 400;
   font-size: 18px;
   color: #60B3D1;
@@ -38,7 +42,8 @@ ul {
 }
 
 .footer-col ul li {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Add more space between list items */
+  white-space: normal; /* Allow content to wrap to the next line if needed */
 }
 
 .footer-col ul li a {
@@ -54,12 +59,18 @@ ul {
   color: #f6f6f6;
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align social links to the left */
+  gap: 10px; /* Add gap between social links */
+}
+
 .links a {
   display: inline-block;
   height: 44px;
   width: 44px;
   background-color: rgba(40, 130, 214, 0.8);
-  margin: 0 8px 8px 0;
   text-align: center;
   line-height: 44px;
   border-radius: 50%;
@@ -75,25 +86,29 @@ ul {
 .contact-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form-group {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .form-group input,
 .form-group textarea {
-  width: 48%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: none;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .form-group textarea {
-  width: 100%;
   height: 100px;
   resize: none;
 }
@@ -101,9 +116,8 @@ ul {
 .contact-form .btn {
   display: inline-block;
   height: 44px;
-  width: auto;
+  width: 100%;
   background-color: rgba(40, 130, 214, 0.8);
-  margin: 0 8px 8px 0;
   text-align: center;
   line-height: 44px;
   border-radius: 5px;
@@ -111,7 +125,9 @@ ul {
   transition: background-color 0.4s;
   text-decoration: none;
   cursor: pointer;
-  padding: 0 20px;
+  margin-top: 10px;
+  padding: 0 20px; 
+  box-sizing: border-box; 
 }
 
 .contact-form .btn:hover {
@@ -119,10 +135,55 @@ ul {
   color: #4d4f55;
 }
 
+.centered-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* Max width for the form container */
+  margin: 0 auto; /* Center the form container */
+}
+
+/* New class for centering the Get In Touch header */
+.centered-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Ensure other headers remain unaffected */
+.footer-col h4 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Form styling remains unchanged */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if the text is too long */
+}
+
+.footer-col {
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+  min-width: 250px; /* Ensure minimum width for columns */
+  max-width: 100%; /* Ensure that columns can grow and shrink as needed */
+  word-break: keep-all; /* Prevent line breaks within words */
+}
+
 @media (max-width: 768px) {
   .footer-col {
-    flex: 1 1 45%;
-    text-align: center;
+    flex: 1 1 calc(50% - 40px); /* Two columns on medium screens */
+    text-align: left;
   }
 
   .footer-col h4::before {
@@ -131,26 +192,40 @@ ul {
 
   .form-group {
     flex-direction: column;
+    gap: 0;
   }
 
   .form-group input,
   .form-group textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .contact-form .btn {
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .footer-col {
-    flex: 1 1 100%;
-    text-align: center;
+    flex: 1 1 100%; /* Single column on small screens */
+    text-align: left; /* Ensure text is left-aligned */
   }
 
   .links {
-    justify-content: center;
+    justify-content: flex-start; /* Align social links to the left */
     display: flex;
   }
 
   .links a {
     margin: 0 5px;
+  }
+
+  .form-group {
+    gap: 0;
   }
 }

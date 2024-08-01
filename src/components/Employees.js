@@ -13,7 +13,6 @@ const Employees = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeMember, setActiveMember] = useState(null);
-  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
 
   const closePopup = useCallback(() => {
     setActiveMember(null);
@@ -95,15 +94,7 @@ const Employees = () => {
     };
   }, [swiperInstance]);
 
-  const handleButtonClick = (index, event) => {
-    const buttonRect = event.target.getBoundingClientRect();
-    const parentRect = event.target.parentNode.getBoundingClientRect();
-    setPopupPosition({
-      top: buttonRect.top + window.scrollY,
-      left: buttonRect.left + window.scrollX,
-      width: parentRect.width,
-      height: parentRect.height,
-    });
+  const handleButtonClick = (index) => {
     setActiveMember(index);
     if (swiperInstance && swiperInstance.autoplay) {
       swiperInstance.autoplay.stop();
@@ -133,7 +124,7 @@ const Employees = () => {
             pagination={{ clickable: true }}
             navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
-            speed={1500} // Slow down the transition speed
+            speed={1500}
             onSwiper={setSwiperInstance}
             onSlideChange={(swiper) => {
               const activeSlide = document.querySelector('.swiper-slide-active .testimonials-item');
@@ -158,32 +149,34 @@ const Employees = () => {
                 </div>
                 <button
                   className="see-more-button"
-                  onClick={(event) => handleButtonClick(index, event)}
+                  onClick={() => handleButtonClick(index)}
                 >
                   See More
                 </button>
-                {activeMember === index && (
-                  <div
-                    className={`popup-container ${activeMember !== null ? 'open' : ''}`}
-                    style={{
-                      top: popupPosition.top,
-                      left: popupPosition.left,
-                      width: popupPosition.width,
-                      height: popupPosition.height,
-                      transform: `translate(-50%, -50%)`,
-                    }}
-                  >
-                    <div className="popup-content">
-                      <button className="close-popup" onClick={closePopup}>&times;</button>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                  </div>
-                )}
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
+      {activeMember !== null && (
+        <div className="popup-container open">
+          <div className="popup-content">
+            <button className="close-popup" onClick={closePopup}>&times;</button>
+            <h2>{content.employees.members[activeMember].name}</h2>
+            <img src={content.employees.members[activeMember].imgSrc} alt={content.employees.members[activeMember].name} className="popup-img"/>
+            {content.employees.members[activeMember].job && (
+              <h4>{content.employees.members[activeMember].job}</h4>
+            )}
+            <p>{content.employees.members[activeMember].full_description || content.employees.members[activeMember].description}</p>
+            {content.employees.members[activeMember].github && (
+              <a href={content.employees.members[activeMember].github} target="_blank" rel="noopener noreferrer" className="github-link">View GitHub Profile</a>
+            )}
+            {content.employees.members[activeMember].linkedin && (
+              <a href={content.employees.members[activeMember].linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">View LinkedIn Profile</a>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
