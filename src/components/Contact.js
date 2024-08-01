@@ -69,7 +69,7 @@ const Contact = () => {
         </ul>
       </div>
       <div className="footer-col">
-        <h4>Battery Management Company</h4>
+        <h4>Battery Lab Facility</h4>
         <ul>
           <li>{content.contact.branch2.address}</li>
           <li>{content.contact.branch2.email}</li>

@@ -118,7 +118,7 @@ const content = {
     },
   },
   employees: {
-    title: "Our Employees",
+    title: "Who we are",
     members: [
       {
         imgSrc: "/images/Tiberiu.png",
