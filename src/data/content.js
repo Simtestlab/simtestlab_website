@@ -259,9 +259,9 @@ const content = {
     ],
     socialLinks: [
       { href: "https://www.linkedin.com/company/simtestlab", icon: "fab fa-linkedin-in" },
-      { href: "https://www.facebook.com/", icon: "fab fa-facebook-f" },
-      { href: "https://x.com/", icon: "fab fa-twitter" },
-      { href: "https://www.instagram.com/", icon: "fab fa-instagram" },
+      //{ href: "https://www.facebook.com/", icon: "fab fa-facebook-f" },
+      //{ href: "https://x.com/", icon: "fab fa-twitter" },
+      //{ href: "https://www.instagram.com/", icon: "fab fa-instagram" },
     ],
   },
 };
