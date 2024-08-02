@@ -4,7 +4,7 @@ const content = {
     navItems: [
       { href: "#hero", label: "Home" },
       { href: "#services", label: "Services" },
-      { href: "#employees", label: "Who we are" },
+      { href: "#employees", label: "WhoWeAre" },
       { href: "#about", label: "About" },
       { href: "#contact", label: "Contact" },
     ],
@@ -22,7 +22,7 @@ const content = {
         text: "Advanced testing services for battery packs to ensure optimal performance and longevity."
       },
       {
-        title: "Testing Automation",
+        title: "Test Automate Framework",
         text: "Automate your functional testing processes to improve accuracy and efficiency."
       }
     ],
@@ -36,7 +36,7 @@ const content = {
     tabs: [
       { id: "it-services", label: "MODEL BASED DEVELOPMENT" },
       { id: "business-services", label: "BATTERY MANAGEMENT SYSTEM" },
-      { id: "product-information", label: "TESTING AUTOMATION" },
+      { id: "product-information", label: "TEST AUTOMATE FRAMEWORK" },
     ],
     services: {
       "it-services": [
