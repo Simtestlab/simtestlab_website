@@ -53,6 +53,7 @@ const Contact = () => {
         <h4>Main Branch</h4>
         <ul>
           <li>{content.contact.main_branch.name}</li>
+          <li>{content.contact.main_branch.org_num}</li>
           <li>{content.contact.main_branch.address}</li>
           <li>{content.contact.main_branch.email}</li>
           <li>{content.contact.main_branch.phone}</li>
@@ -63,7 +64,8 @@ const Contact = () => {
         <h4>India Branch</h4>
         <ul>
           <li>{content.contact.branch1.name}</li>
-          <li>{content.contact.branch1.address}</li>
+          <li>{content.contact.branch1.address_line_1}</li>
+          <li>{content.contact.branch1.address_line_2}</li>
           <li>{content.contact.branch1.email}</li>
           <li>{content.contact.branch1.phone}</li>        
         </ul>
@@ -71,7 +73,9 @@ const Contact = () => {
       <div className="footer-col">
         <h4>Battery Lab Facility</h4>
         <ul>
-          <li>{content.contact.branch2.address}</li>
+          <li>{content.contact.branch2.name}</li>
+          <li>{content.contact.branch2.address_line_1}</li>
+          <li>{content.contact.branch2.address_line_2}</li>
           <li>{content.contact.branch2.email}</li>
           <li>{content.contact.branch2.phone}</li>          
         </ul>
