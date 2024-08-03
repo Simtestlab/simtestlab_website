@@ -4,7 +4,7 @@ const content = {
     navItems: [
       { href: "#hero", label: "Home" },
       { href: "#services", label: "Services" },
-      { href: "#employees", label: "WhoWeAre" },
+      { href: "#employees", label: "Who We Are" },
       { href: "#about", label: "About" },
       { href: "#contact", label: "Contact" },
     ],
