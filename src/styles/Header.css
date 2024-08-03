@@ -1,58 +1,105 @@
-section {
-  scroll-margin-top: 80px; 
+/* General Header Styles */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.custom-navbar {
-    background-color: rgba(0, 0, 0, 0.507) !important;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .custom-navbar .navbar-brand {
-    display: flex;
-    align-items: center;    
-  }
-  
-  .custom-navbar .navbar-brand img {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  
-  .custom-navbar .navbar-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
+/* Navbar when transparent */
+.custom-navbar.navbar-dark {
+  background-color: transparent !important;
+}
+
+/* Navbar when sticky (white background) */
+.custom-navbar.navbar-light.bg-white {
+  background-color: rgba(235, 242, 250, 0.85) !important; /* Light Gray/Blue with opacity */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar links color for both states */
+.custom-navbar.navbar-dark .navbar-nav .nav-link {
+  color: #EBF2FA !important; /* Light color from your palette */
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
+
+.custom-navbar.navbar-light.bg-white .navbar-nav .nav-link {
+  color: #033F63 !important; /* Dark Blue for sticky state */
+  text-shadow: none;
+}
+
+/* Navbar brand styling */
+.custom-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 5px; /* Add padding around the brand logo */
+}
+
+.custom-navbar .navbar-brand img {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* Center the nav items */
+.custom-navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.custom-navbar .navbar-nav .nav-item {
+  margin: 0 20px;
+}
+
+/* Navbar link styles */
+.custom-navbar .navbar-nav .nav-link {
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+  color: #1BB88D !important; /* Green hover color from your palette */
+  transform: scale(1.1);
+}
+
+.custom-navbar .navbar-nav .nav-item.active .nav-link {
+  color: #1BB88D !important;
+  transform: scale(1.1);
+}
+
+/* Navbar toggler (for mobile view) */
+.custom-navbar .navbar-toggler {
+  border: none;
+}
+
+/* Navbar toggler icon */
+.custom-navbar .navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .custom-navbar .navbar-nav .nav-item {
-    margin: 0 20px;
-    margin-right: 150px;
+    margin: 0;
   }
-  
-  .custom-navbar .navbar-nav .nav-link {
-    color: #f6f6f6 !important;
-    font-family: 'Arial', sans-serif;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Scroll animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
   }
-  
-  .custom-navbar .navbar-nav .nav-link:hover {
-    color: #02b7ff !important;
-    transform: scale(1.1);
+  to {
+    opacity: 1;
+    transform: none;
   }
-  
-  .custom-navbar .navbar-toggler {
-    border: none;
-  }
-  
-  .custom-navbar .navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org<|meta_end|>.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-  }
-  
-  @media (max-width: 768px) {
-    .custom-navbar .navbar-nav .nav-item {
-      margin: 0;
-    }
-  }
+}
+
+.fade-in-up {
+  opacity: 0;  /* Start with the element invisible */
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s; /* Adjust the delay as needed */
+}

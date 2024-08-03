@@ -48,7 +48,8 @@ const Contact = () => {
   };
 
   return (
-    <footer id="contact">
+    <section id="contact">
+      <footer>
       <div className="footer-col">
         <h4>Main Branch</h4>
         <ul>
@@ -141,6 +142,7 @@ const Contact = () => {
         </form>
       </div>
     </footer>
+    </section>
   );
 };
 
