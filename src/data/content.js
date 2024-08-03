@@ -27,7 +27,7 @@ const content = {
       }
     ],
     buttons: [
-      { href: "#about", label: "Learn More" },
+      { href: "#services", label: "Learn More" },
       { href: "#contact", label: "Contact Us" },
     ],
   },
