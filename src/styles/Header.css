@@ -14,27 +14,16 @@
 
 /* Navbar when sticky (white background) */
 .custom-navbar.navbar-light.bg-white {
-  background-color: rgba(235, 242, 250, 0.85) !important; /* Light Gray/Blue with opacity */
-  backdrop-filter: blur(10px); /* Blur effect */
+  background-color: rgba(235, 242, 250, 0.85) !important;
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar links color for both states */
-.custom-navbar.navbar-dark .navbar-nav .nav-link {
-  color: #EBF2FA !important; /* Light color from your palette */
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
-}
-
-.custom-navbar.navbar-light.bg-white .navbar-nav .nav-link {
-  color: #033F63 !important; /* Dark Blue for sticky state */
-  text-shadow: none;
 }
 
 /* Navbar brand styling */
 .custom-navbar .navbar-brand {
   display: flex;
   align-items: center;
-  padding: 5px; /* Add padding around the brand logo */
+  padding: 5px;
 }
 
 .custom-navbar .navbar-brand img {
@@ -49,57 +38,67 @@
   width: 100%;
 }
 
+/* Space between the navbar items */
 .custom-navbar .navbar-nav .nav-item {
-  margin: 0 20px;
+  margin: 0 20px; /* Adjusted spacing */
 }
 
 /* Navbar link styles */
 .custom-navbar .navbar-nav .nav-link {
   font-family: 'Arial', sans-serif;
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 8px 10px; /* Smaller padding */
+  color: #033F63 !important; /* Default color in non-transparent mode */
 }
 
+/* Active state color adjustment for non-transparent mode */
+.custom-navbar.navbar-light.bg-white .navbar-nav .nav-item.active .nav-link {
+  color: #199297 !important; /* Match the desired active color */
+}
+
+/* Hover Effect: Inverse Colors */
 .custom-navbar .navbar-nav .nav-link:hover {
-  color: #1BB88D !important; /* Green hover color from your palette */
-  transform: scale(1.1);
+  color: #FFFFFF !important;
+  background-color: #033F63 !important;
+  border-radius: 4px;
 }
 
-.custom-navbar .navbar-nav .nav-item.active .nav-link {
-  color: #1BB88D !important;
-  transform: scale(1.1);
+/* Independent Slider for Active Link */
+.custom-navbar .nav-slider {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background-color: #199297; /* Blue color from your palette */
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
-/* Navbar toggler (for mobile view) */
-.custom-navbar .navbar-toggler {
-  border: none;
+/* Active link slider */
+.custom-navbar .navbar-nav .nav-item.active .nav-slider {
+  width: 60%;
+  margin: auto;
+  background-color: #199297; /* Blue color from your palette */
 }
 
-/* Navbar toggler icon */
-.custom-navbar .navbar-toggler-icon {
-  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+/* Transparent mode: set text color to white */
+.custom-navbar.navbar-dark .navbar-nav .nav-link {
+  color: #EBF2FA !important; /* White color from your palette */
 }
 
-/* Responsive styles */
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .custom-navbar .navbar-nav .nav-item {
+    margin: 0 15px; /* Slightly reduced margin for medium screens */
+  }
+  .custom-navbar .navbar-nav .nav-link {
+    padding: 6px 8px; /* Further reduce padding on medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .custom-navbar .navbar-nav .nav-item {
-    margin: 0;
+    margin: 0 10px; /* Further reduced margin for smaller screens */
   }
-}
-
-/* Scroll animation for sections */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
+  .custom-navbar .navbar-nav .nav-link {
+    padding: 4px 6px; /* Minimized padding on small screens */
   }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.fade-in-up {
-  opacity: 0;  /* Start with the element invisible */
-  animation: fadeInUp 1s forwards;
-  animation-delay: 0.3s; /* Adjust the delay as needed */
 }
