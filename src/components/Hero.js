@@ -33,13 +33,15 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="contrast-section">
-      <div className="video-container">
-        <video autoPlay muted loop id="heroVideo">
-          <source src={content.hero.videoSrc} type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
-      </div>
+    <section
+      id="hero"
+      className="contrast-section"
+      style={{
+        backgroundImage: `url(${content.hero.imgSrc})`, // Use the image path from content.js
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',        
+      }}
+    >
       <div className="overlay"></div>
       <div className="hero-content">
         <div className="hero-carousel" key={currentSlide}>
@@ -58,6 +60,17 @@ const Hero = () => {
               href={button.href}
               onClick={(e) => scrollToSection(e, button.href)}
               className="MuiButton-root"
+              style={{
+                backgroundImage: 'url(/path-to-texture-image/paper-texture.png)', // Ensure this path is correct
+                backgroundColor: 'var(--primary-200)', // Paper-like color for fallback
+                color: 'var(--surface-900)', // Text color
+                padding: '10px 20px',
+                borderRadius: '25px',
+                fontSize: '0.9rem',
+                fontWeight: '700',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                margin: '0 10px',
+              }}
             >
               {button.label}
             </Button>

@@ -76,7 +76,7 @@
 .custom-navbar .navbar-nav .nav-item.active .nav-slider {
   width: 60%;
   margin: auto;
-  background-color: #199297; /* Blue color from your palette */
+  background-color: #000000; /* Blue color from your palette */
 }
 
 /* Transparent mode: set text color to white */
