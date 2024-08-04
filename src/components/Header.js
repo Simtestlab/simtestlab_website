@@ -85,7 +85,6 @@ const Header = () => {
     }
   };
 
-  // Define styles dynamically based on state
   const appBarStyle = {
     backdropFilter: isSticky ? 'blur(10px)' : 'none',
     backgroundColor: isSticky ? 'rgba(235, 242, 250, 0.85)' : 'transparent',
@@ -96,6 +95,7 @@ const Header = () => {
     flexGrow: 1,
     color: isSticky ? '#033F63' : '#EBF2FA',
     textShadow: isSticky ? 'none' : '0px 0px 10px rgba(0, 0, 0, 0.5)',
+    fontSize: '1.5rem',
   };
 
   const navLinkStyle = (isActive) => ({
@@ -114,7 +114,7 @@ const Header = () => {
     position: 'absolute',
     bottom: 0,
     height: '3px',
-    backgroundColor: '#199297',  // Blue color from your palette
+    backgroundColor: '#199297',
     transition: 'width 0.3s ease, left 0.3s ease',
   };
 
@@ -135,7 +135,7 @@ const Header = () => {
             width="40"
             height="40"
             alt="Simtestlab Logo"
-            style={{ padding: '5px' }}  // Add padding around the logo
+            style={{ padding: '5px' }}
           />
           {content.header.brand}
         </Typography>
