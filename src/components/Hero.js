@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Button, Grid } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import content from '../data/content';
 import '../styles/Hero.css';
 
@@ -41,18 +41,16 @@ const Hero = () => {
         </video>
       </div>
       <div className="overlay"></div>
-      <Grid container className="hero-content" alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-          <div className="hero-carousel" key={currentSlide}>
-            <Typography variant="h2" className="hero-title">
-              {slides[currentSlide].title}
-            </Typography>
-            <Typography variant="subtitle1" className="hero-text">
-              {slides[currentSlide].text}
-            </Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} className="hero-buttons" container justifyContent="center">
+      <div className="hero-content">
+        <div className="hero-carousel" key={currentSlide}>
+          <Typography variant="h2" className="hero-title">
+            {slides[currentSlide].title}
+          </Typography>
+          <Typography variant="subtitle1" className="hero-text">
+            {slides[currentSlide].text}
+          </Typography>
+        </div>
+        <div className="hero-buttons">
           {content.hero.buttons.map((button, index) => (
             <Button
               key={index}
@@ -64,8 +62,8 @@ const Hero = () => {
               {button.label}
             </Button>
           ))}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </section>
   );
 };

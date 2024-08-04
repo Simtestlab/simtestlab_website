@@ -27,8 +27,8 @@
   width: 100%;
   color: var(--surface-100);
   overflow: hidden;
-  padding: 20px;
-  background-color: transparent; /* Remove background color */
+  padding: 0;
+  margin: 0;
 }
 
 /* Video Background */
@@ -39,15 +39,15 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  overflow: hidden; /* Hide any overflow */
+  overflow: hidden;
 }
 
 #hero video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(8px); /* Apply blur effect */
-  opacity: 1; /* Full opacity */
+  filter: blur(8px);
+  opacity: 1;
 }
 
 /* Overlay */
@@ -57,7 +57,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(19, 19, 32, 0.4); /* Slight overlay to improve text legibility */
+  background: rgba(19, 19, 32, 0.4);
   z-index: 0;
 }
 
@@ -69,114 +69,150 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 24px;
+  max-width: 100%;
+  padding: 0 20px;
+  width: 100%;
+  justify-content: center;
 }
 
 /* Slide-in Animation */
 @keyframes slideInFromTop {
   0% {
     opacity: 0;
-    transform: translateY(-50px); /* Start above the view */
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* End at the original position */
+    transform: translateY(0);
   }
 }
 
-/* Apply Animation to Both Title and Subtext */
 .hero-title, .hero-text {
-  opacity: 0; /* Initial state */
-  animation: slideInFromTop 0.8s ease-out forwards; /* Slide-in animation */
+  opacity: 0;
+  transform: translateY(-50px); /* Start off-screen */
+  animation: slideInFromTop 0.8s ease-out forwards; /* Apply animation */
+}
+
+.hero-title {
+  animation-delay: 0.1s; /* Slight delay for the title */
+}
+
+.hero-text {
+  animation-delay: 0.3s; /* Slight delay after the title */
 }
 
 /* Main Title */
 .hero-title {
   margin: 0;
-  font-size: 44px; /* Increased font size */
+  font-size: 3rem;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.2;
   color: var(--surface-100);
-  z-index: 2;
-}
-
-.hero-title strong {
-  font-weight: 700; /* Bold font weight for emphasis */
-  color: var(--primary-200); /* Enhanced color contrast */
+  width: 100%;
 }
 
 /* Description */
 .hero-text {
-  margin: 0;
-  font-size: 22px; /* Increased font size */
-  line-height: 1.5; /* Improved line height for readability */
+  margin: 10px 0;
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 700; /* Increased font weight for boldness */
+  line-height: 1.6; /* Adjusted line height for better readability */
   color: var(--surface-300);
-  z-index: 2;
-  max-width: 600px; /* Ensure text doesn't stretch too wide on larger screens */
+  width: 100%;
 }
 
 /* Button */
 .hero-buttons {
-  margin-top: 20px; /* Space between text and buttons */
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .hero-buttons .MuiButton-root {
-  display: flex;
-  padding: 14px 28px; /* Increased padding for a more substantial button */
-  justify-content: center;
-  color: var(--surface-50); /* Light text color */
-  border-radius: 32px;
-  font-size: 20px; /* Increased font size for better readability */
+  padding: 10px 20px;
+  color: var(--surface-50);
+  border-radius: 25px; /* Smaller border radius */
+  font-size: 0.9rem; /* Smaller font size */
   font-weight: 700;
-  background: linear-gradient(90deg, #14A5BA, #1BB48D); /* Using the first two colors */
+  background: linear-gradient(90deg, #14A5BA, #1BB48D);
   background-size: 200% 200%;
   animation: bg-btn 3s linear alternate infinite;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 2;
-  margin: 10px 20px; /* Margin to ensure space between buttons and alignment */
+  margin: 0 10px; /* Adjusted margin */
 }
 
 .hero-buttons .MuiButton-root:hover {
-  transform: scale(1.02); /* Slightly increased scale effect */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Softer shadow for better depth */
-  background: linear-gradient(90deg, #034063, #14A5BA); /* Hover with deep navy blue */
-}
-
-/* Animations */
-@keyframes bg-btn {
-  0% { background-position: 10% 0%; }
-  50% { background-position: 91% 100%; }
-  100% { background-position: 10% 0%; }
+  transform: scale(1.03); /* Slightly increase the scale for better visual feedback */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Smaller shadow */
+  background: linear-gradient(90deg, #034063, #14A5BA);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 36px;
+    font-size: 2.5rem;
   }
 
   .hero-text {
-    font-size: 18px;
+    font-size: 1.25rem; /* Adjusted for smaller screens */
   }
 
   .hero-buttons .MuiButton-root {
-    padding: 12px 24px;
-    font-size: 18px;
+    padding: 8px 16px;
+    font-size: 0.8rem; /* Smaller font size */
+    border-radius: 20px; /* Smaller border radius */
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 28px;
+    font-size: 2rem;
   }
 
   .hero-text {
-    font-size: 16px;
+    font-size: 1rem; /* Adjusted for very small screens */
   }
 
   .hero-buttons .MuiButton-root {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 6px 14px; /* Reduced padding */
+    font-size: 0.75rem; /* Smaller font size */
+    border-radius: 18px; /* Smaller border radius */
+  }
+}
+
+/* Larger Screen Adjustments */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.5rem; /* Slightly larger for larger screens */
+  }
+
+  .hero-text {
+    font-size: 1.75rem; /* Larger font size for larger screens */
+    font-weight: 700; /* Ensure boldness is consistent */
+  }
+
+  .hero-buttons .MuiButton-root {
+    padding: 12px 24px;
+    font-size: 1rem; /* Slightly larger for larger screens */
+    border-radius: 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-title {
+    font-size: 4rem; /* Further increase for very large screens */
+  }
+
+  .hero-text {
+    font-size: 2rem; /* Further increase for very large screens */
+    font-weight: 700; /* Consistent boldness */
+  }
+
+  .hero-buttons .MuiButton-root {
+    padding: 14px 28px;
+    font-size: 1.1rem; /* Further increase for very large screens */
+    border-radius: 35px; /* Larger border radius for very large screens */
   }
 }
