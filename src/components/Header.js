@@ -139,43 +139,72 @@ const Header = () => {
           />
           {content.header.brand}
         </Typography>
-        <div className="desktop-menu" style={{ position: 'relative' }}>
-          {content.header.navItems.map((item, index) => (
-            <Button
-              key={index}
-              className="nav-link"
-              href={`#${item.href.substring(1)}`}
-              onClick={(e) => scrollToSection(e, item.href)}
-              style={navLinkStyle(currentId === item.href.substring(1))}
-            >
-              {item.label}
-            </Button>
-          ))}
-          <span className="nav-slider" style={sliderStyle} />
-        </div>
+        {!isMobile && (
+          <div className="desktop-menu" style={{ position: 'relative' }}>
+            {content.header.navItems.map((item, index) => (
+              <Button
+                key={index}
+                className="nav-link"
+                href={`#${item.href.substring(1)}`}
+                onClick={(e) => scrollToSection(e, item.href)}
+                style={navLinkStyle(currentId === item.href.substring(1))}
+              >
+                {item.label}
+              </Button>
+            ))}
+            <span className="nav-slider" style={sliderStyle} />
+          </div>
+        )}
         {isMobile && (
           <IconButton
             edge="end"
             color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
+            style={{ fontSize: '2rem' }}  // Increase the size of the menu icon
           >
             <MenuIcon />
           </IconButton>
         )}
-        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-          {content.header.navItems.map((item, index) => (
-            <MenuItem
-              key={index}
-              onClick={(e) => {
-                scrollToSection(e, item.href);
-                handleMenuClose();
-              }}
-            >
-              {item.label}
-            </MenuItem>
-          ))}
-        </Menu>
+        <Menu
+  anchorEl={anchorEl}
+  open={Boolean(anchorEl)}
+  onClose={handleMenuClose}
+  PaperProps={{
+    style: {
+      width: '100%',  // Full width of the screen
+      maxWidth: 'none',
+      top: '64px',  // Adjusted position from the top
+      margin: '0',
+      padding: '0',
+    },
+  }}
+  MenuListProps={{
+    style: {
+      padding: '0',  // Remove default padding
+    },
+  }}
+>
+  {content.header.navItems.map((item, index) => (
+    <MenuItem
+      key={index}
+      onClick={(e) => {
+        scrollToSection(e, item.href);
+        handleMenuClose();
+      }}
+      style={{
+        width: '100%',
+        padding: '16px 24px',  // Adjusted padding
+        borderBottom: '1px solid #EBF2FA',  // Border between items
+        fontSize: '1.2rem',  // Increase font size
+        color: '#033F63',  // Default color
+      }}
+    >
+      {item.label}
+    </MenuItem>
+  ))}
+</Menu>
+
       </Toolbar>
     </AppBar>
   );
