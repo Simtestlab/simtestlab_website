@@ -53,7 +53,7 @@
 
 /* Active state color adjustment for non-transparent mode */
 .custom-navbar.navbar-light.bg-white .navbar-nav .nav-item.active .nav-link {
-  color: #199297 !important; /* Match the desired active color */
+  color: #000000 !important; /* Match the desired active color */
 }
 
 /* Hover Effect: Inverse Colors */
@@ -68,7 +68,7 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #199297; /* Blue color from your palette */
+  background-color: #000000; /* Blue color from your palette */
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -94,56 +94,11 @@
   }
 }
 
-/* Menu item styles for mobile view */
-.MuiPaper-root {
-  padding: 0; /* Remove default padding */
-}
-
-.MuiMenuItem-root {
-  padding: 16px 24px; /* Adjust padding for better spacing */
-  border-bottom: 1px solid #EBF2FA; /* Add a border between items for separation */
-  font-size: 1.2rem; /* Increase font size for better readability */
-  color: #033F63; /* Default color for menu items */
-}
-
-.MuiMenuItem-root:last-child {
-  border-bottom: none; /* Remove border from the last item */
-}
-
-.MuiMenuItem-root:hover {
-  background-color: #199297; /* Background color on hover */
-  color: #FFFFFF; /* Text color on hover */
-}
-
-/* Ensure full width for menu */
-.MuiPaper-root {
-  width: 100% !important;
-  max-width: none !important;
-  left: 0 !important;
-  right: 0 !important;
-}
-
-/* Add margin at the top of the menu for better alignment */
-.MuiMenu-paper {
-  margin-top: 10px;
-}
-
 @media (max-width: 768px) {
   .custom-navbar .navbar-nav .nav-item {
     margin: 0 10px; /* Further reduced margin for smaller screens */
   }
   .custom-navbar .navbar-nav .nav-link {
     padding: 4px 6px; /* Minimized padding on small screens */
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
