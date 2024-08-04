@@ -1,5 +1,11 @@
+#contact {
+  scroll-margin-top: 60px;
+  height: 100vh;
+  background-color: #023246;  
+}
+
 footer {
-  background-color: #023246;
+  background-color: #023246;  
   padding: 60px 10%;
   color: #f6f6f6;
   display: flex;
