@@ -37,13 +37,50 @@ const Hero = () => {
       id="hero"
       className="contrast-section"
       style={{
-        backgroundImage: `url(${content.hero.imgSrc})`, // Use the image path from content.js
+        position: 'relative',
+        backgroundImage: `url(${content.hero.imgSrc})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',        
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="overlay"></div>
-      <div className="hero-content">
+      <div
+        className="background-blur"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          filter: 'blur(5px)', // Apply blur to the background image
+          zIndex: -1,
+        }}
+      ></div>
+      <div
+        className="overlay"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(0, 0, 0, 0.6)', // Dark overlay for contrast
+          zIndex: 1,
+        }}
+      ></div>
+      <div
+        className="hero-content"
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          padding: '20px',
+          textAlign: 'center',
+          color: 'white',
+          maxWidth: '800px',
+          margin: '0 auto',
+          paddingBottom: '150px', // Reserve space for buttons at the bottom
+        }}
+      >
         <div className="hero-carousel" key={currentSlide}>
           <Typography variant="h2" className="hero-title">
             {slides[currentSlide].title}
@@ -52,30 +89,38 @@ const Hero = () => {
             {slides[currentSlide].text}
           </Typography>
         </div>
-        <div className="hero-buttons">
-          {content.hero.buttons.map((button, index) => (
-            <Button
-              key={index}
-              variant="contained"
-              href={button.href}
-              onClick={(e) => scrollToSection(e, button.href)}
-              className="MuiButton-root"
-              style={{
-                backgroundImage: 'url(/path-to-texture-image/paper-texture.png)', // Ensure this path is correct
-                backgroundColor: 'var(--primary-200)', // Paper-like color for fallback
-                color: 'var(--surface-900)', // Text color
-                padding: '10px 20px',
-                borderRadius: '25px',
-                fontSize: '0.9rem',
-                fontWeight: '700',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                margin: '0 10px',
-              }}
-            >
-              {button.label}
-            </Button>
-          ))}
-        </div>
+      </div>
+      <div
+        className="hero-buttons"
+        style={{
+          position: 'absolute',
+          bottom: '50px', // Fix the position from the bottom
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 2,
+        }}
+      >
+        {content.hero.buttons.map((button, index) => (
+          <Button
+            key={index}
+            variant="contained"
+            href={button.href}
+            onClick={(e) => scrollToSection(e, button.href)}
+            className="MuiButton-root"
+            style={{
+              backgroundColor: '#E3D1B8', // Paper-like color based on the image
+              color: '#262626', // Dark text color
+              padding: '10px 20px',
+              borderRadius: '25px',
+              fontSize: '0.9rem',
+              fontWeight: '700',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              margin: '0 10px',
+            }}
+          >
+            {button.label}
+          </Button>
+        ))}
       </div>
     </section>
   );
