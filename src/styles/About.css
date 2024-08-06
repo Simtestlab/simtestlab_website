@@ -109,18 +109,21 @@
   overflow: hidden; /* To avoid content overflow during animation */
 }
 
-.service-caption h5 {
+.service-caption h5, .service-caption p {
   margin: 0;
-  font-size: 1.5rem;
+  position: absolute;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.service-caption h5 {
   z-index: 2;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .service-caption p {
   opacity: 0;
-  font-size: 1rem;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(20px); /* Move subtext down initially */
+  transform: translateY(20px); /* Initially move subtext down */
 }
 
 .service-item:hover .service-caption {
@@ -128,8 +131,8 @@
 }
 
 .service-item:hover .service-caption h5 {
-  transform: translateY(-20px); /* Move heading up */
   opacity: 0; /* Fade out heading */
+  transform: translateY(-20px); /* Move heading up */
 }
 
 .service-item:hover .service-caption p {
