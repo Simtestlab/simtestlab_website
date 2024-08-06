@@ -3,13 +3,13 @@
   position: relative;
   background-color: #000000; /* Use a darker black version */
   color: #1a1a1a;
-  height: 100vh; /* Full height of the viewport */
   padding: 50px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   scroll-margin-top: 80px;
+  min-height: 100vh;
 }
 
 /* About Header and Tabs */
@@ -210,6 +210,13 @@
     width: 90%;
     margin: 10px auto;
   }
+  .about-section {
+    height: auto; /* Extend section height based on content for mobile view */
+  }
+  .service-caption {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for mobile */
+  }
 }
 
 /* For larger screens */
@@ -230,6 +237,9 @@
 
 /* For medium screens */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .about-section {
+    min-height: auto;
+  }
   .about-header h2 {
     font-size: 2.5rem;
   }
@@ -245,7 +255,11 @@
 }
 
 /* For smaller screens */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 991.98px) {  
+  .about-section {
+    min-height: auto;
+  }
+
   .about-header h2 {
     font-size: 2rem;
   }
@@ -262,6 +276,10 @@
 
 /* For mobile screens */
 @media (max-width: 767.98px) {
+  .about-section {
+    min-height: auto;
+  }
+
   .about-header h2 {
     font-size: 1.5rem;
   }
@@ -273,5 +291,9 @@
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+  }
+  .service-caption {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for mobile */
   }
 }
