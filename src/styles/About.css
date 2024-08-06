@@ -1,22 +1,22 @@
-section {
-  scroll-margin-top: 80px; 
-}
-
+/* General About Section */
 .about-section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #000000; /* Use a darker black version */
   color: #1a1a1a;
-  height: auto;
+  height: 100vh; /* Full height of the viewport */
   padding: 50px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  scroll-margin-top: 80px;
 }
 
+/* About Header and Tabs */
 .about-header h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #ffffff; /* White for better contrast */
 }
 
 .tabs {
@@ -32,20 +32,37 @@ section {
   font-size: 1.2rem;
   margin: 0 10px;
   cursor: pointer;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+  outline: none; /* Remove the default focus outline */
 }
 
 .tab-button.active {
-  color: #1a1a1a;
-  border-bottom: 2px solid red;
+  color: #ffffff; /* Active tab color */
+  border-bottom: 2px solid #199297; /* Blue underline for active tab */
+  transform: scale(1.1); /* Slight scale animation on active tab */
 }
 
-.tab-button:focus {
-  outline: none;
+.tab-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #199297; /* Blue color for underline */
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
-.about-header p {
-  font-size: 1rem;
-  margin-bottom: 30px;
+.tab-button:hover::before,
+.tab-button.active::before {
+  width: 100%; /* Expand the underline */
+  left: 0;
+}
+
+.tab-button:hover {
+  color: #ffffff; /* Hover state color */
 }
 
 /* Service section styles */
@@ -60,6 +77,7 @@ section {
   position: relative;
   width: calc(25% - 20px);
   margin: 10px;
+  overflow: hidden;
 }
 
 .service-item img {
@@ -68,7 +86,7 @@ section {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 10px;
-  filter: blur(3px); /* Apply blur to images */
+  filter: blur(3px) brightness(0.6); /* Apply blur and darken images */
 }
 
 .service-caption {
@@ -79,24 +97,44 @@ section {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff; /* Darker text color */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  color: #ffffff; /* White text color */
   padding: 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+  background-color: rgba(16, 16, 16, 0.7); /* Match the darker black background with transparency */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Darker text shadow */
   text-align: center;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  overflow: hidden; /* To avoid content overflow during animation */
 }
 
 .service-caption h5 {
   margin: 0;
-  font-size: 1.5rem; /* Increase font size */
+  font-size: 1.5rem;
+  z-index: 2;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .service-caption p {
-  margin: 0;
-  font-size: 1rem; /* Increase font size */
+  opacity: 0;
+  font-size: 1rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px); /* Move subtext down initially */
+}
+
+.service-item:hover .service-caption {
+  background-color: #199297; /* Change to a color from your palette for better readability */
+}
+
+.service-item:hover .service-caption h5 {
+  transform: translateY(-20px); /* Move heading up */
+  opacity: 0; /* Fade out heading */
+}
+
+.service-item:hover .service-caption p {
+  opacity: 1; /* Fade in subtext */
+  transform: translateY(0); /* Move subtext up */
 }
 
 .services-images.hidden {
@@ -105,6 +143,19 @@ section {
 
 .services-images.active {
   display: flex; /* Ensure it is flex to match the flexbox layout */
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Media Queries for Responsive Layout */
@@ -158,7 +209,7 @@ section {
   }
 }
 
-/* Media Queries for Responsive Layout */
+/* For larger screens */
 @media (min-width: 1200px) {
   .about-header h2 {
     font-size: 3rem;
@@ -166,8 +217,15 @@ section {
   .about-header p {
     font-size: 1.2rem;
   }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 }
 
+/* For medium screens */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .about-header h2 {
     font-size: 2.5rem;
@@ -175,8 +233,15 @@ section {
   .about-header p {
     font-size: 1rem;
   }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 }
 
+/* For smaller screens */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .about-header h2 {
     font-size: 2rem;
@@ -184,13 +249,26 @@ section {
   .about-header p {
     font-size: 0.9rem;
   }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 }
 
+/* For mobile screens */
 @media (max-width: 767.98px) {
   .about-header h2 {
     font-size: 1.5rem;
   }
   .about-header p {
     font-size: 0.9rem;
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 }

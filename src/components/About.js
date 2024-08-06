@@ -15,7 +15,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="about-section" id="services">
+    <section className="about-section" id="services" style={{ height: '100vh' }}>
       <div className="content">
         <div className="about-header">
           <h2>{content.about.title}</h2>
@@ -43,7 +43,7 @@ const About = () => {
                 <img src={service.imgSrc} alt={service.title} />
                 <div className="service-caption">
                   <h5>{service.title}</h5>
-                  <p>{service.text}</p>
+                  <p className="hidden-text">{service.text}</p>
                 </div>
               </div>
             ))}
