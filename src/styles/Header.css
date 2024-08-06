@@ -24,40 +24,49 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  flex-grow: 1;
+  color: #033F63;
+  text-shadow: none;
 }
 
-.custom-navbar .navbar-brand img {
-  margin-right: 10px;
-  margin-left: 10px;
+.custom-navbar.navbar-dark .navbar-brand {
+  color: #EBF2FA;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Center the nav items */
-.custom-navbar .navbar-nav {
+.custom-navbar .desktop-menu {
   display: flex;
   justify-content: center;
-  width: 100%;
+  position: relative;
+  margin-left: auto;
 }
 
 /* Space between the navbar items */
-.custom-navbar .navbar-nav .nav-item {
-  margin: 0 20px; /* Adjusted spacing */
-}
-
-/* Navbar link styles */
-.custom-navbar .navbar-nav .nav-link {
+.custom-navbar .desktop-menu .nav-link {
   font-family: 'Arial', sans-serif;
   transition: color 0.3s ease-in-out, padding 0.3s ease-in-out;
-  padding: 8px 10px; /* Smaller padding */
-  color: #033F63 !important; /* Default color in non-transparent mode */
+  padding: 8px 15px;
+  color: #033F63 !important;
+  text-decoration: none;
 }
 
 /* Active state color adjustment for non-transparent mode */
-.custom-navbar.navbar-light.bg-white .navbar-nav .nav-item.active .nav-link {
-  color: #000000 !important; /* Match the desired active color */
+.custom-navbar.navbar-light.bg-white .desktop-menu .nav-link.active {
+  color: #199297 !important;
+}
+
+/* Transparent mode: set text color to white */
+.custom-navbar.navbar-dark .desktop-menu .nav-link {
+  color: #EBF2FA !important;
+}
+
+.custom-navbar.navbar-dark .desktop-menu .nav-link.active {
+  color: #199297 !important;
 }
 
 /* Hover Effect: Inverse Colors */
-.custom-navbar .navbar-nav .nav-link:hover {
+.custom-navbar .desktop-menu .nav-link:hover {
   color: #FFFFFF !important;
   background-color: #033F63 !important;
   border-radius: 4px;
@@ -68,37 +77,27 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #000000; /* Blue color from your palette */
+  background-color: #199297;
   transition: width 0.3s ease, left 0.3s ease;
-}
-
-/* Active link slider */
-.custom-navbar .navbar-nav .nav-item.active .nav-slider {
-  width: 60%;
-  margin: auto;
-  background-color: #000000; /* Blue color from your palette */
-}
-
-/* Transparent mode: set text color to white */
-.custom-navbar.navbar-dark .navbar-nav .nav-link {
-  color: #EBF2FA !important; /* White color from your palette */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 1024px) {
-  .custom-navbar .navbar-nav .nav-item {
-    margin: 0 15px; /* Slightly reduced margin for medium screens */
-  }
-  .custom-navbar .navbar-nav .nav-link {
-    padding: 6px 8px; /* Further reduce padding on medium screens */
+  .custom-navbar .desktop-menu .nav-link {
+    padding: 6px 10px;
+    font-size: 14px;
   }
 }
 
-@media (max-width: 768px) {
-  .custom-navbar .navbar-nav .nav-item {
-    margin: 0 10px; /* Further reduced margin for smaller screens */
+@media (max-width: 800px) {
+  .custom-navbar .desktop-menu {
+    display: none;
   }
-  .custom-navbar .navbar-nav .nav-link {
-    padding: 4px 6px; /* Minimized padding on small screens */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 800px) {
+  .custom-navbar .navbar-brand {
+    flex-grow: 1;
   }
 }
