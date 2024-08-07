@@ -3,6 +3,7 @@
   height: 100vh;
   position: relative;
   display: flex;
+  background-color: #033f63; /* Darker version of the blue from the palette */
 }
 
 .slider .controls {
@@ -20,14 +21,19 @@
 .slider .controls > div {
   width: 50px;
   height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  background-color: rgba(235, 242, 250, 0.8); /* Light blue/white from the palette */
+  color: #033f63; /* Darker blue for the arrow */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   margin: 5px 0;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider .controls > div:hover {
+  background-color: #1b828d; /* Slightly darker shade for hover */
 }
 
 .slider .wrapper {
@@ -57,7 +63,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
-  background: #60B3D1;
+  background: #1b828d; /* Adjusted to a slightly darker blue */
   color: #ffffff;
 }
 
@@ -83,7 +89,7 @@
 
   .slider .controls {
     flex-direction: row;
-    top: 95%;
+    top: 90%;  /* Adjust position to be closer to the bottom */
     transform: translate(-50%, -50%);
   }
 
@@ -116,15 +122,16 @@
   }
 
   .slider .controls {
+    display: flex; /* Ensure controls are displayed */
     flex-direction: row;
-    top: 95%;
+    top: 95%; /* Further adjust position */
     transform: translate(-50%, -50%);
   }
 
   .slider .controls > div {
-    margin: 0 5px;
-    width: 35px;
-    height: 35px;
+    margin: 0 3px;
+    width: 25px; /* Smaller button size */
+    height: 25px; /* Smaller button size */
   }
 
   .slider .wrapper {

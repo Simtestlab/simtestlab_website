@@ -1,77 +1,95 @@
 #contact {
   scroll-margin-top: 60px;
   height: 100vh;
-  background-color: #023246;  
+  background-color: #000000;  
+  animation: fadeIn 1s ease-in-out forwards; /* Fade-in animation for the section */
+  opacity: 0;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 footer {
-  background-color: #023246;  
+  background-color: #000000;  
   padding: 60px 10%;
   color: #f6f6f6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
-  text-align: left; /* Left align text */
-  gap: 50px; /* Increase gap between footer columns */
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col {
-  flex: 1 1 calc(20% - 50px); /* Adjust flex basis for more spacing */
-  margin-bottom: 20px;
-  min-width: 250px; /* Ensure minimum width for columns */
+  align-items: flex-start; 
+  text-align: left; 
+  gap: 50px; 
 }
 
 .footer-col h4 {
   position: relative;
-  margin-bottom: 20px; /* Add more space between heading and content */
+  margin-bottom: 20px;
   font-weight: 400;
   font-size: 18px;
-  color: #60B3D1;
+  color: #60B3D1; 
   text-transform: capitalize;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInText 1s ease forwards;
 }
 
-.footer-col h4::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  background-color: #287094;
-  height: 2px;
-  width: 40px;
+.footer-col h4:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.footer-col h4:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.footer-col h4:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+/* Slide-In Animation */
+@keyframes slideInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .footer-col ul li {
-  margin-bottom: 10px; /* Add more space between list items */
-  white-space: normal; /* Allow content to wrap to the next line if needed */
+  margin-bottom: 10px;
+  white-space: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInText 1s ease forwards;
 }
 
-.footer-col ul li a {
-  display: block;
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #d4d4ce;
-  text-decoration: none;
-  transition: color 0.4s;
+.footer-col ul li:nth-child(1) {
+  animation-delay: 0.2s;
 }
 
-.footer-col ul li a:hover {
-  color: #f6f6f6;
+.footer-col ul li:nth-child(2) {
+  animation-delay: 0.3s;
 }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align social links to the left */
-  gap: 10px; /* Add gap between social links */
+.footer-col ul li:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
+.footer-col ul li:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.footer-col ul li:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.footer-col ul li:nth-child(6) {
+  animation-delay: 0.7s;
+}
+
+/* Animated Social Icons */
 .links a {
   display: inline-block;
   height: 44px;
@@ -81,12 +99,32 @@ ul {
   line-height: 44px;
   border-radius: 50%;
   color: white;
-  transition: background-color 0.4s;
+  transition: background-color 0.4s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInText 1s ease forwards;
+}
+
+.links a:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.links a:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.links a:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.links a:nth-child(4) {
+  animation-delay: 0.5s;
 }
 
 .links a:hover {
   background-color: white;
   color: #4d4f55;
+  transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 .contact-form {
@@ -95,13 +133,17 @@ ul {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: formFadeIn 1s ease-in-out forwards 0.5s; /* Delayed fade-in for form */
 }
 
-.form-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
+/* Form Fade-In Animation */
+@keyframes formFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-group input,
@@ -111,12 +153,18 @@ ul {
   margin-bottom: 20px;
   border: none;
   border-radius: 5px;
+  background-color: #333333; 
+  color: #f6f6f6; 
   box-sizing: border-box;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.form-group textarea {
-  height: 100px;
-  resize: none;
+/* Input Focus Effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  background-color: #444444; /* Slightly lighter on focus */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  outline: none;
 }
 
 .contact-form .btn {
@@ -128,7 +176,7 @@ ul {
   line-height: 44px;
   border-radius: 5px;
   color: white;
-  transition: background-color 0.4s;
+  transition: background-color 0.4s, transform 0.3s;
   text-decoration: none;
   cursor: pointer;
   margin-top: 10px;
@@ -136,9 +184,11 @@ ul {
   box-sizing: border-box; 
 }
 
+/* Button Hover Effect */
 .contact-form .btn:hover {
   background-color: white;
   color: #4d4f55;
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .centered-form-container {
@@ -146,49 +196,23 @@ ul {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 600px; /* Max width for the form container */
-  margin: 0 auto; /* Center the form container */
-}
-
-/* New class for centering the Get In Touch header */
-.centered-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Ensure other headers remain unaffected */
-.footer-col h4 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-/* Form styling remains unchanged */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.footer-col ul li {
-  margin-bottom: 10px;
-  white-space: nowrap; /* Prevent text from wrapping to the next line */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis if the text is too long */
-}
-
-.footer-col {
-  flex: 1 1 auto;
+.centered-header {
+  text-align: center;
   margin-bottom: 20px;
-  min-width: 250px; /* Ensure minimum width for columns */
-  max-width: 100%; /* Ensure that columns can grow and shrink as needed */
-  word-break: keep-all; /* Prevent line breaks within words */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInText 1s ease forwards;
+  animation-delay: 0.3s; /* Delayed animation for the header */
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .footer-col {
-    flex: 1 1 calc(50% - 40px); /* Two columns on medium screens */
+    flex: 1 1 calc(50% - 40px);
     text-align: left;
   }
 
@@ -218,12 +242,12 @@ ul {
 
 @media (max-width: 480px) {
   .footer-col {
-    flex: 1 1 100%; /* Single column on small screens */
-    text-align: left; /* Ensure text is left-aligned */
+    flex: 1 1 100%;
+    text-align: left;
   }
 
   .links {
-    justify-content: flex-start; /* Align social links to the left */
+    justify-content: flex-start; 
     display: flex;
   }
 

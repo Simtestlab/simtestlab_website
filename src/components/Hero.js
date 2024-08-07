@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Button, Grid, Fade } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import content from '../data/content';
 import '../styles/Hero.css';
 
 const Hero = () => {
   const slides = content.hero.slides;
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-        setIsVisible(true);
-      }, 800);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -38,60 +33,95 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="contrast-section">
-      <div className="video-container">
-        <video autoPlay muted loop id="heroVideo">
-          <source src={content.hero.videoSrc} type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
+    <section
+      id="hero"
+      className="contrast-section"
+      style={{
+        position: 'relative',
+        backgroundImage: `url(${content.hero.imgSrc})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div
+        className="background-blur"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          filter: 'blur(5px)', // Apply blur to the background image
+          zIndex: -1,
+        }}
+      ></div>
+      <div
+        className="overlay"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(0, 0, 0, 0.6)', // Dark overlay for contrast
+          zIndex: 1,
+        }}
+      ></div>
+      <div
+        className="hero-content"
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          padding: '20px',
+          textAlign: 'center',
+          color: 'white',
+          maxWidth: '800px',
+          margin: '0 auto',
+          paddingBottom: '150px', // Reserve space for buttons at the bottom
+        }}
+      >
+        <div className="hero-carousel" key={currentSlide}>
+          <Typography variant="h2" className="hero-title">
+            {slides[currentSlide].title}
+          </Typography>
+          <Typography variant="subtitle1" className="hero-text">
+            {slides[currentSlide].text}
+          </Typography>
+        </div>
       </div>
-      <div className="overlay"></div>
-      <Grid container className="hero-content" alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-          <Fade in={isVisible}>
-            <div className="hero-carousel">
-              <Typography variant="h2" className="hero-title" style={{ marginBottom: '20px' }}>
-                {slides[currentSlide].title}
-              </Typography>
-              <Typography variant="subtitle1" className="hero-text" style={{ marginBottom: '30px' }}>
-                {slides[currentSlide].text}
-              </Typography>
-            </div>
-          </Fade>
-        </Grid>
-        <Grid item xs={12} className="hero-buttons" container justifyContent="center">
-          {content.hero.buttons.map((button, index) => (
-            <Button
-              key={index}
-              variant="contained"
-              href={button.href}
-              onClick={(e) => scrollToSection(e, button.href)}
-              style={{
-                padding: '0.75rem 1.5rem',
-                margin: '0 0.75rem',
-                background: 'linear-gradient(135deg, #1497B9, #1BB48D)',
-                color: '#EBF2FA',
-                borderRadius: '8px',
-                fontSize: '14px',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                textTransform: 'uppercase',
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'scale(1.05)';
-                e.target.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
-                e.target.style.background = 'linear-gradient(135deg, #1BB48D, #1497B9)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'scale(1)';
-                e.target.style.boxShadow = 'none';
-                e.target.style.background = 'linear-gradient(135deg, #1497B9, #1BB48D)';
-              }}
-            >
-              {button.label}
-            </Button>
-          ))}
-        </Grid>
-      </Grid>
+      <div
+        className="hero-buttons"
+        style={{
+          position: 'absolute',
+          bottom: '50px', // Fix the position from the bottom
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 2,
+        }}
+      >
+        {content.hero.buttons.map((button, index) => (
+          <Button
+            key={index}
+            variant="contained"
+            href={button.href}
+            onClick={(e) => scrollToSection(e, button.href)}
+            className="MuiButton-root"
+            style={{
+              backgroundColor: '#E3D1B8', // Paper-like color based on the image
+              color: '#262626', // Dark text color
+              padding: '10px 20px',
+              borderRadius: '25px',
+              fontSize: '0.9rem',
+              fontWeight: '700',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              margin: '0 10px',
+            }}
+          >
+            {button.label}
+          </Button>
+        ))}
+      </div>
     </section>
   );
 };

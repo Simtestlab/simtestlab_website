@@ -43,7 +43,7 @@ const About = () => {
                 <img src={service.imgSrc} alt={service.title} />
                 <div className="service-caption">
                   <h5>{service.title}</h5>
-                  <p>{service.text}</p>
+                  <p className="hidden-text">{service.text}</p>
                 </div>
               </div>
             ))}

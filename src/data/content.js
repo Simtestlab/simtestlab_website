@@ -11,7 +11,8 @@ const content = {
     logoSrc: "/images/logo.png"
   },
   hero: {
-    videoSrc: "/video/background.mp4",
+    imgSrc: "/images/car.jpg",
+    //videoSrc: "/video/background.mp4",
     slides: [
       {
         title: "Model Based Development",
