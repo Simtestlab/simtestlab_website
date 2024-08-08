@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -6,9 +7,9 @@ import About from './components/About';
 import Employees from './components/Employees';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import Candidate from './components/Candidate';
 import './App.css';
 
-// Define your custom theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -29,14 +30,21 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <Router>
         <Header />
-        <Hero />
-        <About />
-        <Employees />
-        <Services />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              <Employees />
+              <Services />
+            </>
+          } />
+          <Route path="/candidate/:hash_value" element={<Candidate />} />
+        </Routes>
         <Contact />
-      </div>
+      </Router>
     </ThemeProvider>
   );
 }

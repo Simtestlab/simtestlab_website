@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import SwiperCore, { Pagination, Navigation, Autoplay, EffectCoverflow } from 'swiper';
-import content from '../data/content';
 import '../styles/Employees.css';
 
 SwiperCore.use([Pagination, Navigation, Autoplay, EffectCoverflow]);
@@ -13,6 +12,15 @@ const Employees = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeMember, setActiveMember] = useState(null);
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    // Fetch employee data from Django API
+    fetch('http://127.0.0.1:8000/api/employees/')
+      .then(response => response.json())
+      .then(data => setEmployees(data))
+      .catch(error => console.error('Error fetching employee data:', error));
+  }, []);
 
   const closePopup = useCallback(() => {
     setActiveMember(null);
@@ -105,7 +113,7 @@ const Employees = () => {
     <section className="testimonials" id="employees" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
-          <h2 className="title">{content.employees.title}</h2>
+          <h2 className="title">Who we are</h2>
         </div>
         <div className="testimonials-content">
           <Swiper
@@ -137,14 +145,14 @@ const Employees = () => {
               });
             }}
           >
-            {content.employees.members.map((member, index) => (
+            {employees.map((employee, index) => (
               <SwiperSlide key={index} className="swiper-slide testimonials-item">
                 <div className="info">
-                  <img src={member.imgSrc} alt="Employee" />
+                  <img src={employee.img_src} alt={employee.name} />
                   <div className="text-box">
-                    <h3 className="name">{member.name}</h3>
-                    <span className="job"><strong>{member.job}</strong></span>
-                    <p>{member.description}</p>
+                    <h3 className="name">{employee.name}</h3>
+                    <span className="job"><strong>{employee.job}</strong></span>
+                    <p>{employee.description}</p>
                   </div>
                 </div>
                 <button
@@ -162,18 +170,12 @@ const Employees = () => {
         <div className="popup-container open">
           <div className="popup-content">
             <button className="close-popup" onClick={closePopup}>&times;</button>
-            <h2>{content.employees.members[activeMember].name}</h2>
-            <img src={content.employees.members[activeMember].imgSrc} alt={content.employees.members[activeMember].name} className="popup-img"/>
-            {content.employees.members[activeMember].job && (
-              <h4>{content.employees.members[activeMember].job}</h4>
+            <h2>{employees[activeMember].name}</h2>
+            <img src={employees[activeMember].img_src} alt={employees[activeMember].name} className="popup-img"/>
+            {employees[activeMember].job && (
+              <h4>{employees[activeMember].job}</h4>
             )}
-            <p>{content.employees.members[activeMember].full_description || content.employees.members[activeMember].description}</p>
-            {content.employees.members[activeMember].github && (
-              <a href={content.employees.members[activeMember].github} target="_blank" rel="noopener noreferrer" className="github-link">View GitHub Profile</a>
-            )}
-            {content.employees.members[activeMember].linkedin && (
-              <a href={content.employees.members[activeMember].linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">View LinkedIn Profile</a>
-            )}
+            <p>{employees[activeMember].full_description || employees[activeMember].description}</p>
           </div>
         </div>
       )}
