@@ -15,7 +15,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  // Smooth scrolling to section
   const scrollToSection = (event, href) => {
     event.preventDefault();
     const targetElement = document.querySelector(href);
@@ -74,11 +73,12 @@ const Hero = () => {
           position: 'relative',
           zIndex: 2,
           padding: '20px',
-          textAlign: 'center',
+          textAlign: 'left', // Align text to the left
           color: 'white',
           maxWidth: '800px',
           margin: '0 auto',
           paddingBottom: '150px', // Reserve space for buttons at the bottom
+          marginLeft: '50px', // Add margin to the left
         }}
       >
         <div className="hero-carousel" key={currentSlide}>
@@ -95,9 +95,9 @@ const Hero = () => {
         style={{
           position: 'absolute',
           bottom: '50px', // Fix the position from the bottom
-          left: '50%',
-          transform: 'translateX(-50%)',
+          left: '50px', // Aligning buttons to the left with margin
           zIndex: 2,
+          transform: 'none', // Remove centering transform
         }}
       >
         {content.hero.buttons.map((button, index) => (
@@ -112,7 +112,7 @@ const Hero = () => {
               color: '#262626', // Dark text color
               padding: '10px 20px',
               borderRadius: '25px',
-              fontSize: '0.9rem',
+              fontSize: '1rem', // Increased font size for buttons
               fontWeight: '700',
               transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               margin: '0 10px',

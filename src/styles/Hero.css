@@ -37,12 +37,13 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
   justify-content: center;
-  max-width: 100%;
-  padding-bottom: 150px; /* Reserve space for buttons at the bottom */
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 20px;
+  width: 80vw; /* Occupy 80% of the viewport width */
+  height: 50vh; /* Occupy 50% of the viewport height */
+  margin-left: 50px;
 }
 
 /* Slide-in Animation */
@@ -65,48 +66,37 @@
 
 .hero-title {
   animation-delay: 0.1s; /* Slight delay for the title */
+  font-size: 6vw; /* Increase main title size based on viewport width */
+  max-width: 80%; /* Ensure text doesn't exceed its container */
+  color: white !important; /* Ensure color is applied */
 }
 
 .hero-text {
   animation-delay: 0.3s; /* Slight delay after the title */
-}
-
-/* Main Title */
-.hero-title {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--surface-50); /* White text */
-  width: 100%;
-}
-
-/* Description */
-.hero-text {
-  margin: 10px 0;
-  font-size: 1.5rem;
+  font-size: 2.5vw; /* Increase subtext size based on viewport width */
   font-weight: 700;
   line-height: 1.6;
-  color: var(--surface-100); /* Light gray text */
-  width: 100%;
+  color: white !important; /* Ensure color is applied */
+  max-width: 80%; /* Ensure text doesn't exceed its container */
 }
 
 /* Button */
 .hero-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Align buttons to the left */
   width: 100%;
   position: absolute;
   bottom: 50px;
+  left: 50px; /* Align buttons to the left with margin */
 }
 
 .hero-buttons .MuiButton-root {
-  padding: 10px 20px;
-  color: var(--surface-900); /* Dark text */
+  padding: 12px 24px;
+  font-size: 1rem !important; /* Force button font size */
+  color: var(--surface-900) !important; /* Ensure button color */
+  background: var(--primary-200) !important; /* Ensure background color */
   border-radius: 25px;
-  font-size: 0.9rem;
   font-weight: 700;
-  background: var(--primary-200); /* Paper-like texture color for Button Background */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 0 10px;
 }
@@ -114,42 +104,42 @@
 .hero-buttons .MuiButton-root:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Slight shadow on hover */
-  background: var(--primary-100); /* Lighter gray on hover */
+  background: var(--primary-100) !important; /* Lighter gray on hover */
 }
 
 .hero-buttons .MuiButton-root:active {
-  background: var(--primary-300); /* Darker Paper-like color for Active State */
+  background: var(--primary-300) !important; /* Darker Paper-like color for Active State */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 8vw; /* Adjust font size for smaller screens */
   }
 
   .hero-text {
-    font-size: 1.25rem;
+    font-size: 3vw; /* Adjust font size for smaller screens */
   }
 
   .hero-buttons .MuiButton-root {
     padding: 8px 16px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border-radius: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 10vw; /* Adjust font size for smaller screens */
   }
 
   .hero-text {
-    font-size: 1rem;
+    font-size: 4vw; /* Adjust font size for smaller screens */
   }
 
   .hero-buttons .MuiButton-root {
     padding: 6px 14px;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     border-radius: 18px;
   }
 }
@@ -157,33 +147,32 @@
 /* Larger Screen Adjustments */
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 5vw; /* Adjust font size for larger screens */
   }
 
   .hero-text {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: 2vw; /* Adjust font size for larger screens */
   }
 
   .hero-buttons .MuiButton-root {
-    padding: 12px 24px;
-    font-size: 1rem;
+    padding: 14px 28px;
+    font-size: 1.1rem;
     border-radius: 30px;
   }
 }
 
 @media (min-width: 1440px) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 4.5vw; /* Adjust font size for larger screens */
   }
 
   .hero-text {
-    font-size: 2rem;
+    font-size: 2.2vw; /* Adjust font size for larger screens */
   }
 
   .hero-buttons .MuiButton-root {
-    padding: 14px 28px;
-    font-size: 1.1rem;
+    padding: 16px 32px;
+    font-size: 1.2rem;
     border-radius: 35px;
   }
 }
