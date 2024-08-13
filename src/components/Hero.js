@@ -36,51 +36,15 @@ const Hero = () => {
       id="hero"
       className="contrast-section"
       style={{
-        position: 'relative',
         backgroundImage: `url(${content.hero.imgSrc})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div
-        className="background-blur"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          filter: 'blur(5px)', // Apply blur to the background image
-          zIndex: -1,
-        }}
-      ></div>
-      <div
-        className="overlay"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'rgba(0, 0, 0, 0.6)', // Dark overlay for contrast
-          zIndex: 1,
-        }}
-      ></div>
-      <div
-        className="hero-content"
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          padding: '20px',
-          textAlign: 'left', // Align text to the left
-          color: 'white',
-          maxWidth: '800px',
-          margin: '0 auto',
-          paddingBottom: '150px', // Reserve space for buttons at the bottom
-          marginLeft: '50px', // Add margin to the left
-        }}
-      >
+      <div className="background-blur"></div>
+      <div className="overlay"></div>
+      <div className="hero-content">
         <div className="hero-carousel" key={currentSlide}>
           <Typography variant="h2" className="hero-title">
             {slides[currentSlide].title}
@@ -90,33 +54,16 @@ const Hero = () => {
           </Typography>
         </div>
       </div>
-      <div
-        className="hero-buttons"
-        style={{
-          position: 'absolute',
-          bottom: '50px', // Fix the position from the bottom
-          left: '50px', // Aligning buttons to the left with margin
-          zIndex: 2,
-          transform: 'none', // Remove centering transform
-        }}
-      >
+      <div className="hero-buttons">
         {content.hero.buttons.map((button, index) => (
           <Button
             key={index}
             variant="contained"
             href={button.href}
             onClick={(e) => scrollToSection(e, button.href)}
-            className="MuiButton-root"
-            style={{
-              backgroundColor: '#E3D1B8', // Paper-like color based on the image
-              color: '#262626', // Dark text color
-              padding: '10px 20px',
-              borderRadius: '25px',
-              fontSize: '1rem', // Increased font size for buttons
-              fontWeight: '700',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              margin: '0 10px',
-            }}
+            className={`MuiButton-root ${
+              button.label === 'Contact Us' ? 'contact-us-button' : ''
+            } ${button.label === 'Learn More' ? 'learn-more-button' : ''}`}
           >
             {button.label}
           </Button>
