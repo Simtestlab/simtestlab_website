@@ -12,7 +12,6 @@ const content = {
   },
   hero: {
     imgSrc: "/images/car.jpg",
-    //videoSrc: "/video/background.mp4",
     slides: [
       {
         title: "Model Based Development",
@@ -34,89 +33,49 @@ const content = {
   },
   about: {
     title: "OUR SERVICES",
-    tabs: [
-      { id: "it-services", label: "MODEL BASED DEVELOPMENT" },
-      { id: "business-services", label: "BATTERY MANAGEMENT SYSTEM" },
-      { id: "product-information", label: "TEST AUTOMATE FRAMEWORK" },
-    ],
-    services: {
-      "it-services": [
-        {
-          imgSrc: "/images/models/board.jpg",
-          title: "Model in Loop",
-          text: "Validates the model by testing its behavior and functionality without any physical hardware or software implementation.",
-        },
-        {
-          imgSrc: "/images/models/software.jpg",
-          title: "Software in Loop",
-          text: "Evaluates the correctness of the generated code by executing it within a simulation model.",
-        },
-        {
-          imgSrc: "/images/models/testing.jpg",
-          title: "Hardware in Loop",
-          text: "Integrates the actual hardware components with the control software in a real-time simulation environment.",
-        },
-        {
-          imgSrc: "/images/models/process.jpg",
-          title: "Process in Loop",
-          text: "Innovative testing methods for modern development.",
-        },
-      ],
-      "business-services": [
-        {
-          imgSrc: "/images/models/monitoring.jpg",
-          title: "Monitoring",
-          text: "Comprehensive testing solutions for battery cells, including performance, safety, and reliability tests.",
-        },
-        {
-          imgSrc: "/images/models/battery.jpg",
-          title: "Management",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
-        },
-        {
-          imgSrc: "/images/models/security.jpg",
-          title: "Protection",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
-        },
-        {
-          imgSrc: "/images/models/connections.jpg",
-          title: "Communication",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
-        },
-        {
-          imgSrc: "/images/models/prognostics.jpg",
-          title: "Prognostics",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
-        },
-      ],
-      "product-information": [
-        {
-          imgSrc: "/images/models/function.jpg",
-          title: "Automated Functional Testing",
-          text: "Automate your functional testing processes to improve accuracy and efficiency.",
-        },
-        {
-          imgSrc: "/images/models/analysis.jpg",
-          title: "Requirement Specification and Analysis",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
-        },
-        {
-          imgSrc: "/images/models/modeling.jpg",
-          title: "Modeling and Simulation",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
-        },
-        {
-          imgSrc: "/images/models/scripting.jpg",
-          title: "Test Case and Script Development",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
-        },
-        {
-          imgSrc: "/images/models/environment.jpg",
-          title: "Test Environment Setup",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
-        },
-      ],
-    },
+    services: [
+      {
+        category: "MODEL BASED DEVELOPMENT",
+        imgSrc: "/images/models/modeling.jpg",
+        items: [
+          "Model in Loop",
+          "Software in Loop",
+          "Hardware in Loop",
+          "Process in Loop"
+        ]
+      },
+      {
+        category: "BATTERY MANAGEMENT SYSTEM",
+        imgSrc: "/images/models/battery.jpg",
+        items: [
+          "Monitoring",
+          "Management",
+          "Protection",
+          "Communication",
+          "Prognostics"
+        ]
+      },
+      {
+        category: "TEST AUTOMATE FRAMEWORK",
+        imgSrc: "/images/models/analysis.jpg",
+        items: [
+          "Automated Functional Testing",
+          "Requirement Specification and Analysis",
+          "Modeling and Simulation",
+          "Test Case and Script Development",
+          "Test Environment Setup"
+        ]
+      },
+      {
+        category: "TESTING SOFTWARE SOLUTIONS",
+        imgSrc: "/images/models/software.jpg",
+        items: [
+          "HIL Testing Software",
+          "eSimulation Testing",
+          "Remote-access Tool"
+        ]
+      }
+    ]
   },
   employees: {
     title: "Who we are",
@@ -125,19 +84,15 @@ const content = {
         imgSrc: "/images/Tiberiu.png",
         name: "Tiberiu Stanciu",
         description: "A renewable energy consultant assists clients in conducting investigations in order to better understand and direct the installation of renewable energy systems.",
-        full_description: "A renewable energy consultant assists clients in conducting investigations in order to better understand and direct the installation of renewable energy systems. Their primary goal is to increase efficiency while lowering costs and reducing negative environmental impacts  Renewable energy consultants spend their days inspecting the energy sources used throughout a client facility. They then attempt to determine whether the facility can be powered by alternative energy sources such as solar and wind",
+        full_description: "A renewable energy consultant assists clients in conducting investigations in order to better understand and direct the installation of renewable energy systems. Their primary goal is to increase efficiency while lowering costs and reducing negative environmental impacts. Renewable energy consultants spend their days inspecting the energy sources used throughout a client facility. They then attempt to determine whether the facility can be powered by alternative energy sources such as solar and wind.",
         job: "Renewable Energy Specialist",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
-        //github: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "images/Faouzi.png",
         name: "Faouzi AL MOUTAMID",
         job: "Battery Management Specialist",
-        description: "The Energy Specialist is primarily responsible for completing walk through energy efficiency assessments",
+        description: "The Energy Specialist is primarily responsible for completing walk through energy efficiency assessments.",
         full_description: "The Energy Specialist is primarily responsible for completing walk through energy efficiency assessments, the installation of energy efficiency equipment and products, and for deepening customer awareness of and participation in rebate programs and the Utility's energy efficiency program.",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
-        //github: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "images/Fabio.png",
@@ -145,8 +100,6 @@ const content = {
         job: "Senior Data Engineer",
         description: "Senior Data Engineer is responsible for creating effective technological solutions for work with big data.",
         full_description: "Senior Data Engineer is responsible for creating effective technological solutions for work with big data. They are also responsible for managing a team of specialists in their field and related IT professions. In addition, their roles include quality control of the work performed.",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
-        //github: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "images/Yashar.png",
@@ -154,26 +107,20 @@ const content = {
         job: "Senior Lead Engineer Connectivity",
         full_description: "Lead Engineers manage engineering teams, oversee project development, ensure code quality, and collaborate with other departments to meet project goals.",
         description: "Lead Engineers manage engineering teams, oversee project development, ensure code quality, and collaborate with other departments to meet project goals.",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
-        //github: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "/images/Agilan.png",
         name: "Agilan Arulchelvam",
         job: "Machine Learning Engineer",
-        description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. ",
+        description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization.",
         full_description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. I've leveraged my expertise in Machine Learning across diverse projects, delivering actionable insights.",
-        //github: "https://github.com/AgilanArulchelvam",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "/images/Nallasivam.png",
         name: "Nallasivam Selvaraj",
-        description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design.",
-        full_description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design. Skilled in DevOps practices and cloud for efficient software delivery. Passionate about creating scalable, reliable solutions and staying updated with emerging technologies.",
+        description: "Experienced Software Engineer with expertise in Python, C++ and software development, specializing in application development and user interface design.",
+        full_description: "Experienced Software Engineer with expertise in Python, C++ and software development, specializing in application development and user interface design. Skilled in DevOps practices and cloud for efficient software delivery. Passionate about creating scalable, reliable solutions and staying updated with emerging technologies.",
         job: "Software Engineer",
-        //github: "https://github.com/nallasivamselvaraj",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "/images/Vinay.png",
@@ -181,23 +128,17 @@ const content = {
         description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
         full_description: "As an Embedded Software Engineer, I design and optimize software for embedded systems, focusing on microcontrollers and real-time operating systems. I ensure seamless hardware-software integration to deliver high-performance, reliable, and scalable solutions.",
         job: "Embedded Engineer",
-        //github: "https://github.com/vinaykumarsl2000",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "/images/Akilasekar.png",
         name: "Akilasekar Kalirajan",
         job: "Model Based Developer",
-        //github: "https://github.com/akil7700",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
       {
         imgSrc: "/images/Maari.png",
         name: "Maarimuthu Rajagopal",
         description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
         job: "Embedded Engineer",
-        //github: "https://github.com/crmaarimuthu",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
     ],
   },
@@ -258,9 +199,6 @@ const content = {
 
     socialLinks: [
       { href: "https://www.linkedin.com/company/simtestlab", icon: "fab fa-linkedin-in" },
-      //{ href: "https://www.facebook.com/", icon: "fab fa-facebook-f" },
-      //{ href: "https://x.com/", icon: "fab fa-twitter" },
-      //{ href: "https://www.instagram.com/", icon: "fab fa-instagram" },
     ],
   },
 };
