@@ -4,6 +4,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+  background-color: transparent; /* Make the navbar transparent */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -14,9 +15,9 @@
 
 /* Navbar when sticky (white background) */
 .custom-navbar.navbar-light.bg-white {
-  background-color: rgba(235, 242, 250, 0.85) !important;
+  background-color: transparent !important; /* Keep the navbar transparent */
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* Remove any shadow */
 }
 
 /* Navbar brand styling */
@@ -25,7 +26,7 @@
   align-items: center;
   padding: 5px;
   flex-grow: 1;
-  color: #033F63;
+  color: #EBF2FA; /* White color for the brand text */
   text-shadow: none;
 }
 
@@ -47,13 +48,13 @@
   font-family: 'Arial', sans-serif;
   transition: color 0.3s ease-in-out, padding 0.3s ease-in-out;
   padding: 8px 15px;
-  color: #033F63 !important;
+  color: #EBF2FA !important; /* White font color for anchor tags */
   text-decoration: none;
 }
 
 /* Active state color adjustment for non-transparent mode */
 .custom-navbar.navbar-light.bg-white .desktop-menu .nav-link.active {
-  color: #199297 !important;
+  color: #EBF2FA !important;
 }
 
 /* Transparent mode: set text color to white */
@@ -62,14 +63,15 @@
 }
 
 .custom-navbar.navbar-dark .desktop-menu .nav-link.active {
-  color: #199297 !important;
+  color: #EBF2FA !important;
 }
 
 /* Hover Effect: Inverse Colors */
 .custom-navbar .desktop-menu .nav-link:hover {
   color: #FFFFFF !important;
-  background-color: #033F63 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Light white background on hover */
   border-radius: 4px;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
 /* Independent Slider for Active Link */
@@ -77,7 +79,7 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #199297;
+  background-color: #EBF2FA;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -97,7 +99,61 @@
 
 /* Mobile-specific styles */
 @media (max-width: 800px) {
+  .custom-navbar {
+    position: relative;
+    z-index: 1100; /* Ensure navbar is above other content */
+    padding: 0; /* Remove any padding */
+  }
+
   .custom-navbar .navbar-brand {
     flex-grow: 1;
+  }
+
+  /* Full-width mobile menu */
+  .MuiPaper-root.MuiMenu-paper {
+    position: fixed; /* Ensure the menu covers the entire viewport horizontally */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: auto; /* Height adjusts to content */
+    max-height: 100vh; /* Prevent overflow if content is too tall */
+    background-color: transparent !important; /* Make the menu background transparent */
+    backdrop-filter: blur(10px); /* Optional: adds a blur effect behind the menu */
+    z-index: 1100; /* Ensure it’s above the navbar */
+    box-shadow: none !important; /* Remove any shadow */
+    overflow-y: auto; /* Enable scrolling if content exceeds viewport height */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margins */
+  }
+
+  /* Center menu items and adjust their appearance */
+  .MuiMenu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure full-width coverage */
+  }
+
+  .MuiMenuItem-root {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px; /* Add padding for spacing */
+    color: #EBF2FA !important; /* White font color for mobile menu items */
+    font-size: 18px;
+    border-bottom: none; /* Remove border for a cleaner look */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+
+  .MuiMenuItem-root:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Slightly darker on hover */
+    color: #FFFFFF !important;
+  }
+
+  /* Hide the slider in mobile view */
+  .custom-navbar .nav-slider {
+    display: none;
   }
 }

@@ -130,7 +130,12 @@ const Header = () => {
           </IconButton>
         )}
 
-        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+          className="mobile-menu"
+        >
           {content.header.navItems.map((item, index) => (
             <MenuItem
               key={index}
@@ -138,6 +143,7 @@ const Header = () => {
                 scrollToSection(e, item.href);
                 handleMenuClose();
               }}
+              className="menu-item"
             >
               {item.label}
             </MenuItem>
