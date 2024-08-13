@@ -2,14 +2,14 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import content from '../data/content';
-import '../styles/Header.css';
+import '../styles/Header.css';  // Importing the separate CSS file
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const isMobile = useMediaQuery('(max-width:800px)');
+  const isMobile = useMediaQuery('(max-width:800px)');  // Adjusted to check for screens below 800px
 
   const updateSliderPosition = useCallback((id) => {
     const activeTab = document.querySelector(`.nav-link[href="#${id}"]`);
@@ -47,7 +47,7 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', findCurrentTabSelector);
 
-    findCurrentTabSelector();
+    findCurrentTabSelector(); // Initial call to set slider position on load
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -74,7 +74,7 @@ const Header = () => {
 
       window.scrollTo({
         top: scrollTop,
-        behavior: 'smooth',
+        behavior: 'smooth',  // This ensures smooth scrolling
       });
 
       setTimeout(() => {
@@ -91,7 +91,10 @@ const Header = () => {
       className={`custom-navbar ${isSticky ? 'navbar-light bg-white' : 'navbar-dark'}`}
     >
       <Toolbar>
-        <Typography variant="h6" className="navbar-brand">
+        <Typography
+          variant="h6"
+          className="navbar-brand"
+        >
           <img
             src={content.header.logoSrc}
             width="40"
@@ -101,7 +104,6 @@ const Header = () => {
           />
           {content.header.brand}
         </Typography>
-
         {!isMobile && (
           <div className="desktop-menu">
             {content.header.navItems.map((item, index) => (
@@ -117,24 +119,31 @@ const Header = () => {
             <span className="nav-slider" />
           </div>
         )}
-
         {isMobile && (
           <IconButton
             edge="end"
             color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
-            style={{ marginLeft: 'auto' }}
+            style={{ fontSize: '2rem' }}  // Increase the size of the menu icon
           >
             <MenuIcon />
           </IconButton>
         )}
-
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
           className="mobile-menu"
+          PaperProps={{
+            style: {
+              width: '100vw',  // Full width of the screen
+              maxWidth: 'none',
+              margin: '0',
+              padding: '0',
+              left: 0,  // Ensure alignment with the left edge
+            },
+          }}
         >
           {content.header.navItems.map((item, index) => (
             <MenuItem
