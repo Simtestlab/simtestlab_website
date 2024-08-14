@@ -1,108 +1,299 @@
-.services-section {
-  padding: 50px 5%;
-  background-color: #fff;
-  color: #000;
+/* General About Section */
+.about-section {
+  position: relative;
+  background-color: #000000; /* Use a darker black version */
+  color: #1a1a1a;
+  padding: 50px 20px;
   text-align: center;
-}
-
-.services-title {
-  font-size: 3rem;
-  margin-bottom: 40px;
-  color: #000;
-  font-family: 'YourHeroFont', sans-serif; /* Use your hero section's font */
-}
-
-.services-grid {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 10px; /* Reduced space between the cards */
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  scroll-margin-top: 80px;
+  min-height: 80vh;
 }
 
-.services-grid.animate-services {
-  opacity: 1;
-  transform: translateY(0);
-  animation: professionalFadeIn 1.5s ease-in-out forwards;
+/* About Header and Tabs */
+.about-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* White for better contrast */
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+  outline: none; /* Remove the default focus outline */
+}
+
+.tab-button.active {
+  color: #ffffff; /* Active tab color */
+  border-bottom: 2px solid #199297; /* Blue underline for active tab */
+  transform: scale(1.1); /* Slight scale animation on active tab */
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #199297; /* Blue color for underline */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.tab-button:hover::before,
+.tab-button.active::before {
+  width: 100%; /* Expand the underline */
+  left: 0;
+}
+
+.tab-button:hover {
+  color: #ffffff; /* Hover state color */
+}
+
+/* Service section styles */
+.services-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .service-item {
-  flex: 1;
-  min-width: 22%;
-  height: 500px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
-  display: flex;
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
+  width: calc(25% - 20px);
+  margin: 10px;
   overflow: hidden;
-  margin: 0 5px; /* Reduced margin for right and left sides */
-  transition: transform 0.3s ease; /* Hover animation */
-  border-radius: 0; /* Remove rounded corners */
 }
 
-.service-item:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
+.service-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: blur(3px) brightness(0.6); /* Apply blur and darken images */
 }
 
 .service-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)); /* Black overlay */
-  padding: 20px;
-  color: #fff;
-  text-align: left;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  color: #ffffff; /* White text color */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(16, 16, 16, 0.7); /* Match the darker black background with transparency */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Darker text shadow */
+  text-align: center;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  overflow: hidden; /* To avoid content overflow during animation */
 }
 
-.service-item h3 {
-  font-size: 1.8rem; /* Slightly larger */
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-family: 'YourHeroFont', sans-serif; /* Use your hero section's font */
-}
-
-.service-item ul {
-  list-style: disc;
-  padding-left: 20px;
+.service-caption h5, .service-caption p {
   margin: 0;
+  position: absolute;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.service-item ul li {
-  font-size: 1.2rem; /* Slightly larger */
-  margin-bottom: 10px;
+.service-caption h5 {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Enhanced Animation Keyframes */
-@keyframes professionalFadeIn {
-  0% {
+.service-caption p {
+  opacity: 0;
+  transform: translateY(20px); /* Initially move subtext down */
+}
+
+.service-item:hover .service-caption {
+  background-color: #199297; /* Change to a color from your palette for better readability */
+}
+
+.service-item:hover .service-caption h5 {
+  opacity: 0; /* Fade out heading */
+  transform: translateY(-20px); /* Move heading up */
+}
+
+.service-item:hover .service-caption p {
+  opacity: 1; /* Fade in subtext */
+  transform: translateY(0); /* Move subtext up */
+}
+
+.services-images.hidden {
+  display: none;
+}
+
+.services-images.active {
+  display: flex; /* Ensure it is flex to match the flexbox layout */
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Adjustments for responsiveness */
-@media (max-width: 1024px) {
+/* Media Queries for Responsive Layout */
+@media (min-width: 1200px) {
+  .services-images {
+    gap: 30px;
+  }
   .service-item {
-    min-width: 48%;
-    margin-bottom: 20px;
+    width: calc(25% - 30px);
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .services-images {
+    gap: 30px;
+  }
   .service-item {
-    min-width: 100%;
+    width: calc(33.33% - 30px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tabs {
+    flex-direction: row;
+  }
+  .tab-button {
+    margin: 5px 10px;
+  }
+  .services-images {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .service-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .tabs {
+    flex-direction: column;
+  }
+  .tab-button {
+    margin: 5px 0;
+  }
+  .services-images {
+    flex-direction: column;
+  }
+  .service-item {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .about-section {
+    height: auto; /* Extend section height based on content for mobile view */
+  }
+  .service-caption {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for mobile */
+  }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+  .about-header h2 {
+    font-size: 3rem;
+  }
+  .about-header p {
+    font-size: 1.2rem;
+  }
+  .service-item img {
+    width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+}
+
+/* For medium screens */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .about-section {
+    min-height: auto;
+  }
+  .about-header h2 {
+    font-size: 2.5rem;
+  }
+  .about-header p {
+    font-size: 1rem;
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+}
+
+/* For smaller screens */
+@media (min-width: 768px) and (max-width: 991.98px) {  
+  .about-section {
+    min-height: auto;
+  }
+
+  .about-header h2 {
+    font-size: 2rem;
+  }
+  .about-header p {
+    font-size: 0.9rem;
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 767.98px) {
+  .about-section {
+    min-height: auto;
+  }
+
+  .about-header h2 {
+    font-size: 1.5rem;
+  }
+  .about-header p {
+    font-size: 0.9rem;
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .service-caption {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for mobile */
   }
 }
