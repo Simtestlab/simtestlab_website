@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useTheme } from '@mui/material/styles';
 import content from '../data/content';
+import '../styles/Header.css';  // Importing the separate CSS file
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery('(max-width:800px)');  // Adjusted to check for screens below 800px
 
   const updateSliderPosition = useCallback((id) => {
     const activeTab = document.querySelector(`.nav-link[href="#${id}"]`);
@@ -85,50 +84,16 @@ const Header = () => {
     }
   };
 
-  const appBarStyle = {
-    backdropFilter: isSticky ? 'blur(10px)' : 'none',
-    backgroundColor: isSticky ? 'rgba(235, 242, 250, 0.85)' : 'transparent',
-    transition: 'background-color 0.3s, backdrop-filter 0.3s',
-  };
-
-  const brandStyle = {
-    flexGrow: 1,
-    color: isSticky ? '#033F63' : '#EBF2FA',
-    textShadow: isSticky ? 'none' : '0px 0px 10px rgba(0, 0, 0, 0.5)',
-    fontSize: '1.5rem',
-  };
-
-  const navLinkStyle = (isActive) => ({
-    color: isSticky ? (isActive ? '#199297' : '#033F63') : (isActive ? '#199297' : '#EBF2FA'),
-    textShadow: isSticky ? 'none' : '0px 0px 10px rgba(0, 0, 0, 0.5)',
-    transition: 'color 0.3s',
-    position: 'relative',
-    padding: '10px 15px',
-    margin: '0 20px',
-    textDecoration: 'none',
-    fontSize: '16px',
-    fontWeight: isActive ? 'bold' : 'normal',
-  });
-
-  const sliderStyle = {
-    position: 'absolute',
-    bottom: 0,
-    height: '3px',
-    backgroundColor: '#199297',
-    transition: 'width 0.3s ease, left 0.3s ease',
-  };
-
   return (
     <AppBar
       position="fixed"
       elevation={isSticky ? 4 : 0}
-      style={appBarStyle}
       className={`custom-navbar ${isSticky ? 'navbar-light bg-white' : 'navbar-dark'}`}
     >
       <Toolbar>
         <Typography
           variant="h6"
-          style={brandStyle}
+          className="navbar-brand"
         >
           <img
             src={content.header.logoSrc}
@@ -140,19 +105,18 @@ const Header = () => {
           {content.header.brand}
         </Typography>
         {!isMobile && (
-          <div className="desktop-menu" style={{ position: 'relative' }}>
+          <div className="desktop-menu">
             {content.header.navItems.map((item, index) => (
               <Button
                 key={index}
                 className="nav-link"
                 href={`#${item.href.substring(1)}`}
                 onClick={(e) => scrollToSection(e, item.href)}
-                style={navLinkStyle(currentId === item.href.substring(1))}
               >
                 {item.label}
               </Button>
             ))}
-            <span className="nav-slider" style={sliderStyle} />
+            <span className="nav-slider" />
           </div>
         )}
         {isMobile && (
@@ -167,44 +131,33 @@ const Header = () => {
           </IconButton>
         )}
         <Menu
-  anchorEl={anchorEl}
-  open={Boolean(anchorEl)}
-  onClose={handleMenuClose}
-  PaperProps={{
-    style: {
-      width: '100%',  // Full width of the screen
-      maxWidth: 'none',
-      top: '64px',  // Adjusted position from the top
-      margin: '0',
-      padding: '0',
-    },
-  }}
-  MenuListProps={{
-    style: {
-      padding: '0',  // Remove default padding
-    },
-  }}
->
-  {content.header.navItems.map((item, index) => (
-    <MenuItem
-      key={index}
-      onClick={(e) => {
-        scrollToSection(e, item.href);
-        handleMenuClose();
-      }}
-      style={{
-        width: '100%',
-        padding: '16px 24px',  // Adjusted padding
-        borderBottom: '1px solid #EBF2FA',  // Border between items
-        fontSize: '1.2rem',  // Increase font size
-        color: '#033F63',  // Default color
-      }}
-    >
-      {item.label}
-    </MenuItem>
-  ))}
-</Menu>
-
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+          className="mobile-menu"
+          PaperProps={{
+            style: {
+              width: '100vw',  // Full width of the screen
+              maxWidth: 'none',
+              margin: '0',
+              padding: '0',
+              left: 0,  // Ensure alignment with the left edge
+            },
+          }}
+        >
+          {content.header.navItems.map((item, index) => (
+            <MenuItem
+              key={index}
+              onClick={(e) => {
+                scrollToSection(e, item.href);
+                handleMenuClose();
+              }}
+              className="menu-item"
+            >
+              {item.label}
+            </MenuItem>
+          ))}
+        </Menu>
       </Toolbar>
     </AppBar>
   );

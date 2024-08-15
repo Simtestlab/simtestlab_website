@@ -14,7 +14,7 @@
 
 /* Navbar when sticky (white background) */
 .custom-navbar.navbar-light.bg-white {
-  background-color: rgba(235, 242, 250, 0.85) !important;
+  background-color: rgba(235, 242, 250, 0.85) !important; /* Light blue background */
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -24,40 +24,49 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  flex-grow: 1;
+  color: #033F63; /* Dark text color */
+  text-shadow: none;
 }
 
-.custom-navbar .navbar-brand img {
-  margin-right: 10px;
-  margin-left: 10px;
+.custom-navbar.navbar-dark .navbar-brand {
+  color: #EBF2FA; /* Light text color */
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Center the nav items */
-.custom-navbar .navbar-nav {
+.custom-navbar .desktop-menu {
   display: flex;
   justify-content: center;
-  width: 100%;
+  position: relative;
+  margin-left: auto;
 }
 
 /* Space between the navbar items */
-.custom-navbar .navbar-nav .nav-item {
-  margin: 0 20px; /* Adjusted spacing */
-}
-
-/* Navbar link styles */
-.custom-navbar .navbar-nav .nav-link {
+.custom-navbar .desktop-menu .nav-link {
   font-family: 'Arial', sans-serif;
   transition: color 0.3s ease-in-out, padding 0.3s ease-in-out;
-  padding: 8px 10px; /* Smaller padding */
-  color: #033F63 !important; /* Default color in non-transparent mode */
+  padding: 8px 15px;
+  color: #033F63 !important; /* Dark text color */
+  text-decoration: none;
 }
 
 /* Active state color adjustment for non-transparent mode */
-.custom-navbar.navbar-light.bg-white .navbar-nav .nav-item.active .nav-link {
-  color: #199297 !important; /* Match the desired active color */
+.custom-navbar.navbar-light.bg-white .desktop-menu .nav-link.active {
+  color: #199297 !important; /* Blue color for active state */
+}
+
+/* Transparent mode: set text color to white */
+.custom-navbar.navbar-dark .desktop-menu .nav-link {
+  color: #EBF2FA !important;
+}
+
+.custom-navbar.navbar-dark .desktop-menu .nav-link.active {
+  color: #199297 !important;
 }
 
 /* Hover Effect: Inverse Colors */
-.custom-navbar .navbar-nav .nav-link:hover {
+.custom-navbar .desktop-menu .nav-link:hover {
   color: #FFFFFF !important;
   background-color: #033F63 !important;
   border-radius: 4px;
@@ -68,82 +77,70 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #199297; /* Blue color from your palette */
+  background-color: #199297;
   transition: width 0.3s ease, left 0.3s ease;
-}
-
-/* Active link slider */
-.custom-navbar .navbar-nav .nav-item.active .nav-slider {
-  width: 60%;
-  margin: auto;
-  background-color: #199297; /* Blue color from your palette */
-}
-
-/* Transparent mode: set text color to white */
-.custom-navbar.navbar-dark .navbar-nav .nav-link {
-  color: #EBF2FA !important; /* White color from your palette */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 1024px) {
-  .custom-navbar .navbar-nav .nav-item {
-    margin: 0 15px; /* Slightly reduced margin for medium screens */
-  }
-  .custom-navbar .navbar-nav .nav-link {
-    padding: 6px 8px; /* Further reduce padding on medium screens */
+  .custom-navbar .desktop-menu .nav-link {
+    padding: 6px 10px;
+    font-size: 14px;
   }
 }
 
-/* Menu item styles for mobile view */
-.MuiPaper-root {
-  padding: 0; /* Remove default padding */
-}
-
-.MuiMenuItem-root {
-  padding: 16px 24px; /* Adjust padding for better spacing */
-  border-bottom: 1px solid #EBF2FA; /* Add a border between items for separation */
-  font-size: 1.2rem; /* Increase font size for better readability */
-  color: #033F63; /* Default color for menu items */
-}
-
-.MuiMenuItem-root:last-child {
-  border-bottom: none; /* Remove border from the last item */
-}
-
-.MuiMenuItem-root:hover {
-  background-color: #199297; /* Background color on hover */
-  color: #FFFFFF; /* Text color on hover */
-}
-
-/* Ensure full width for menu */
-.MuiPaper-root {
-  width: 100% !important;
-  max-width: none !important;
-  left: 0 !important;
-  right: 0 !important;
-}
-
-/* Add margin at the top of the menu for better alignment */
-.MuiMenu-paper {
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  .custom-navbar .navbar-nav .nav-item {
-    margin: 0 10px; /* Further reduced margin for smaller screens */
+@media (max-width: 800px) {
+  .custom-navbar .desktop-menu {
+    display: none;
   }
-  .custom-navbar .navbar-nav .nav-link {
-    padding: 4px 6px; /* Minimized padding on small screens */
-  }
-}
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
+  .custom-navbar .navbar-brand {
+    flex-grow: 1;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+
+  /* Full-width mobile menu */
+  .MuiPaper-root.MuiMenu-paper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(235, 242, 250, 0.85) !important; /* Light blue background to match the image */
+    backdrop-filter: blur(10px);
+    z-index: 1100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  }
+
+  /* Center menu items and adjust their appearance */
+  .MuiMenu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .MuiMenuItem-root {
+    width: 100%;
+    text-align: left;
+    padding: 16px 24px;
+    color: #033F63 !important; /* Dark text color */
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border between items */
+    transition: all 0.3s ease;
+  }
+
+  .MuiMenuItem-root:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important; /* Light background on hover */
+    color: #FFFFFF !important; /* White text color on hover */
+  }
+
+  /* Hide the slider in mobile view */
+  .custom-navbar .nav-slider {
+    display: none;
   }
 }
