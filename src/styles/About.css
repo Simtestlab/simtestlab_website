@@ -161,6 +161,42 @@
   }
 }
 
+/* Mobile-specific styles for text reveal */
+@media (max-width: 767.98px) {
+  .service-caption {
+    background-color: rgba(16, 16, 16, 0.7); /* Default background color */
+    transition: background-color 0.3s ease;
+  }
+
+  .service-caption h5 {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .service-caption p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 1s, transform 0.8s ease 1s; /* 1s delay added */
+  }
+
+  .service-item.in-view .service-caption h5 {
+    opacity: 0;
+    transform: translateY(-20px); /* Move title up */
+    transition-delay: 1s; /* Delay the fade-out by 1 second */
+  }
+
+  .service-item.in-view .service-caption p {
+    opacity: 1;
+    transform: translateY(0); /* Move description up */
+  }
+
+  .service-item.in-view .service-caption {
+    background-color: #199297; /* Change to greenish color during transition */
+    transition-delay: 1.6s; /* Delay the background color change until after the description appears */
+  }
+}
+
 /* Media Queries for Responsive Layout */
 @media (min-width: 1200px) {
   .services-images {

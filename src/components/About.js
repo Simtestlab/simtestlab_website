@@ -14,6 +14,33 @@ const About = () => {
     document.querySelector('.tab-button[data-tab="it-services"]').click();
   }, []);
 
+  useEffect(() => {
+    const serviceItems = document.querySelectorAll('.service-item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1 // Trigger when 10% of the card is in view
+    });
+
+    // Apply the observer only if the device is mobile
+    if (window.innerWidth <= 767.98) {
+      serviceItems.forEach(item => {
+        observer.observe(item);
+      });
+    }
+
+    return () => {
+      serviceItems.forEach(item => observer.unobserve(item));
+    };
+  }, []);
+
   return (
     <section className="about-section" id="services">
       <div className="content">

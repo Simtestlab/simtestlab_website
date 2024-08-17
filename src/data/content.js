@@ -11,7 +11,10 @@ const content = {
     logoSrc: "/images/logo.png"
   },
   hero: {
-    imgSrc: "/images/car.jpg",
+    imgSrc1: "/images/car.jpg",
+    imgSrc2: "/images/battery.jpg",
+    imgSrc3: "/images/testing.jpg",
+    imgSrc4: "/images/data.jpg",
     //videoSrc: "/video/background.mp4",
     slides: [
       {
@@ -25,6 +28,10 @@ const content = {
       {
         title: "Test Automate Framework",
         text: "Automate your functional testing processes to improve accuracy and efficiency."
+      },
+      {
+        title: "Data Driven Development",
+        text: "Empowering businesses with data-driven software solutions that evolve with your users' needs."
       }
     ],
     buttons: [
