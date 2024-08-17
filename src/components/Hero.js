@@ -5,6 +5,7 @@ import '../styles/Hero.css';
 
 const Hero = () => {
   const slides = content.hero.slides;
+  const images = [content.hero.imgSrc1, content.hero.imgSrc2, content.hero.imgSrc3, content.hero.imgSrc4];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -35,13 +36,16 @@ const Hero = () => {
     <section
       id="hero"
       className="contrast-section"
-      style={{
-        backgroundImage: `url(${content.hero.imgSrc})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
+      <div className="background-images">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`background-image ${index === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${image})` }}
+          ></div>
+        ))}
+      </div>
       <div className="background-blur"></div>
       <div className="overlay"></div>
       <div className="hero-content">
@@ -70,7 +74,7 @@ const Hero = () => {
         ))}
       </div>
     </section>
-  );
+  );  
 };
 
 export default Hero;

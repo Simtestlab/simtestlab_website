@@ -22,13 +22,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Set height to 80% of viewport height */
+  height: 80vh;
   width: 100%;
   color: var(--surface-50);
   overflow: hidden;
   padding: 0;
   margin: 0;
   background-color: var(--surface-900);
+}
+
+/* Background Images Container */
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Individual Background Images */
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.background-image.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Background Blur */
@@ -38,7 +67,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(5px); /* Apply blur to the background image */
+  filter: blur(5px);
   z-index: -1;
 }
 
@@ -49,7 +78,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -58,67 +87,71 @@
   position: relative;
   z-index: 2;
   padding: 20px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
   color: white;
-  max-width: 800px;
+  max-width: 1000px; /* Increased max-width to ensure enough space */
   margin: 0 auto;
-  padding-bottom: 100px; /* Adjust space for buttons at the bottom */
-  margin-left: 50px; /* Add margin to the left */
+  padding-bottom: 100px;
+  margin-left: 50px;
 }
 
-/* Slide-in Animation */
-@keyframes slideInFromTop {
+/* New Slide-in Animation */
+@keyframes slideInFromLeft {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateX(-100px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 .hero-title,
 .hero-text {
   opacity: 0;
-  transform: translateY(-50px); /* Start off-screen */
-  animation: slideInFromTop 0.8s ease-out forwards; /* Apply animation */
+  transform: translateX(-100px);
+  animation: slideInFromLeft 0.8s ease-out forwards;
 }
 
+/* Title Styling */
 .hero-title {
-  animation-delay: 0.1s; /* Slight delay for the title */
-  font-size: 6vw; /* Increase main title size based on viewport width */
-  max-width: 80%; /* Ensure text doesn't exceed its container */
-  color: white !important; /* Ensure color is applied */
+  animation-delay: 0.1s;
+  font-size: 4vw; /* Reduced font size to fit long text */
+  max-width: 100%; /* Ensure the title doesn’t overflow the container */
+  color: white !important;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  line-height: 1.2; /* Adjust line-height for better spacing */
 }
 
+/* Text Styling */
 .hero-text {
-  animation-delay: 0.3s; /* Slight delay after the title */
-  font-size: 2.5vw; /* Increase subtext size based on viewport width */
+  animation-delay: 0.3s;
+  font-size: 2.5vw;
   font-weight: 700;
   line-height: 1.6;
-  color: white !important; /* Ensure color is applied */
-  max-width: 80%; /* Ensure text doesn't exceed its container */
+  color: white !important;
+  max-width: 100%;
 }
 
 /* Button */
 .hero-buttons {
   position: absolute;
-  bottom: 30px; /* Adjust the position from the bottom */
-  left: 50px; /* Aligning buttons to the left with margin */
+  bottom: 30px;
+  left: 50px;
   z-index: 2;
-  transform: none; /* Remove centering transform */
   display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: flex-start;
   width: 100%;
 }
 
 .hero-buttons .MuiButton-root {
-  background-color: #E3D1B8 !important; /* Paper-like color based on the image */
-  color: #262626 !important; /* Dark text color */
+  background-color: #E3D1B8 !important;
+  color: #262626 !important;
   padding: 10px 20px !important;
   border-radius: 25px !important;
-  font-size: 1rem !important; /* Increased font size for buttons */
+  font-size: 1rem !important;
   font-weight: 700 !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   margin: 0 10px !important;
@@ -126,41 +159,47 @@
 
 .hero-buttons .MuiButton-root:hover {
   transform: scale(1.03) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important; /* Slight shadow on hover */
-  background: var(--primary-100) !important; /* Lighter gray on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  background: var(--primary-100) !important;
 }
 
 .hero-buttons .MuiButton-root:active {
-  background: var(--primary-300) !important; /* Darker Paper-like color for Active State */
+  background: var(--primary-300) !important;
 }
 
 /* Contact Us Button */
 .hero-buttons .contact-us-button {
-  background-color: var(--surface-50) !important; /* White background */
-  color: var(--surface-900) !important; /* Dark text color */
+  background-color: transparent !important; /* Transparent background */
+  color: #ffffff !important; /* White font */
+  border: 2px solid #ffffff !important; /* White border */
 }
 
 .hero-buttons .contact-us-button:hover {
-  background-color: var(--primary-200) !important; /* Same shade of brown as Learn More */
+  background-color: #ffffff !important; /* White background on hover */
+  color: #000000 !important; /* Black font on hover */
 }
 
 /* Learn More Button */
 .hero-buttons .learn-more-button {
-  color: var(--surface-50) !important; /* White text color */
+  background-color: #000000 !important; /* Black background */
+  color: #ffffff !important; /* White font */
 }
 
 .hero-buttons .learn-more-button:hover {
-  background-color: var(--surface-900) !important; /* Black background on hover */
+  background-color: #ffffff !important; /* White background on hover */
+  color: #000000 !important; /* Black font on hover */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 8vw; /* Adjust font size for smaller screens */
+    font-size: 6vw; /* Adjusted font size to fit the full text */
+    white-space: normal; /* Allow wrapping */
   }
 
   .hero-text {
-    font-size: 3vw; /* Adjust font size for smaller screens */
+    font-size: 3.5vw;
+    white-space: normal; /* Allow wrapping */
   }
 
   .hero-buttons .MuiButton-root {
@@ -172,11 +211,13 @@
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 10vw; /* Adjust font size for smaller screens */
+    font-size: 7vw; /* Further adjust for smaller screens */
+    white-space: normal; /* Allow wrapping */
   }
 
   .hero-text {
-    font-size: 4vw; /* Adjust font size for smaller screens */
+    font-size: 4.5vw;
+    white-space: normal; /* Allow wrapping */
   }
 
   .hero-buttons .MuiButton-root {
@@ -189,11 +230,11 @@
 /* Larger Screen Adjustments */
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: 5vw; /* Adjust font size for larger screens */
+    font-size: 4vw; /* Adjust font size for larger screens */
   }
 
   .hero-text {
-    font-size: 2vw; /* Adjust font size for larger screens */
+    font-size: 2vw;
   }
 
   .hero-buttons .MuiButton-root {
@@ -205,11 +246,11 @@
 
 @media (min-width: 1440px) {
   .hero-title {
-    font-size: 4.5vw; /* Adjust font size for larger screens */
+    font-size: 3.5vw; /* Further reduce font size for very large screens */
   }
 
   .hero-text {
-    font-size: 2.2vw; /* Adjust font size for larger screens */
+    font-size: 2.2vw;
   }
 
   .hero-buttons .MuiButton-root {
