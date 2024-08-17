@@ -102,13 +102,16 @@
   color: #ffffff; /* White text color */
   padding: 10px;
   border-radius: 10px;
-  background-color: rgba(16, 16, 16, 0.7); /* Match the darker black background with transparency */
+  background-color: rgba(16, 16, 16, 0.7); /* Match the darker black background with 70% transparency */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Darker text shadow */
   text-align: center;
   transition: background-color 0.3s ease, opacity 0.3s ease;
   overflow: hidden; /* To avoid content overflow during animation */
 }
 
+.service-item:hover .service-caption {
+  background-color: rgba(25, 146, 151, 0.7); /* Greenish overlay with 70% opacity */
+}
 .service-caption h5, .service-caption p {
   margin: 0;
   position: absolute;
@@ -124,10 +127,6 @@
 .service-caption p {
   opacity: 0;
   transform: translateY(20px); /* Initially move subtext down */
-}
-
-.service-item:hover .service-caption {
-  background-color: #199297; /* Change to a color from your palette for better readability */
 }
 
 .service-item:hover .service-caption h5 {
@@ -192,7 +191,7 @@
   }
 
   .service-item.in-view .service-caption {
-    background-color: #199297; /* Change to greenish color during transition */
+    background-color: rgba(25, 146, 151, 0.7); /* Greenish color with 70% opacity during transition */
     transition-delay: 1.6s; /* Delay the background color change until after the description appears */
   }
 }
