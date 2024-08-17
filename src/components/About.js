@@ -26,7 +26,7 @@ const About = () => {
         }
       });
     }, {
-      threshold: 0.1 // Trigger when 10% of the card is in view
+      threshold: 0.25 // Adjusted threshold to 25% for better performance
     });
 
     // Apply the observer only if the device is mobile
