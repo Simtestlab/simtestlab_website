@@ -49,99 +49,103 @@ const Contact = () => {
 
   return (
     <section id="contact">
-      <footer>
-      <div className="footer-col">
-        <h4>Main Branch</h4>
-        <ul>
-          <li>{content.contact.main_branch.name}</li>
-          <li>{content.contact.main_branch.org_num}</li>
-          <li>{content.contact.main_branch.address}</li>
-          <li>{content.contact.main_branch.email}</li>
-          <li>{content.contact.main_branch.phone}</li>
-          <li>{content.contact.main_branch.copyright}</li>
-        </ul>
-      </div>
-      <div className="footer-col">
-        <h4>India Branch</h4>
-        <ul>
-          <li>{content.contact.branch1.name}</li>
-          <li>{content.contact.branch1.address_line_1}</li>
-          <li>{content.contact.branch1.address_line_2}</li>
-          <li>{content.contact.branch1.email}</li>
-          <li>{content.contact.branch1.phone}</li>        
-        </ul>
-      </div>
-      <div className="footer-col">
-        <h4>Battery Lab Facility</h4>
-        <ul>
-          <li>{content.contact.branch2.name}</li>
-          <li>{content.contact.branch2.address_line_1}</li>
-          <li>{content.contact.branch2.address_line_2}</li>
-          <li>{content.contact.branch2.email}</li>
-          <li>{content.contact.branch2.phone}</li>          
-        </ul>
-      </div>      
-      <div className="footer-col">
-        <h4>Follow us</h4>
-        <div className="links">
-          {content.contact.socialLinks.map((link, index) => (
-            <a key={index} href={link.href}><i className={link.icon}></i></a>
-          ))}
+      <div className="contact-container">
+        <div className="contact-info">
+          <h4>Main Branch</h4>
+          <ul>
+            <li>{content.contact.main_branch.name}</li>
+            <li>{content.contact.main_branch.org_num}</li>
+            <li>{content.contact.main_branch.address}</li>
+            <li>{content.contact.main_branch.email}</li>
+            <li>{content.contact.main_branch.phone}</li>
+            <li>{content.contact.main_branch.copyright}</li>
+          </ul>
+        </div>
+        <div className="contact-form">
+          <h4 className="form-header">Get In Touch</h4>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <textarea
+                name="message"
+                placeholder="Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+            <button type="submit" className="btn" disabled={isSubmitted}>
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
-      <div className="footer-col centered-form-container">
-        <h4 className="centered-header">Get In Touch</h4>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+      <footer>
+        <div className="footer-cols">
+          <div className="footer-col">
+            <h4>India Branch</h4>
+            <ul>
+              <li>{content.contact.branch1.name}</li>
+              <li>{content.contact.branch1.address_line_1}</li>
+              <li>{content.contact.branch1.address_line_2}</li>
+              <li>{content.contact.branch1.email}</li>
+              <li>{content.contact.branch1.phone}</li>        
+            </ul>
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-            />
+          <div className="footer-col">
+            <h4>Battery Lab Facility</h4>
+            <ul>
+              <li>{content.contact.branch2.name}</li>
+              <li>{content.contact.branch2.address_line_1}</li>
+              <li>{content.contact.branch2.address_line_2}</li>
+              <li>{content.contact.branch2.email}</li>
+              <li>{content.contact.branch2.phone}</li>          
+            </ul>
+          </div>      
+          <div className="footer-col">
+            <h4>Follow us</h4>
+            <div className="links">
+              {content.contact.socialLinks.map((link, index) => (
+                <a key={index} href={link.href}><i className={link.icon}></i></a>
+              ))}
+            </div>
           </div>
-          <div className="form-group">
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </div>
-          <button type="submit" className="btn" disabled={isSubmitted}>
-            Send Message
-          </button>
-        </form>
-      </div>
-    </footer>
+        </div>
+      </footer>
     </section>
   );
 };
