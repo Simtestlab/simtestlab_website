@@ -5,7 +5,10 @@ import '../styles/Hero.css';
 
 const Hero = () => {
   const slides = content.hero.slides;
-  const images = [content.hero.imgSrc1, content.hero.imgSrc2, content.hero.imgSrc3, content.hero.imgSrc4];
+  const imageKeys = Object.keys(content.hero);
+  const images = imageKeys
+  .filter(key => key.startsWith('imgSrc'))
+  .map(key => content.hero[key]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {

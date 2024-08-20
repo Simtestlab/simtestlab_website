@@ -15,6 +15,7 @@ const content = {
     imgSrc2: "/images/battery.jpg",
     imgSrc3: "/images/testing.jpg",
     imgSrc4: "/images/data.jpg",
+    imgSrc5: "/images/energy.jpg",
     //videoSrc: "/video/background.mp4",
     slides: [
       {
@@ -32,6 +33,10 @@ const content = {
       {
         title: "Data Driven Development",
         text: "Empowering businesses with data-driven software solutions that evolve with your users' needs."
+      },
+      {
+        title: "Energy Storage System Solutions",
+        text: "Efficient and scalable energy storage solutions designed to optimize power usage, enhance grid stability, and support renewable energy integration."
       }
     ],
     buttons: [
