@@ -55,6 +55,7 @@ const Contact = () => {
           <ul>
             <li>{content.contact.main_branch.name}</li>
             <li>{content.contact.main_branch.org_num}</li>
+            <li>{content.contact.main_branch.vat_number}</li>
             <li>{content.contact.main_branch.address}</li>
             <li>{content.contact.main_branch.email}</li>
             <li>{content.contact.main_branch.phone}</li>
