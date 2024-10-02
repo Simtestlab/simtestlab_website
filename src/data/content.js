@@ -271,7 +271,7 @@ const content = {
         org_num: "Org.nr: 559386-6055",
         address: "SWEDEN (HQ) - Sprintergången 7",
         email: "support@simtestlab.se",
-        phone: "+46 (0) 73 9768 263",
+        phone: "+46 76 976 82 63",
         copyright: "Copyright 2022. All Rights Reserved.",
     },
     branch1 : {
