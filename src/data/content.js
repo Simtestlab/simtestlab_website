@@ -269,6 +269,7 @@ const content = {
     main_branch : {
         name: "Simtestlab Sweden AB",
         org_num: "Org.nr: 559386-6055",
+        vat_number: "SE559386605501",
         address: "SWEDEN (HQ) - Sprintergången 7",
         email: "support@simtestlab.se",
         phone: "+46 76 976 82 63",
