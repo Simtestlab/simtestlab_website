@@ -15,8 +15,6 @@ const Career = () => {
         name: '',
         email: '',
         phone: '',
-        subject: '',
-        message: '',
         dob: '',
         addressLine1: '',
         addressLine2: '',
@@ -112,7 +110,7 @@ const Career = () => {
                                 type="text"
                                 name="firstname"
                                 placeholder="First Name"
-                                value={formData.name}
+                                value={formData.firstname}
                                 onChange={handleChange}
                                 required
                             />
@@ -120,7 +118,7 @@ const Career = () => {
                                 type="text"
                                 name="lastname"
                                 placeholder="Last Name"
-                                value={formData.name}
+                                value={formData.lastname}
                                 onChange={handleChange}
                                 required
                             />

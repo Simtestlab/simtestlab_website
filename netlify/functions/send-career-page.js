@@ -14,7 +14,7 @@ const handler = async (event, context) => {
         });
       }
 
-      const { name, email, phone, subject, message } = fields;
+      const { name, email, phone } = fields;
       const resumeFile = files.resume; 
 
       const transporter = nodemailer.createTransport({
@@ -28,15 +28,35 @@ const handler = async (event, context) => {
       const mailOptions = {
         from: email,
         to: process.env.EMAIL_RECEIVER,
-        subject: `Contact Form Submission: ${subject}`,
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+        subject: `Registration Form Submission: ${name}`,
+        text: `
+          Name: ${name}
+          Email: ${email}
+          Phone: ${phone}
+          Date of Birth: ${fields.dob}
+          Address Line 1: ${fields.addressLine1}
+          Address Line 2: ${fields.addressLine2}
+          District: ${fields.district}
+          State: ${fields.state}
+          Pincode: ${fields.pincode}
+          Country: ${fields.country}
+          Education: ${fields.education}
+          Position: ${fields.position}
+          Employment Status: ${fields.employment}
+          Notice Period: ${fields.notice_period}
+          Current CTC: ${fields.current_ctc}
+          Expected CTC: ${fields.expected_ctc}
+          Passport: ${fields.passport}
+          License: ${fields.license}
+        `,
         attachments: [
-          {
-            filename: resumeFile.name,
-            path: resumeFile.path,
-          },
+            {
+                filename: resumeFile.name,
+                path: resumeFile.path,
+            },
         ],
-      };
+    };
+    
 
       try {
         await transporter.sendMail(mailOptions);
