@@ -47,24 +47,24 @@ Make sure you have the following installed on your system:
 
 1. **Clone the repository**
 
-   `bash
+   ```
    git clone https://github.com/Simtestlab/simtestlab_website.git
    cd simtestlab-website
-   `
+   ```
 
 2. **Install dependencies**
 
-   `bash
+   ```
    npm install
-   `
+   ```
 
 ### Running the Website
 
 1. **Start the development server**
 
-   `bash
+   ```
    npm start
-   `
+   ```
 
    This will start the React development server and open the website in your default web browser. The website will automatically reload if you make any changes to the code.
 
@@ -72,9 +72,9 @@ Make sure you have the following installed on your system:
 
    To create a production build of the website, run:
 
-   `bash
+   ```
    npm run build
-   `
+   ```
 
    This will generate optimized static files in the `build` directory.
 
