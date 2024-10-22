@@ -5,16 +5,14 @@ import '../styles/Career.css';
 import { RadioGroup, FormControlLabel, Radio, FormControl, FormLabel } from '@mui/material';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import { Button } from '@mui/material';
-import { TextField } from '@mui/material';
 
 
 const Career = () => {
 
     const [formData, setFormData] = useState({
-        name: '',
+        firstname: '',
+        lastname: '',
         email: '',
-        phone: '',
         dob: '',
         addressLine1: '',
         addressLine2: '',
@@ -29,10 +27,10 @@ const Career = () => {
         current_ctc: '',
         expected_ctc: '',
         passport: '',
-        license: ''
+        license: '',
+        phone: ''
     });
 
-    const [resumeFile, setResumeFile] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     useEffect(() => {
@@ -40,46 +38,34 @@ const Career = () => {
     }, [isSubmitted]);
 
     const handleChange = (e) => {
-        const { name, value, type, files } = e.target;
-        if (type === 'file') {
-            setResumeFile(files[0]);
-        } else {
-            setFormData({
-                ...formData,
-                [name]: value
-            });
-        }
-    };
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value
+        });
+      };
 
-    const handleSubmit = async (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const formDataToSend = new FormData();
-
-        for (const key in formData) {
-            formDataToSend.append(key, formData[key]);
-        }
-
-        if (resumeFile) {
-            formDataToSend.append('resume', resumeFile);
-        }
-
+    
         try {
-            const response = await fetch('/.netlify/functions/send-career-page.js', {
-                method: 'POST',
-                body: formDataToSend
-            });
-
-            if (response.ok) {
-                alert('Email sent successfully');
-                setIsSubmitted(true);
-            } else {
-                alert('Error sending email');
-            }
-        } catch (error) {
+          const response = await fetch('/.netlify/functions/send-career-page', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+    
+          if (response.ok) {
+            alert('Email sent successfully');
+            setIsSubmitted(true);
+          } else {
             alert('Error sending email');
+          }
+        } catch (error) {
+          alert('Error sending email');
         }
-    };
+      };
 
     return (
         <section id="career">
@@ -291,21 +277,6 @@ const Career = () => {
                             />
                         </div>
                         <br></br>
-                        <div className="form-group">
-                            <TextField
-                                type="file"
-                                id="resume-upload"
-                                onChange={handleChange}
-                                inputProps={{ accept: ".pdf, .doc, .docx" }}
-                                sx={{ display: 'none' }}
-                                required
-                            />
-                            <label htmlFor="resume-upload">
-                                <Button variant="contained" component="span">
-                                    Upload Resume
-                                </Button>
-                            </label>
-                        </div>
                         <button type="submit" className="btn" disabled={isSubmitted}>
                             Submit Application
                         </button>
