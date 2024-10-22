@@ -1,7 +1,7 @@
 {
 	"geolocation": {
 		"data": {
-			"city": "Wayanad",
+			"city": "Kozhikode",
 			"country": {
 				"code": "IN",
 				"name": "India"
@@ -11,10 +11,11 @@
 				"name": "Kerala"
 			},
 			"timezone": "Asia/Kolkata",
-			"latitude": 11.6032,
-			"longitude": 76.0793
+			"latitude": 11.2189,
+			"longitude": 75.7268,
+			"postalCode": "673014"
 		},
-		"timestamp": 1722185176726
+		"timestamp": 1729634071992
 	},
 	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20"
 }
