@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import content from '../data/content';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box  } from '@mui/material';
 import '../styles/Career.css';
 import { RadioGroup, FormControlLabel, Radio, FormControl, FormLabel } from '@mui/material';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 
 const Career = () => {
@@ -44,6 +45,11 @@ const Career = () => {
         });
       };
 
+      const handleCopy = () => {
+        navigator.clipboard.writeText('sajendraprasad.chandran@simtestlab.se');
+        alert('Email copied to clipboard');
+      };
+
       const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -57,7 +63,7 @@ const Career = () => {
           });
     
           if (response.ok) {
-            alert('Form submitted succesfully. Kindly send you resume to support@simtestlab.se');
+            alert('Form submitted succesfully. Kindly send your resume to sajendraprasad.chandran@simtestlab.se');
             setIsSubmitted(true);
           } else {
             alert('Error sending email. Please try again.');
@@ -276,6 +282,23 @@ const Career = () => {
                                 required
                             />
                         </div>
+                        <Box display="flex" alignItems="center" mt={2}>
+                            <Typography variant="body1" mr={2}>
+                                Kindly send your resume to{' '}
+                                <Typography variant="body1" component="span" color="primary" fontWeight="bold">
+                                sajendraprasad.chandran@simtestlab.se
+                                </Typography>
+                            </Typography>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="small"
+                                startIcon={<ContentCopyIcon />}
+                                onClick={handleCopy}
+                            >
+                            </Button>
+                        </Box>
+
                         <br></br>
                         <button type="submit" className="btn" disabled={isSubmitted}>
                             Submit Application
