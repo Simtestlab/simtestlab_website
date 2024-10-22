@@ -57,7 +57,7 @@ const Career = () => {
           });
     
           if (response.ok) {
-            alert('Form submitted succesfully. Kindly send you resume to support@simtestlab.se');
+            alert('Form submitted succesfully. Kindly send your resume to sajendraprasad.chandran@simtestlab.se');
             setIsSubmitted(true);
           } else {
             alert('Error sending email. Please try again.');
