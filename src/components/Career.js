@@ -57,13 +57,13 @@ const Career = () => {
           });
     
           if (response.ok) {
-            alert('Email sent successfully');
+            alert('Form submitted succesfully. Kindly send you resume to support@simtestlab.se');
             setIsSubmitted(true);
           } else {
-            alert('Error sending email');
+            alert('Error sending email. Please try again.');
           }
         } catch (error) {
-          alert('Error sending email');
+          alert('Error sending email', error);
         }
       };
 
