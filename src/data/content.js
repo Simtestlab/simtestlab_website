@@ -171,8 +171,8 @@ const content = {
       {
         imgSrc: "/images/Nallasivam.png",
         name: "Nallasivam Selvaraj",
-        description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design.",
-        full_description: "Experienced Software Engineer with expertise in Python, C++ and software develoment, specializing in application development and user interface design. Skilled in DevOps practices and cloud for efficient software delivery. Passionate about creating scalable, reliable solutions and staying updated with emerging technologies.",
+        description: "Experienced Software Engineer with expertise in DevOps, Python, C++ and software develoment, specializing in application development and user interface design.",
+        full_description: "Experienced Software Engineer with expertise in DevOps, Python, C++ and software develoment, specializing in application development and user interface design. Skilled in DevOps practices and cloud for efficient software delivery. Passionate about creating scalable, reliable solutions and staying updated with emerging technologies.",
         job: "Software Engineer",
       },
       {
@@ -206,9 +206,12 @@ const content = {
       {
         imgSrc: "/images/Hari.png",
         name: "Hari Ramar",
-        job: "Junior Web Developer",
+        job: "Web Developer",
         description: "Full stack developer working on software tools required for simulation and battery management.",
-        full_description: "Working on building, maintaining, and improving websites or web applications. Their tasks often include writing code in languages like HTML, CSS, and JavaScript, debugging issues, and collaborating with more experienced developers to learn best practices. Junior developers focus on gaining experience, learning new technologies, and improving their skills to advance in their careers.",
+    
+        full_description: "Working on building, maintaining, and improving websites or web applications. Their tasks often include building applications using Next.JS and React, and collaborating with more experienced developers to learn best practices. .",
+        //github: "https://github.com/crmaarimuthu",
+        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
     ],
   },
