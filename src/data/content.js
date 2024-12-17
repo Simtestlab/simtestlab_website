@@ -183,6 +183,13 @@ const content = {
         job: "Hardware Engineer",
       },
       {
+        imgSrc: "/images/Vinay.png",
+        name: "Vinay Kumar S Lokare",
+        description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
+        full_description: "As an Embedded Software Engineer, I design and optimize software for embedded systems, focusing on microcontrollers and real-time operating systems. I ensure seamless hardware-software integration to deliver high-performance, reliable, and scalable solutions.",
+        job: "Embedded Engineer",
+      },
+      {
         imgSrc: "/images/Akilasekar.png",
         name: "Akilasekar Kalirajan",
         job: "Senior Software Engineer",
@@ -208,10 +215,7 @@ const content = {
         name: "Hari Ramar",
         job: "Web Developer",
         description: "Full stack developer working on software tools required for simulation and battery management.",
-    
         full_description: "Working on building, maintaining, and improving websites or web applications. Their tasks often include building applications using Next.JS and React, and collaborating with more experienced developers to learn best practices. .",
-        //github: "https://github.com/crmaarimuthu",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
     ],
   },
