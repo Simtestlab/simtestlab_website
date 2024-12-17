@@ -211,7 +211,7 @@ const content = {
         full_description: "A dynamic Data Analyst proficient in SQL, Python, and Data Visualization. I've leveraged my expertise in Machine Learning across diverse projects, delivering actionable insights.",
       },
       {
-        imgSrc: "/images/Hari.png",
+        imgSrc: "/images/Hari.jpg",
         name: "Hari Ramar",
         job: "Web Developer",
         description: "Full stack developer working on software tools required for simulation and battery management.",
