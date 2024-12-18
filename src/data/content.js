@@ -266,7 +266,7 @@ const content = {
       address_line_2: "Tamil Nadu, India - 641 107",
       email: "support@simtestlab.se",
       phone: "+91 72005 12732",      
-      gst_number: "GSTIN: 33AAHCI4078E1ZO.",
+      gst_number: "GSTIN: 33AAHCI4078E1ZO",
       cin_number: "CIN: U26517TZ2023PTC029990"
     },
     branch2 : {
