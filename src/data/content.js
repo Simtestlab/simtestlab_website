@@ -44,7 +44,7 @@ const content = {
       { href: "#contact", label: "Contact Us" },
     ],
   },
-  about: {
+    about: {
     title: "OUR SERVICES",
     tabs: [
       { id: "it-services", label: "MODEL BASED DEVELOPMENT" },
@@ -56,76 +56,76 @@ const content = {
         {
           imgSrc: "/images/models/board.jpg",
           title: "Model in Loop",
-          text: "Validates the model by testing its behavior and functionality without any physical hardware or software implementation.",
+          text: "Validates the model by testing its behavior and functionality without any physical hardware or software implementation, ensuring design accuracy early in the development process.",
         },
         {
           imgSrc: "/images/models/software.jpg",
           title: "Software in Loop",
-          text: "Evaluates the correctness of the generated code by executing it within a simulation model.",
+          text: "Evaluates the correctness of the generated code by executing it within a simulation model, facilitating seamless integration between software and system models.",
         },
         {
           imgSrc: "/images/models/testing.jpg",
           title: "Hardware in Loop",
-          text: "Integrates the actual hardware components with the control software in a real-time simulation environment.",
+          text: "Integrates actual hardware components with control software in a real-time simulation environment, allowing comprehensive testing of hardware-software interactions.",
         },
         {
           imgSrc: "/images/models/process.jpg",
           title: "Process in Loop",
-          text: "Innovative testing methods for modern development.",
+          text: "Implements innovative testing methods to streamline modern development processes, enhancing efficiency and reducing time-to-market.",
         },
       ],
       "business-services": [
         {
           imgSrc: "/images/models/monitoring.jpg",
           title: "Monitoring",
-          text: "Comprehensive testing solutions for battery cells, including performance, safety, and reliability tests.",
+          text: "Provides real-time monitoring solutions for battery systems, ensuring continuous performance tracking and immediate detection of anomalies.",
         },
         {
           imgSrc: "/images/models/battery.jpg",
           title: "Management",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
+          text: "Offers comprehensive battery management services, including state-of-charge estimation, thermal management, and lifecycle optimization to enhance battery longevity.",
         },
         {
           imgSrc: "/images/models/security.jpg",
           title: "Protection",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
+          text: "Implements advanced protection mechanisms to safeguard battery systems against overcharging, deep discharge, and thermal runaway, ensuring safety and reliability.",
         },
         {
           imgSrc: "/images/models/connections.jpg",
           title: "Communication",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
+          text: "Facilitates seamless communication between battery modules and management systems through robust protocols and interfaces, enabling efficient data exchange and control.",
         },
         {
           imgSrc: "/images/models/prognostics.jpg",
           title: "Prognostics",
-          text: "Advanced testing services for battery packs to ensure optimal performance and longevity.",
+          text: "Utilizes predictive analytics to forecast battery health and remaining useful life, allowing proactive maintenance and reducing unexpected downtimes.",
         },
       ],
       "product-information": [
         {
           imgSrc: "/images/models/function.jpg",
           title: "Automated Functional Testing",
-          text: "Automate your functional testing processes to improve accuracy and efficiency.",
+          text: "Automates your functional testing processes to enhance accuracy, consistency, and efficiency, reducing manual effort and accelerating release cycles.",
         },
         {
           imgSrc: "/images/models/analysis.jpg",
           title: "Requirement Specification and Analysis",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
+          text: "Provides thorough requirement specification and analysis services to ensure that your testing framework aligns with your project goals and quality standards.",
         },
         {
           imgSrc: "/images/models/modeling.jpg",
           title: "Modeling and Simulation",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
+          text: "Develops detailed models and simulations to replicate real-world scenarios, enabling comprehensive testing and validation of your products before deployment.",
         },
         {
           imgSrc: "/images/models/scripting.jpg",
           title: "Test Case and Script Development",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
+          text: "Creates robust test cases and automated scripts tailored to your application needs, ensuring comprehensive coverage and repeatability in testing.",
         },
         {
           imgSrc: "/images/models/environment.jpg",
           title: "Test Environment Setup",
-          text: "Integrate automated testing into your CI pipeline for faster and more reliable releases.",
+          text: "Sets up reliable and scalable test environments that mimic production settings, facilitating accurate and meaningful testing outcomes.",
         },
       ],
     },
@@ -183,6 +183,13 @@ const content = {
         job: "Hardware Engineer",
       },
       {
+        imgSrc: "/images/Vinay.png",
+        name: "Vinay Kumar S Lokare",
+        description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
+        full_description: "As an Embedded Software Engineer, I design and optimize software for embedded systems, focusing on microcontrollers and real-time operating systems. I ensure seamless hardware-software integration to deliver high-performance, reliable, and scalable solutions.",
+        job: "Embedded Engineer",
+      },
+      {
         imgSrc: "/images/Akilasekar.png",
         name: "Akilasekar Kalirajan",
         job: "Senior Software Engineer",
@@ -208,10 +215,7 @@ const content = {
         name: "Hari Ramar",
         job: "Web Developer",
         description: "Full stack developer working on software tools required for simulation and battery management.",
-    
         full_description: "Working on building, maintaining, and improving websites or web applications. Their tasks often include building applications using Next.JS and React, and collaborating with more experienced developers to learn best practices. .",
-        //github: "https://github.com/crmaarimuthu",
-        //linkedin: "https://www.linkedin.com/company/simtestlab/posts/",
       },
     ],
   },
@@ -262,13 +266,15 @@ const content = {
       address_line_2: "Tamil Nadu, India - 641 107",
       email: "support@simtestlab.se",
       phone: "+91 72005 12732",      
+      gst_number: "GSTIN: 33AAHCI4078E1ZO",
+      cin_number: "CIN: U26517TZ2023PTC029990"
     },
     branch2 : {
         name: "iGraph Technologies Pvt Ltd",
         address_line_1: "Kolapalli, Cherangode, The Nilgiris",
         address_line_2: "Tamil Nadu, India - 643 253",
         email: "support@simtestlab.se",
-        phone: "+91 72005 12732",        
+        phone: "+91 72005 12732"
     },
 
     socialLinks: [
