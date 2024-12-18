@@ -124,9 +124,9 @@ const Contact = () => {
               <li>{content.contact.branch1.address_line_1}</li>
               <li>{content.contact.branch1.address_line_2}</li>
               <li>{content.contact.branch1.email}</li>
-              <li>{content.contact.branch1.phone}</li>        
+              <li>{content.contact.branch1.phone}</li>     
+              <li>{content.contact.branch1.gst_number}</li>   
               <li>{content.contact.branch1.cin_number}</li>
-              <li>{content.contact.branch1.gst_number}</li>
             </ul>
           </div>
           <div className="footer-col">
@@ -136,9 +136,7 @@ const Contact = () => {
               <li>{content.contact.branch2.address_line_1}</li>
               <li>{content.contact.branch2.address_line_2}</li>
               <li>{content.contact.branch2.email}</li>
-              <li>{content.contact.branch2.phone}</li>          
-              <li>{content.contact.branch2.cin_number}</li> 
-              <li>{content.contact.branch2.gst_number}</li> 
+              <li>{content.contact.branch2.phone}</li>      
             </ul>
           </div>      
           <div className="footer-col">
