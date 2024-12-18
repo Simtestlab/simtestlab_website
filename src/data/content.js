@@ -266,6 +266,7 @@ const content = {
       address_line_2: "Tamil Nadu, India - 641 107",
       email: "support@simtestlab.se",
       phone: "+91 72005 12732",      
+      gst_number: "GSTIN: 33AAHCI4078E1ZO."
     },
     branch2 : {
         name: "iGraph Technologies Pvt Ltd",
@@ -273,6 +274,7 @@ const content = {
         address_line_2: "Tamil Nadu, India - 643 253",
         email: "support@simtestlab.se",
         phone: "+91 72005 12732",        
+        gst_number: "GSTIN: 33AAHCI4078E1ZO.",
     },
 
     socialLinks: [
