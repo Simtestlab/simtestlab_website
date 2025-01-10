@@ -8,6 +8,7 @@ import Employees from './components/Employees';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Career from './components/Career';
+import Candidate from './components/Candidate';
 import './App.css';
 
 // Define your custom theme
@@ -47,6 +48,7 @@ function App() {
             } />
             {/* New Route for /carrier */}
             <Route path="/career" element={<Career />} />
+            <Route path="/candidate" element={<Candidate />} />
           </Routes>
         </div>
       </Router>
