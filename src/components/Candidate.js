@@ -16,7 +16,6 @@ export default function ProfileGrid() {
                         alt="Logo"
                         width="50"
                         height="50"
-                        style={{ padding: '5px' }}
                     />
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         {content.header.brand}
@@ -24,20 +23,22 @@ export default function ProfileGrid() {
                 </Toolbar>
             </AppBar>
             <div className="job-application-header">
-                <span>Job Application Form</span>
+                <span>Candidate Page</span>
             </div>
 
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
+                    justifyContent: "center",
                     alignItems: "center",
-                    padding: "20px",
+                    padding: "5px",
                     backgroundColor: "#000000", 
                     minHeight: "100vh", 
+                    margin: "20px",
                 }}
             >
-                <Grid container spacing={3}>
+                <Grid container spacing={3} justifyContent="center" alignItems="center">
                     {profiles.map((profile, index) => (
                         <Grid
                             item
@@ -50,14 +51,15 @@ export default function ProfileGrid() {
                                 sx={{
                                     display: "flex",
                                     flexDirection: "column", 
-                                    maxHeight: "300px", 
+                                    height: "300px", 
+                                    alignItems: "center",
                                     width: "100%", 
-                                    maxWidth: "350px", 
                                     padding: "20px",
-                                    border: "1px solid #444", 
+                                    borderRadius:"16px",
                                     backgroundColor: "#f9f9f9",
                                     color: "#3c3c3c",
                                     boxSizing: "border-box",
+                                    boxShadow:'0px 4px 6px rgba(0, 0, 0, 0.1)'
                                 }}
                             >
                                 {/*<CardMedia
