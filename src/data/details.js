@@ -6,6 +6,7 @@ export const profiles = [
       address: "Kisan Wadi Est, Nr. Danbahadur Wadi, Bunder Pakhadi Rd, Kandivali, Alwar",
       phone: "(+91) 9783893999",
       image: "/profile.jpg",
+      Status:"To Be Interviewed",
     },
     {
       Name: "Aradhya Anand",
@@ -14,6 +15,8 @@ export const profiles = [
       address: "E7 Bhawan Society, Ave Road, Malviya Hall, Jammu and Kashmir",
       phone: "(+91) 9321422495",
       image: "/images.jpg",
+      Status:"Selected",
+
     },
     {
       Name: "Ramesh Sharma",
@@ -22,6 +25,8 @@ export const profiles = [
       address: "302, Bhaskar Mansion, 2nd Flr Avenue Road, Avenue Road, Kerala",
       phone: "(+91) 9865473021",
       image: "/final.jpg",
+      Status:"Hold",
+
     },
     {
       Name: "Kishore",
@@ -30,6 +35,7 @@ export const profiles = [
       address: "1060 Budhwar Path, Datta Mandir, Uttrakhand",
       phone: "(+91) 9783407543",
       image: "/download.jpg",
+      Status:"Rejected",
     },
     {
       Name: "Farah",
@@ -38,6 +44,7 @@ export const profiles = [
       address: "99, Haji Abudakar Chawl, Dharavi Cross Rd, Kutti Wadi, Dharavi, Maharashtra",
       phone: "(+91) 8465240239",
       image: "/photo.jpg",
+      Status:"Hold",
     },
     {
       Name: "Supriya Jiha",
@@ -46,6 +53,7 @@ export const profiles = [
       address: "L Block, Sitaram Building, Behind Hotel New Bengal, Nr V T Station, Fort, West Bengal",
       phone: "(+91) 734500924365",
       image: "/profpic.jpg",
+      Status:"Selected",
     },
     {
       Name: "Richa Verma",
@@ -54,6 +62,7 @@ export const profiles = [
       address: "5-5-102/1, 1st floor, Anasuya, Behind Ganji Enterprises, Ranigunji",
       phone: "(+91) 79385129037",
       image: "/picture.jpg",
+      Status:"Rejected",
     },
     {
       Name: "Raghu Simon",
@@ -62,6 +71,7 @@ export const profiles = [
       address: "St.Xavier College Campus, Maha Palika Road, Delhi",
       phone: "(+91) 73245456078",
       image: "/screen.jpg",
+      Status:"To Be Interviewed",
     },
     {
       Name: "Suraj Prawal",
@@ -70,6 +80,7 @@ export const profiles = [
       address: "1 Capadia Building, Tank Road, A H Wadia Baug, Tank Road, Rajasthan",
       phone: "(+91) 8754124589",
       image: "/photos(2).jpg",
+      Status:"Hold",
     },
     {
       Name: "Kapil Ojha",
@@ -78,6 +89,7 @@ export const profiles = [
       address: "Sikander Pur, Shri Krishna Market, Guragon, Haryana",
       phone: "(+91) 9023567814",
       image: "/screenshot.jpg",
+      Status:"Selected",
     },
   ];
   
