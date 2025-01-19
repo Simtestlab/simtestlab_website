@@ -134,6 +134,13 @@ const content = {
     title: "Who we are",
     members: [
       {
+        imgSrc: "/images/RameshKumar.png",
+        name: "Rameshkumar Rajarathanam",
+        description: "Expert in developing Hardware-in-the-Loop (HIL) simulators, with extensive experience in C programming and MATLAB scripting.",
+        full_description: "Expert in developing Hardware-in-the-Loop (HIL) simulators, with extensive experience in C programming and MATLAB scripting. Specialized in C, MATLAB, M-script, and Simulink modeling, with a strong ability to design, develop, and optimize real-time simulation environments for testing embedded systems. Proficient in integrating hardware and software components to create robust testing frameworks that enhance system validation and verification. Experienced in developing custom test automation scripts, analyzing simulation data, and collaborating with cross-functional teams to improve system performance and reliability.",
+        job: "CEO | Software/Simulation Specialist",
+      },
+      {
         imgSrc: "/images/Tiberiu.png",
         name: "Tiberiu Stanciu",
         description: "A renewable energy consultant assists clients in conducting investigations in order to better understand and direct the installation of renewable energy systems.",
@@ -160,6 +167,13 @@ const content = {
         job: "Senior Lead Engineer Connectivity",
         full_description: "Lead Engineers manage engineering teams, oversee project development, ensure code quality, and collaborate with other departments to meet project goals.",
         description: "Lead Engineers manage engineering teams, oversee project development, ensure code quality, and collaborate with other departments to meet project goals.",
+      },
+      {
+        imgSrc: "/images/Sajendraprasad.png",
+        name: "Sajendra Prasad Chandran",
+        description: "The Human Resources Specialist leads strategic initiatives in talent acquisition, employee engagement, and workforce development to foster a thriving organizational culture.",
+        full_description: "The Human Resources Specialist plays a pivotal role in shaping the organization’s success by leading strategic initiatives in talent acquisition, employee engagement, and workforce development. This includes designing and implementing innovative hiring practices to attract top-tier talent, developing programs to enhance employee satisfaction and productivity, and creating comprehensive learning and development opportunities to support career growth. With a strong focus on fostering a positive and inclusive workplace culture, the Human Resources Specialist works closely with leadership to align HR strategies with organizational goals, ensuring a thriving, motivated, and high-performing workforce.",
+        job: "Human Resource Manager",
       },
       {
         imgSrc: "/images/Rajavelu.png",
@@ -199,9 +213,9 @@ const content = {
       {
         imgSrc: "/images/Maari.png",
         name: "Maarimuthu Rajagopal",
-        job: "Embedded Engineer",
-        description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",
-        full_description: "Embedded Software Engineer with expertise in UART, SPI, CAN, and I2C protocols, specializing in developing and optimizing software for microcontrollers.",        
+        job: "Embedded Firmware Engineer",
+        description: "Experienced in developing and optimizing firmware for microcontrollers with expertise in UART, SPI, CAN, and I2C protocols.",
+        full_description: "Experienced in developing and optimizing firmware for microcontrollers with expertise in UART, SPI, CAN, and I2C protocols. Skilled in using FreeRTOS for real-time applications and ROS for modular robotic solutions. Proficient in SOEM/SOES for EtherCAT-based automation and firmware development for Battery Management Systems (BMS). Adept at hardware-software integration, low-level debugging, and system optimization. Passionate about delivering reliable solutions for industrial automation, robotics, and IoT.",        
       },
       {
         imgSrc: "/images/Agilan.png",
@@ -214,8 +228,29 @@ const content = {
         imgSrc: "/images/Hari.png",
         name: "Hari Ramar",
         job: "Web Developer",
-        description: "Full stack developer working on software tools required for simulation and battery management.",
-        full_description: "Working on building, maintaining, and improving websites or web applications. Their tasks often include building applications using Next.JS and React, and collaborating with more experienced developers to learn best practices. .",
+        description: "Specializes in building scalable and efficient web applications using a diverse technology stack, including React, Node.js, Express, PostgreSQL, Django, and Flask.",
+        full_description: "Specializes in building scalable and efficient web applications using a diverse technology stack, including React, Node.js, Express, PostgreSQL, Django, and Flask. This role involves developing and maintaining both front-end and back-end components, ensuring seamless integration between user interfaces and server-side logic. The developer is responsible for designing responsive and dynamic web applications, implementing RESTful APIs, managing databases, and optimizing application performance. With expertise across the entire development lifecycle, they collaborate closely with cross-functional teams to deliver robust, secure, and user-friendly solutions that align with business objectives.",
+      },
+      {
+        imgSrc: "/images/Muralidharan.png",
+        name: "Murali Dharan",
+        job: "Software Tester",
+        description: "Drives quality assurance efforts by leveraging cutting-edge tools and methodologies, including Cucumber, to ensure the delivery of robust and reliable software solutions.",
+        full_description: "The Software Tester drives quality assurance efforts by leveraging cutting-edge tools and methodologies, including Cucumber, to ensure the delivery of robust and reliable software solutions. This role involves designing and executing automated and manual test cases, developing behavior-driven testing frameworks, and collaborating closely with development teams to identify and resolve issues early in the software lifecycle. With a focus on maintaining high-quality standards, the Software Tester ensures seamless integration, functionality, and user experience, contributing to the overall success of the organization’s technology initiatives.",
+      },
+      {
+        imgSrc: "/images/Saran.png",
+        name: "Saran Muthumanickam",
+        job: "Research Engineer",
+        description: "Specializes in bioinformatics and genetics, driving innovation at the intersection of computational science and biology.",
+        full_description: "Specializes in bioinformatics and genetics, driving innovation at the intersection of computational science and biology. This role involves developing and applying advanced algorithms, statistical models, and data analysis pipelines to uncover insights from genomic and transcriptomic data. By leveraging expertise in programming, machine learning, and biological systems, the Research Engineer contributes to projects such as genetic variant analysis, gene expression profiling, and biomarker discovery. Collaborating with multidisciplinary teams, they play a key role in advancing our understanding of complex biological processes, ultimately supporting breakthroughs in personalized medicine, biotechnology, and genomics research.",
+      },
+      {
+        imgSrc: "/images/Divya.png",
+        name: "Divya Rosy",
+        job: "Front End Developer",
+        description: "Specializes in React development, crafting dynamic and user-friendly web interfaces that deliver exceptional user experiences.",
+        full_description: "Specializes in React development, crafting dynamic and user-friendly web interfaces that deliver exceptional user experiences. This role involves building and optimizing responsive components, implementing reusable code and libraries, and integrating APIs to ensure seamless functionality. By leveraging expertise in modern front-end technologies, such as JavaScript, React.js, and related tools, the developer collaborates closely with designers and back-end teams to create intuitive, visually appealing, and high-performing web applications. With a strong focus on user-centric design and performance, the Front-End Web Developer contributes to delivering impactful digital solutions that meet both user and business needs",
       },
     ],
   },
