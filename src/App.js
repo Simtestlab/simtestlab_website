@@ -9,6 +9,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Career from './components/Career';
 import './App.css';
+import Editor from './components/Editor';
 
 // Define your custom theme
 const theme = createTheme({
@@ -47,6 +48,7 @@ function App() {
             } />
             {/* New Route for /carrier */}
             <Route path="/career" element={<Career />} />
+            <Route path="/editor" element={<Editor />} />
           </Routes>
         </div>
       </Router>
