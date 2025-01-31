@@ -5,6 +5,8 @@ export default async function handler(req, res) {
     if (req.method === "POST"){
         const{ title, content} = req.body;
 
+        console.log("Tittle: ", title);
+
         const safeTitle= title.replace(/[^a-zA-Z0-9_-]/g, "");
         const filePath = path.join(process.cwd(), "public/content", `${safeTitle || "document"}.html`);
 
@@ -17,5 +19,5 @@ export default async function handler(req, res) {
         } else {
             res.status(405).json({message: "Method Not Allowed"});
         }
-    }
+}
     

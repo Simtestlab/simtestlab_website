@@ -1,3 +1,21 @@
 {
-	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20"
+	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20",
+	"geolocation": {
+		"data": {
+			"city": "Kozhikode",
+			"country": {
+				"code": "IN",
+				"name": "India"
+			},
+			"subdivision": {
+				"code": "KL",
+				"name": "Kerala"
+			},
+			"timezone": "Asia/Kolkata",
+			"latitude": 11.2448,
+			"longitude": 75.7721,
+			"postalCode": "673571"
+		},
+		"timestamp": 1737714977354
+	}
 }

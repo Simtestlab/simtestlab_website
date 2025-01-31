@@ -9,10 +9,10 @@ const EditorPage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const handleSave = async() => {
-   const htmlContent = marked(content);
-   try {
-      const response = await fetch("./netlify/functions/saveContent", {
+  const handleSave = async () => {
+    const htmlContent = marked(content);
+    try {
+      const response = await fetch('/.netlify/functions/savecontent', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,12 +23,12 @@ const EditorPage = () => {
         }),
       });
 
-      console.log("Response:", response);
+      console.log("Response:", response.status);
 
       const result = await response.json();
-      if (response.ok){
+      if (response.ok) {
         alert("Document saved successfully!");
-      } else{
+      } else {
         alert("Failed to save document.");
       }
     } catch (error) {
@@ -37,11 +37,11 @@ const EditorPage = () => {
     }
   };
   return (
-    <Container maxWidth="md" sx={{padding: 4}}>
+    <Container maxWidth="md" sx={{ padding: 4 }}>
       <Typography variant="h5" sx={{ marginTop: 2, marginBottom: 3, fontWeight: "bold" }}>
         Create New Document
       </Typography>
-      
+
       <TextField
         fullWidth
         label=" Enter Title"
@@ -50,7 +50,7 @@ const EditorPage = () => {
         onChange={(e) => setTitle(e.target.value)}
         sx={{ marginBottom: 3 }}
       />
-      
+
       <ReactQuill
         value={content}
         onChange={setContent}
