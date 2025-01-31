@@ -206,9 +206,9 @@ const content = {
       {
         imgSrc: "/images/Akilasekar.png",
         name: "Akilasekar Kalirajan",
-        job: "Senior Software Engineer",
-        description: "Model-Based Developer, specializing in Battery Management Systems (BMS), MATLAB, software development.",
-        full_description: "Model-Based Developer, specializing in Battery Management Systems (BMS), MATLAB, software development and validating software systems through formal models. Expertise create comprehensive test cases for seamless hardware and software integration, ensuring efficient and reliable system performance.",
+        job: "System Engineer",
+        description: "System Engineer specializing in Model-Based Development (MBD), Battery Management Systems (BMS), and BMS testing chamber design.",
+        full_description: "System Engineer specializing in Model-Based Development (MBD), Battery Management Systems (BMS), and BMS testing chamber design. Skilled in developing control algorithms using MATLAB/Simulink, designing custom test environments to evaluate battery performance. Experienced in HIL/SIL testing, thermal management, and data acquisition for BMS validation.",
       },
       {
         imgSrc: "/images/Maari.png",
@@ -229,7 +229,7 @@ const content = {
         name: "Hari Ramar",
         job: "Web Developer",
         description: "Specializes in building scalable and efficient web applications using a diverse technology stack, including React, Node.js, Express, PostgreSQL, Django, and Flask.",
-        full_description: "Specializes in building scalable and efficient web applications using a diverse technology stack, including React, Node.js, Express, PostgreSQL, Django, and Flask. This role involves developing and maintaining both front-end and back-end components, ensuring seamless integration between user interfaces and server-side logic. The developer is responsible for designing responsive and dynamic web applications, implementing RESTful APIs, managing databases, and optimizing application performance. With expertise across the entire development lifecycle, they collaborate closely with cross-functional teams to deliver robust, secure, and user-friendly solutions that align with business objectives.",
+        full_description: "Specializes in building scalable and efficient web applications using a diverse technology stack, including React, Node.js, Express, PostgreSQL, Django, and Flask. This role involves developing and maintaining both front-end and back-end components, ensuring seamless integration between user interfaces and server-side logic.",
       },
       {
         imgSrc: "/images/Muralidharan.png",
@@ -251,6 +251,13 @@ const content = {
         job: "Front End Developer",
         description: "Specializes in React development, crafting dynamic and user-friendly web interfaces that deliver exceptional user experiences.",
         full_description: "Specializes in React development, crafting dynamic and user-friendly web interfaces that deliver exceptional user experiences. This role involves building and optimizing responsive components, implementing reusable code and libraries, and integrating APIs to ensure seamless functionality. By leveraging expertise in modern front-end technologies, such as JavaScript, React.js, and related tools, the developer collaborates closely with designers and back-end teams to create intuitive, visually appealing, and high-performing web applications. With a strong focus on user-centric design and performance, the Front-End Web Developer contributes to delivering impactful digital solutions that meet both user and business needs",
+      },
+      {
+        imgSrc: "/images/Girivelavan.png",
+        name: "Giri Velavan Nijalingappan",
+        job: "Junior Embedded Engineer",
+        description: "Embedded Software Engineer specializing in developing and optimizing software for microcontrollers and embedded systems.",
+        full_description: "Embedded Software Engineer specializing in developing and optimizing software for microcontrollers and embedded systems. Experienced in RTOS, communication protocols (CAN, UART, SPI, I2C), and hardware interfaces. Skilled in debugging, performance tuning, and ensuring system reliability.",
       },
     ],
   },
