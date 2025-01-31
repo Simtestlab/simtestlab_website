@@ -2,7 +2,7 @@
 	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20",
 	"geolocation": {
 		"data": {
-			"city": "Kozhikode",
+			"city": "Thrissur",
 			"country": {
 				"code": "IN",
 				"name": "India"
@@ -12,10 +12,10 @@
 				"name": "Kerala"
 			},
 			"timezone": "Asia/Kolkata",
-			"latitude": 11.2448,
-			"longitude": 75.7721,
-			"postalCode": "673571"
+			"latitude": 10.516,
+			"longitude": 76.2157,
+			"postalCode": "680301"
 		},
-		"timestamp": 1737714977354
+		"timestamp": 1738300548333
 	}
 }
