@@ -165,7 +165,7 @@ const Employees = () => {
             <h2>{content.employees.members[activeMember].name}</h2>
             <img src={content.employees.members[activeMember].imgSrc} alt={content.employees.members[activeMember].name} className="popup-img"/>
             {content.employees.members[activeMember].job && (
-              <h4>{content.employees.members[activeMember].job}</h4>
+              <h4><strong>{content.employees.members[activeMember].job}</strong></h4>
             )}
             <p>{content.employees.members[activeMember].full_description || content.employees.members[activeMember].description}</p>
             {content.employees.members[activeMember].github && (
