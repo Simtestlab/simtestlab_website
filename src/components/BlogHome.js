@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { Card, CardContent, Typography, Container, Grid } from "@mui/material";
 import { db } from "../config/firebaseConfig";
+import removeMarkdown from "remove-markdown";
 
 const BlogHome = () => {
     const [posts, setPosts] = useState([]);
@@ -14,6 +15,7 @@ const BlogHome = () => {
                 id: doc.id,
                 ...doc.data()
             }));
+            
             setPosts(postsData);
         };
 
@@ -34,7 +36,7 @@ const BlogHome = () => {
                                     {post.title}
                                 </Typography>
                                 <Typography variant="body2">
-                                    {post.content.substring(0, 100)}...
+                                    {removeMarkdown(post.content.substring(0, 100))}...
                                 </Typography>
                                 <Link to={`/${post.title.toLowerCase().replace(/\s+/g, "-")}`}>
                                     Read More

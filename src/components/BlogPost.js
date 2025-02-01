@@ -40,7 +40,7 @@ const BlogPost = () => {
         },
     });
 
-    const htmlContent = DOMPurify.sanitize(marked(post.content));
+    const htmlContent = post.content ? DOMPurify.sanitize(marked(post.content)) : "";
 
     return (
         <Container>
