@@ -2,14 +2,18 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAFr8ytdrm30TgfNxAl9pcPmFS1LM-Uspg",
-  authDomain: "blogapplication-1c13e.firebaseapp.com",
-  projectId: "blogapplication-1c13e",
-  storageBucket: "blogapplication-1c13e.firebasestorage.app",
-  messagingSenderId: "410803615792",
-  appId: "1:410803615792:web:d8ca796de943f0a63d15f5",
-  measurementId: "G-JNT0E089TH"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,  
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
+
+if (!firebaseConfig.apiKey) {
+    console.error("Firebase API Key is missing! Check your .env file.");
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
