@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -15,19 +21,60 @@ if (!firebaseConfig.apiKey) {
     console.error("Firebase API Key is missing! Check your .env file.");
 }
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to add data to Firestore
-export const saveDocument = async (title, content) => {
-    await addDoc(collection(db, "documents"), { title, content });
+const auth = getAuth(app);
+
+const googleProvider = new GoogleAuthProvider();
+
+export const signInWithGoogle = async () => {
+    try {
+        const result = await signInWithPopup(auth, googleProvider);
+        return result.user;
+    } catch (error) {
+        console.error("Error during Google Sign in:", error);
+        throw error;
+    }
 };
 
-// Function to fetch data
+export const logOut = async () => {
+    try {
+        await signOut(auth);
+    } catch (error) {
+        console.error("Error signing out:", error);
+    }
+}
+
+export const saveDocument = async (title, content, tags) => {
+    const user = auth.currentUser;
+
+    if (!user) {
+        console.error("No user is logged in.");
+        return;
+    }
+
+    const userName = user.displayName || user.email;
+    const createdAt = Timestamp.fromDate(new Date());
+
+    try {
+        await addDoc(collection(db, "documents"), {
+            title,
+            content,
+            photo: user.photoURL,
+            userName,
+            tags,
+            createdAt,
+            updatedAt: createdAt,
+        });
+    } catch (error) {
+        console.error("Error saving document:", error);
+    }
+};
+
 export const getDocuments = async () => {
     const snapshot = await getDocs(collection(db, "documents"));
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-export { db };
+export { app, db, auth };
