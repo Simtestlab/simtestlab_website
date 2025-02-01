@@ -1,0 +1,55 @@
+.markdown-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.markdown-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.markdown-content h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.markdown-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.markdown-content p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.markdown-content ul {
+    padding-left: 20px;
+}
+
+.markdown-content ol {
+    padding-left: 20px;
+}
+
+.markdown-content li {
+    margin-bottom: 5px;
+}
+
+.markdown-content code {
+    background: #f4f4f4;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.markdown-content pre {
+    background: #282c34;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}

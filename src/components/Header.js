@@ -2,14 +2,16 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import content from '../data/content';
-import '../styles/Header.css';  // Importing the separate CSS file
+import '../styles/Header.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
 
-  const isMobile = useMediaQuery('(max-width:800px)');  // Adjusted to check for screens below 800px
+  const isMobile = useMediaQuery('(max-width:800px)');
 
   const updateSliderPosition = useCallback((id) => {
     const activeTab = document.querySelector(`.nav-link[href="#${id}"]`);
@@ -47,7 +49,7 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', findCurrentTabSelector);
 
-    findCurrentTabSelector(); // Initial call to set slider position on load
+    findCurrentTabSelector();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -63,24 +65,28 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const scrollToSection = (event, href) => {
+  const handleNavigation = (event, href) => {
     event.preventDefault();
-    const targetElement = document.querySelector(href);
-    const navbar = document.querySelector('.MuiAppBar-root');
+    if (href.startsWith("#")) {
+      const targetElement = document.querySelector(href);
+      const navbar = document.querySelector('.MuiAppBar-root');
 
-    if (targetElement && navbar) {
-      const navbarHeight = navbar.offsetHeight;
-      const scrollTop = targetElement.offsetTop - navbarHeight + 1;
+      if (targetElement && navbar) {
+        const navbarHeight = navbar.offsetHeight;
+        const scrollTop = targetElement.offsetTop - navbarHeight + 1;
 
-      window.scrollTo({
-        top: scrollTop,
-        behavior: 'smooth',  // This ensures smooth scrolling
-      });
+        window.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth',
+        });
 
-      setTimeout(() => {
-        setCurrentId(href.substring(1));
-        updateSliderPosition(href.substring(1));
-      }, 300);
+        setTimeout(() => {
+          setCurrentId(href.substring(1));
+          updateSliderPosition(href.substring(1));
+        }, 300);
+      }
+    } else {
+      navigate(href);
     }
   };
 
@@ -110,8 +116,9 @@ const Header = () => {
               <Button
                 key={index}
                 className="nav-link"
-                href={`#${item.href.substring(1)}`}
-                onClick={(e) => scrollToSection(e, item.href)}
+                component={Link}
+                to={item.href}
+                onClick={(e) => handleNavigation(e, item.href)}
               >
                 {item.label}
               </Button>
@@ -125,7 +132,7 @@ const Header = () => {
             color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
-            style={{ fontSize: '2rem' }}  // Increase the size of the menu icon
+            style={{ fontSize: '2rem' }}
           >
             <MenuIcon />
           </IconButton>
@@ -137,19 +144,21 @@ const Header = () => {
           className="mobile-menu"
           PaperProps={{
             style: {
-              width: '100vw',  // Full width of the screen
+              width: '100vw',
               maxWidth: 'none',
               margin: '0',
               padding: '0',
-              left: 0,  // Ensure alignment with the left edge
+              left: 0,
             },
           }}
         >
           {content.header.navItems.map((item, index) => (
             <MenuItem
               key={index}
+              component={Link}
+              to={item.href}
               onClick={(e) => {
-                scrollToSection(e, item.href);
+                handleNavigation(e, item.href);
                 handleMenuClose();
               }}
               className="menu-item"

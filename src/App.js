@@ -9,21 +9,23 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Career from './components/Career';
 import './App.css';
+import Editor from './components/Editor';
+import BlogHome from './components/BlogHome';
+import BlogPost from './components/BlogPost';
 
-// Define your custom theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1497B9',  // Blue
+      main: '#1497B9',
     },
     secondary: {
-      main: '#1BB88D',  // Green
+      main: '#1BB88D',
     },
     background: {
-      default: '#EBF2FA',  // Light Gray/Blue
+      default: '#EBF2FA',
     },
     text: {
-      primary: '#033F63',  // Dark Blue
+      primary: '#033F63',
     },
   },
 });
@@ -34,7 +36,6 @@ function App() {
       <Router>
         <div className="App">          
           <Routes>
-            {/* Default Route */}
             <Route path="/" element={
               <>
                 <Header />
@@ -45,8 +46,10 @@ function App() {
                 <Contact />
               </>
             } />
-            {/* New Route for /carrier */}
             <Route path="/career" element={<Career />} />
+            <Route path="/editor" element={<Editor />} />
+            <Route path='/blogs' element={<BlogHome />}/>
+            <Route path='/:slug' element={<BlogPost />}/>
           </Routes>
         </div>
       </Router>

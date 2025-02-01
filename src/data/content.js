@@ -7,6 +7,7 @@ const content = {
       { href: "#employees", label: "Who We Are" },
       { href: "#about", label: "About" },
       { href: "#contact", label: "Contact" },
+      { href: "/blogs", label: "Blogs" },
     ],
     logoSrc: "/images/logo.png"
   },
