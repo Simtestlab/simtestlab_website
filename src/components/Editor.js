@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Container, TextField, Button, Box, Typography } from "@mui/material";
 import "easymde/dist/easymde.min.css";
 import "../styles/EditorPage.css";

@@ -3,14 +3,13 @@ import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, useMed
 import MenuIcon from '@mui/icons-material/Menu';
 import content from '../data/content';
 import '../styles/Header.css';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const isMobile = useMediaQuery('(max-width:800px)');
 
