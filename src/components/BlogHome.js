@@ -156,7 +156,7 @@ const BlogHome = () => {
 
                                             <Box display="flex" alignItems="center" gap={1.5} sx={{ mb: 2 }}>
                                                 <Avatar
-                                                    src={post.photo || defaultProfile}
+                                                    src={post.authorPhoto || defaultProfile}
                                                     sx={{
                                                         width: 44,
                                                         height: 44,

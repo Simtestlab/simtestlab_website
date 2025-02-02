@@ -21,7 +21,7 @@ const MarkdownEditor = ({ value, onChange, height = "80vh" }) => {
 		try {
 			const options = {
 				maxSizeMB: 1.0,
-				maxWidthorHeight: 800,
+				maxWidthorHeight: 1000,
 				useWebWorker: true,
 			};
 
