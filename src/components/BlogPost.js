@@ -26,6 +26,7 @@ import "highlight.js/styles/github-dark.css";
 import content from '../data/content';
 import { formatDistanceToNow } from 'date-fns';
 import { collection, getDocs } from "firebase/firestore";
+import Contact from "./Contact";
 
 const fadeIn = {
   '@keyframes fadeIn': {
@@ -174,7 +175,7 @@ const BlogPost = () => {
             <Container maxWidth="lg">
                 <Fade in={true} timeout={800}>
                     <Card sx={{ 
-                        my: 4, 
+                        my: 2, 
                         p: 3, 
                         boxShadow: 3, 
                         borderRadius: 4,
@@ -335,6 +336,7 @@ const BlogPost = () => {
                     </Card>
                 </Fade>
             </Container>
+            <Contact />
         </>
     );
 };
