@@ -10,6 +10,7 @@ import { auth } from "../config/firebaseConfig";
 
 const EditorPage = () => {
 	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
 	const [content, setContent] = useState("");
 	const [tags, setTags] = useState([]);
 	const [tagInput, setTagInput] = useState("");
@@ -27,7 +28,7 @@ const EditorPage = () => {
 			return;
 		}
 
-		await saveDocument(title, content, tags);
+		await saveDocument(title, description,content, tags);
 		alert("Document saved successfully.!");
 		navigate('/blogs');
 	};
@@ -66,6 +67,17 @@ const EditorPage = () => {
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 				sx={{ marginBottom: 3 }}
+			/>
+
+			<TextField 
+				fullWidth
+				label="Enter Short Description"
+				variant="outlined"
+				value={description}
+				onChange={(e) => setDescription(e.target.value)}
+				sx={{ marginBottom: 3 }}
+				multiline
+				rows={2}
 			/>
 
 			<MarkdownEditor value={content} onChange={setContent} height="50vh"/>

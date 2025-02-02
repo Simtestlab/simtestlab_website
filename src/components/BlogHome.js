@@ -17,7 +17,6 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { db } from "../config/firebaseConfig";
-import removeMarkdown from "remove-markdown";
 import Contact from './Contact';
 import content from '../data/content';
 import { formatDistanceToNow } from 'date-fns';
@@ -184,7 +183,7 @@ const BlogHome = () => {
                                                 color: 'text.secondary',
                                                 lineHeight: 1.6
                                             }}>
-                                                {removeMarkdown(post.content.substring(0, 160))}...
+                                                {post.description || "No description available"}
                                             </Typography>
 
                                             <Button

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 import {
     getAuth,
     GoogleAuthProvider,
@@ -23,7 +24,7 @@ if (!firebaseConfig.apiKey) {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
+const storage = getStorage(app);
 const auth = getAuth(app);
 
 const googleProvider = new GoogleAuthProvider();
@@ -46,7 +47,7 @@ export const logOut = async () => {
     }
 }
 
-export const saveDocument = async (title, content, tags) => {
+export const saveDocument = async (title, description, content, tags) => {
     const user = auth.currentUser;
 
     if (!user) {
@@ -60,8 +61,9 @@ export const saveDocument = async (title, content, tags) => {
     try {
         await addDoc(collection(db, "documents"), {
             title,
+            description,
             content,
-            photo: user.photoURL,
+            authorPhoto: user.photoURL,
             userName,
             tags,
             createdAt,
@@ -77,4 +79,4 @@ export const getDocuments = async () => {
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-export { app, db, auth };
+export { app, db, auth, storage };
