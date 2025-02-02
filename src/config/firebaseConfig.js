@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, Timestamp, doc, updateDoc, getDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import {
     getAuth,
@@ -9,13 +9,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,  
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  apiKey: process.env.REACT_APP_API_KEY || "AIzaSyAFr8ytdrm30TgfNxAl9pcPmFS1LM-Uspg",
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN|| "blogapplication-1c13e.firebaseapp.com",
+  projectId: process.env.REACT_APP_PROJECT_ID || "blogapplication-1c13e",
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET || "blogapplication-1c13e.firebasestorage.app",
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID || "410803615792",  
+  appId: process.env.REACT_APP_APP_ID || "1:410803615792:web:d8ca796de943f0a63d15f5",
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID || "G-JNT0E089TH",
 };
 
 if (!firebaseConfig.apiKey) {
@@ -77,6 +77,31 @@ export const saveDocument = async (title, description, content, tags) => {
 export const getDocuments = async () => {
     const snapshot = await getDocs(collection(db, "documents"));
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+export const getDocumentById = async (docId) => {
+    const docRef = doc(db, "documents", docId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        return { id: docSnap.id, ...docSnap.data() };
+    } else {
+        return null;
+    }
+};
+
+export const updateDocument = async (docId, updatedData) => {
+    const docRef = doc(db, "documets", docId);
+    try {
+        await updateDoc(docRef, {
+            ...updatedData,
+            updatedAt: Timestamp.fromDate(new Date())
+        });
+        return true;
+    } catch (error) {
+        console.error("Error updating document:", error);
+        return false;
+    }
 };
 
 export { app, db, auth, storage };

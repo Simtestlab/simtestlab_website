@@ -12,9 +12,11 @@ import BlogHome from './components/BlogHome';
 import BlogPost from './components/BlogPost';
 import Login from './components/Login';
 import EditorPage from './components/Editor';
+import EditDocument from './components/EditDocument';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./config/firebaseConfig";
 import './App.css';
+import BlogList from './components/BlogList';
 
 const theme = createTheme({
   palette: {
@@ -53,6 +55,8 @@ function App() {
             
             <Route path="/login" element={user ? <Navigate to="/blogs" replace /> : <Login />} />
 
+            <Route path="/edit/:docId" element={<EditDocument />}/>
+            <Route path="/bloglist" element={<BlogList />}/>
             <Route
               path="/editor"
               element={
