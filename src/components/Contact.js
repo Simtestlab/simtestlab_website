@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import content from '../data/content';
 import '../styles/Contact.css';
 
@@ -12,10 +12,6 @@ const Contact = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    console.log('isSubmitted state changed:', isSubmitted);
-  }, [isSubmitted]);
 
   const handleChange = (e) => {
     setFormData({
