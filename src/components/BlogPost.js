@@ -1,39 +1,41 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { 
-  Fade,
-  Grow,
-  Slide,
-  Skeleton, 
-  Container, 
-  Typography, 
-  Card, 
-  CardContent, 
-  Box, 
-  AppBar, 
-  Toolbar, 
-  Avatar, 
-  Chip, 
-  IconButton 
+import {
+    Fade,
+    Grow,
+    Slide,
+    Skeleton,
+    Container,
+    Typography,
+    Card,
+    CardContent,
+    Box,
+    AppBar,
+    Toolbar,
+    Avatar,
+    Chip,
+    IconButton
 } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
 import { useScrollTrigger, Zoom } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { marked } from "marked";
-import { db } from "../config/firebaseConfig";
+import { db, getDocuments } from "../config/firebaseConfig";
+import EditIcon from '@mui/icons-material/Edit';
 import DOMPurify from "dompurify";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
 import content from '../data/content';
 import { formatDistanceToNow } from 'date-fns';
 import { collection, getDocs } from "firebase/firestore";
+import { auth } from '../config/firebaseConfig';
 import Contact from "./Contact";
 
 const fadeIn = {
-  '@keyframes fadeIn': {
-    from: { opacity: 0, transform: 'translateY(20px)' },
-    to: { opacity: 1, transform: 'translateY(0)' },
-  },
-  animation: 'fadeIn 0.6s ease-out',
+    '@keyframes fadeIn': {
+        from: { opacity: 0, transform: 'translateY(20px)' },
+        to: { opacity: 1, transform: 'translateY(0)' },
+    },
+    animation: 'fadeIn 0.6s ease-out',
 };
 
 const BlogPost = () => {
@@ -41,8 +43,10 @@ const BlogPost = () => {
     const [post, setPost] = useState(null);
     const [loadedImages, setLoadedImages] = useState(0);
     const [scrolled, setScrolled] = useState(false);
+    const [documents, setDocuments] = useState([]);
     const defaultProfile = "https://via.placeholder.com/50";
     const trigger = useScrollTrigger({ threshold: 100 });
+    const user = auth.currentUser;
 
     const handleImageLoad = useCallback(() => {
         setLoadedImages(prev => prev + 1);
@@ -72,6 +76,15 @@ const BlogPost = () => {
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const fetchDocs = async () => {
+            const docs = await getDocuments();
+            setDocuments(docs);
+        };
+
+        fetchDocs();
     }, []);
 
     useEffect(() => {
@@ -131,10 +144,10 @@ const BlogPost = () => {
             >
                 <Toolbar sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <Zoom in={trigger}>
-                        <IconButton 
-                            component={Link} 
-                            to="/blogs" 
-                            sx={{ 
+                        <IconButton
+                            component={Link}
+                            to="/blogs"
+                            sx={{
                                 mr: 1,
                                 transition: 'transform 0.2s',
                                 '&:hover': {
@@ -171,13 +184,13 @@ const BlogPost = () => {
                     </Slide>
                 </Toolbar>
             </AppBar>
-            
+
             <Container maxWidth="lg">
                 <Fade in={true} timeout={800}>
-                    <Card sx={{ 
-                        my: 2, 
-                        p: 3, 
-                        boxShadow: 3, 
+                    <Card sx={{
+                        my: 2,
+                        p: 3,
+                        boxShadow: 3,
                         borderRadius: 4,
                         transition: 'transform 0.3s, box-shadow 0.3s',
                         '&:hover': {
@@ -187,8 +200,8 @@ const BlogPost = () => {
                     }}>
                         <CardContent>
                             <Box sx={fadeIn}>
-                                <Typography variant="h2" sx={{ 
-                                    fontWeight: 800, 
+                                <Typography variant="h2" sx={{
+                                    fontWeight: 800,
                                     mb: 3,
                                     fontSize: { xs: '2rem', md: '2.5rem' },
                                     lineHeight: 1.2,
@@ -199,10 +212,10 @@ const BlogPost = () => {
                             </Box>
 
                             <Slide direction="up" in={true} timeout={600}>
-                                <Box sx={{ 
-                                    display: 'flex', 
-                                    alignItems: 'center', 
-                                    gap: 2, 
+                                <Box sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 2,
                                     mb: 4,
                                     p: 2,
                                     borderRadius: 2,
@@ -238,10 +251,10 @@ const BlogPost = () => {
                                             )}
                                             {updatedDate && postDate?.getTime() !== updatedDate?.getTime() && (
                                                 <Zoom in={true}>
-                                                    <Chip 
+                                                    <Chip
                                                         label={`Updated ${formatDistanceToNow(updatedDate, { addSuffix: true })}`}
-                                                        size="small" 
-                                                        sx={{ 
+                                                        size="small"
+                                                        sx={{
                                                             height: '22px',
                                                             fontSize: '0.75rem',
                                                             bgcolor: 'action.selected',
@@ -250,6 +263,28 @@ const BlogPost = () => {
                                                     />
                                                 </Zoom>
                                             )}
+                                            {documents.map((doc, index) => (
+                                                user && user.displayName === doc.userName && (
+                                                    <IconButton
+                                                    key={doc.id || index}
+                                                        component={Link}
+                                                        to={`/edit/${doc.id}`}
+                                                        sx={{
+                                                            color: "primary.main",
+                                                            backgroundColor: "rgba(0, 0, 0, 0.05)",
+                                                            "&:hover": {
+                                                                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                                                            },
+                                                            width: 36,
+                                                            height: 36,
+                                                            borderRadius: "50%",
+                                                            marginLeft: "auto"
+                                                        }}
+                                                    >
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                )
+                                            ))}
                                         </Box>
                                     </Box>
                                 </Box>
@@ -257,33 +292,33 @@ const BlogPost = () => {
 
                             <Box
                                 sx={{
-                                    "& h1": { 
-                                        fontSize: "2.5rem", 
-                                        fontWeight: 800, 
-                                        mb: 3, 
+                                    "& h1": {
+                                        fontSize: "2.5rem",
+                                        fontWeight: 800,
+                                        mb: 3,
                                         mt: 4,
                                         fontFamily: "'Playfair Display', serif",
                                         ...fadeIn
                                     },
-                                    "& h2": { 
-                                        fontSize: "2rem", 
-                                        fontWeight: 700, 
-                                        mb: 2, 
+                                    "& h2": {
+                                        fontSize: "2rem",
+                                        fontWeight: 700,
+                                        mb: 2,
                                         mt: 3,
-                                        fontFamily: "'Playfair Display', serif" 
+                                        fontFamily: "'Playfair Display', serif"
                                     },
-                                    "& h3": { 
-                                        fontSize: "1.75rem", 
-                                        fontWeight: 600, 
-                                        mb: 2, 
-                                        mt: 3 
+                                    "& h3": {
+                                        fontSize: "1.75rem",
+                                        fontWeight: 600,
+                                        mb: 2,
+                                        mt: 3
                                     },
-                                    "& p": { 
-                                        fontSize: "1.2rem", 
-                                        color: "text.primary", 
-                                        mb: 3, 
+                                    "& p": {
+                                        fontSize: "1.2rem",
+                                        color: "text.primary",
+                                        mb: 3,
                                         lineHeight: 1.8,
-                                        fontFamily: "'Merriweather', serif" 
+                                        fontFamily: "'Merriweather', serif"
                                     },
                                     "& img": {
                                         maxWidth: "100%",
