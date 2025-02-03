@@ -17,6 +17,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./config/firebaseConfig";
 import './App.css';
 import BlogList from './components/BlogList';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 const theme = createTheme({
   palette: {
@@ -35,39 +36,49 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Header />
-                <Hero />
-                <About />
-                <Employees />
-                <Services />
-                <Contact />
-              </>
-            } />
-            <Route path="/career" element={<Career />} />
-            <Route path="/blogs" element={<BlogHome />} />
-            <Route path="/:slug" element={<BlogPost />} />
-            
-            <Route path="/login" element={user ? <Navigate to="/blogs" replace /> : <Login />} />
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Simtestlab</title>
+          <meta name="description" content="A company focused on Battery Management Systems, Simulation, Battery Energy Systems, and Automotive solutions with Artificial Intelligence and Efficient Software solutions"/>
+          <meta property='og:title' content="Simtestlab" />
+          <meta property='og:description' content='A company focused on Battery Management Systems, Simulation, Battery Energy Systems, and Automotive solutions with Artificial Intelligence and Efficient Software solutions'/>
+        </Helmet>
+      </HelmetProvider>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <Header />
+                  <Hero />
+                  <About />
+                  <Employees />
+                  <Services />
+                  <Contact />
+                </>
+              } />
+              <Route path="/career" element={<Career />} />
+              <Route path="/blogs" element={<BlogHome />} />
+              <Route path="/:slug" element={<BlogPost />} />
 
-            <Route path="/edit/:docId" element={<EditDocument />}/>
-            <Route path="/bloglist" element={<BlogList />}/>
-            <Route
-              path="/editor"
-              element={
-                user ? <EditorPage /> : <Login />
-              }
-            />
+              <Route path="/login" element={user ? <Navigate to="/blogs" replace /> : <Login />} />
 
-          </Routes>
-        </div>
-      </Router>
-    </ThemeProvider>
+              <Route path="/edit/:docId" element={<EditDocument />} />
+              <Route path="/bloglist" element={<BlogList />} />
+              <Route
+                path="/editor"
+                element={
+                  user ? <EditorPage /> : <Login />
+                }
+              />
+
+            </Routes>
+          </div>
+        </Router>
+      </ThemeProvider>
+    </>
   );
 }
 

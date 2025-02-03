@@ -70,6 +70,12 @@ export const saveDocument = async (title, description, content, tags) => {
             tags,
             createdAt,
             updatedAt: createdAt,
+            metaData: {
+                seoTitle: title + "| Simtestlab",
+                seoDescription: description.substring(0, 160),
+                seoKeywords: tags.join(", "),
+                ogImage: user.photoURL || "",
+            }
         });
     } catch (error) {
         console.error("Error saving document:", error);
