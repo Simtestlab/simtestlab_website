@@ -29,6 +29,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { collection, getDocs } from "firebase/firestore";
 import { auth } from '../config/firebaseConfig';
 import Contact from "./Contact";
+import { Helmet } from "react-helmet-async";
 
 const fadeIn = {
     '@keyframes fadeIn': {
@@ -119,6 +120,17 @@ const BlogPost = () => {
 
     return (
         <>
+            {post && post.metadata && (
+                <Helmet>
+                    <title>{post.metadata.seoTitle}</title>
+                    <meta name="description" content={post.metadata.seoDescription} />
+                    <meta name="keywords" content={post.metadata.seoKeywords} />
+                    <meta property="og:title" content={post.metadata.seoTitle} />
+                    <meta property="og:description" content={post.metadata.seoDescription} />
+                    <meta property="og:image" content={post.metadata.ogImage} />
+                    <meta property="og:url" content={post.metadata.ogUrl} />
+                </Helmet>
+            )}
             <AppBar
                 position="sticky"
                 color="inherit"
