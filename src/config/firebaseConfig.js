@@ -32,7 +32,8 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, googleProvider);
-        return result.user;
+        console.log("Result: ", result);
+        return result;
     } catch (error) {
         console.error("Error during Google Sign in:", error);
         throw error;
@@ -61,6 +62,7 @@ export const saveDocument = async (title, description, content, tags) => {
     try {
         await addDoc(collection(db, "documents"), {
             title,
+            userId: auth.currentUser.uid,
             description,
             content,
             authorPhoto: user.photoURL,
@@ -91,7 +93,7 @@ export const getDocumentById = async (docId) => {
 };
 
 export const updateDocument = async (docId, updatedData) => {
-    const docRef = doc(db, "documets", docId);
+    const docRef = doc(db, "documents", docId);
     try {
         await updateDoc(docRef, {
             ...updatedData,
