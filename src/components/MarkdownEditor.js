@@ -83,8 +83,6 @@ const MarkdownEditor = ({ value, onChange, height = "80vh" }) => {
 			editorInstance.current.codemirror.on("change", () => {
 				onChange(editorInstance.current.value());
 			});
-		} else {
-			editorInstance.current.value(value);
 		}
 	}, [value, onChange, height]);
 
