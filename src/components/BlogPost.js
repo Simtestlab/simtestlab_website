@@ -19,7 +19,7 @@ import { useParams, Link } from "react-router-dom";
 import { useScrollTrigger, Zoom } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { marked } from "marked";
-import { db, getDocuments } from "../config/firebaseConfig";
+import { db } from "../config/firebaseConfig";
 import EditIcon from '@mui/icons-material/Edit';
 import DOMPurify from "dompurify";
 import hljs from "highlight.js";
@@ -43,7 +43,6 @@ const BlogPost = () => {
     const [post, setPost] = useState(null);
     const [loadedImages, setLoadedImages] = useState(0);
     const [scrolled, setScrolled] = useState(false);
-    const [documents, setDocuments] = useState([]);
     const defaultProfile = "https://via.placeholder.com/50";
     const trigger = useScrollTrigger({ threshold: 100 });
     const user = auth.currentUser;
@@ -76,15 +75,6 @@ const BlogPost = () => {
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    useEffect(() => {
-        const fetchDocs = async () => {
-            const docs = await getDocuments();
-            setDocuments(docs);
-        };
-
-        fetchDocs();
     }, []);
 
     useEffect(() => {
@@ -263,28 +253,25 @@ const BlogPost = () => {
                                                     />
                                                 </Zoom>
                                             )}
-                                            {documents.map((doc, index) => (
-                                                user && user.displayName === doc.userName && (
-                                                    <IconButton
-                                                    key={doc.id || index}
-                                                        component={Link}
-                                                        to={`/edit/${doc.id}`}
-                                                        sx={{
-                                                            color: "primary.main",
-                                                            backgroundColor: "rgba(0, 0, 0, 0.05)",
-                                                            "&:hover": {
-                                                                backgroundColor: "rgba(0, 0, 0, 0.1)",
-                                                            },
-                                                            width: 36,
-                                                            height: 36,
-                                                            borderRadius: "50%",
-                                                            marginLeft: "auto"
-                                                        }}
-                                                    >
-                                                        <EditIcon />
-                                                    </IconButton>
-                                                )
-                                            ))}
+                                            {user && post.userId === user.uid && (
+                                            <IconButton
+                                                component={Link}
+                                                to={`/edit/${post.id}`}
+                                                sx={{
+                                                    color: "primary.main",
+                                                    backgroundColor: "rgba(0, 0, 0, 0.05)",
+                                                    "&:hover": {
+                                                        backgroundColor: "rgba(0, 0, 0, 0.1)",
+                                                    },
+                                                    width: 36,
+                                                    height: 36,
+                                                    borderRadius: "50%",
+                                                    marginLeft: "auto"
+                                                }}
+                                            >
+                                                <EditIcon />
+                                            </IconButton>
+                                            )}
                                         </Box>
                                     </Box>
                                 </Box>

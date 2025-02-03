@@ -52,9 +52,10 @@ const MarkdownEditor = ({ value, onChange, height = "80vh" }) => {
 			editorInstance.current = new EasyMDE({
 				element: textarea,
 				spellChecker: false,
+				previewImagesInEditor: true,
 				toolbar: ["bold", "italic", "heading",
 					"|", "unordered-list", "ordered-list",
-					"|", "preview", "guide",
+					"|", "guide","fullscreen",
 					{
 						name: "Upload-image",
 						action: function customFunction(editor) {
@@ -82,6 +83,8 @@ const MarkdownEditor = ({ value, onChange, height = "80vh" }) => {
 			editorInstance.current.codemirror.on("change", () => {
 				onChange(editorInstance.current.value());
 			});
+		} else {
+			editorInstance.current.value(value);
 		}
 	}, [value, onChange, height]);
 
