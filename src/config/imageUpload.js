@@ -3,7 +3,7 @@ import axios from "axios";
 const GITHUB_USERNAME = "harish-ramar";
 const REPO_NAME = "blog-images";
 const BRANCH = "main";
-const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN || "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";
+const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
 
 const uploadToGithub = async (file) => {
     const reader = new FileReader();
@@ -29,8 +29,10 @@ const uploadToGithub = async (file) => {
                         },
                     }
                 );
+                console.log("GitHub Response:", response);
 
                 const imageUrl = response.data.content.download_url;
+                console.log("Image uploaded successfully:", imageUrl);
                 resolve(imageUrl);
             } catch (error) {
                 console.error("Github upload Failed:", error);
