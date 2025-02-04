@@ -3,7 +3,7 @@ import axios from "axios";
 const GITHUB_USERNAME = "harish-ramar";
 const REPO_NAME = "blog-images";
 const BRANCH = "main";
-const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
+const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN || "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";
 
 const uploadToGithub = async (file) => {
     const reader = new FileReader();
@@ -13,6 +13,8 @@ const uploadToGithub = async (file) => {
             const base64String = reader.result.split(",")[1];
 
             const fileName = `${Date.now()}-${file.name}`;
+
+            console.log("Token: ", GITHUB_TOKEN);
 
             try {
                 const response = await axios.put(
@@ -24,7 +26,7 @@ const uploadToGithub = async (file) => {
                     },
                     {
                         headers: {
-                            Authorization: `token ${GITHUB_TOKEN}`,
+                            Authorization: `Bearer ${GITHUB_TOKEN}`,
                             Accept: "application/vnd.github.v3+json",
                         },
                     }
