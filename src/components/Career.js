@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import content from '../data/content';
 import { AppBar, Toolbar, Typography, Button, Box  } from '@mui/material';
 import '../styles/Career.css';
@@ -33,10 +33,6 @@ const Career = () => {
     });
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    useEffect(() => {
-        console.log('isSubmitted state changed:', isSubmitted);
-    }, [isSubmitted]);
 
     const handleChange = (e) => {
         setFormData({

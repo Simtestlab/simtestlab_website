@@ -1,4 +1,5 @@
 {
+	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20",
 	"geolocation": {
 		"data": {
 			"city": "Kozhikode",
@@ -11,11 +12,10 @@
 				"name": "Kerala"
 			},
 			"timezone": "Asia/Kolkata",
-			"latitude": 11.2189,
-			"longitude": 75.7268,
-			"postalCode": "673014"
+			"latitude": 11.2448,
+			"longitude": 75.7721,
+			"postalCode": "673004"
 		},
-		"timestamp": 1729634071992
-	},
-	"siteId": "4472433f-bfbd-46f6-9ec6-257095029e20"
+		"timestamp": 1738736124537
+	}
 }
