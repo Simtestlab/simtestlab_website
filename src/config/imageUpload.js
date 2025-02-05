@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const GITHUB_USERNAME = "harish-ramar";
-const REPO_NAME = "blog-images";
-const BRANCH = "main";
-const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN || "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";
+const GITHUB_USERNAME = process.env.REACT_APP_GITHUB_USERNAME
+const REPO_NAME = process.env.REACT_APP_REPO_NAME
+const BRANCH = process.env.REACT_APP_BRANCH;
+const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
 
 const uploadToGithub = async (file) => {
     const reader = new FileReader();
@@ -26,7 +26,7 @@ const uploadToGithub = async (file) => {
                     },
                     {
                         headers: {
-                            Authorization: `Bearer ${GITHUB_TOKEN}`,
+                            Authorization: `token ${GITHUB_TOKEN}`,
                             Accept: "application/vnd.github.v3+json",
                         },
                     }
