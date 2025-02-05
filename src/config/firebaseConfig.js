@@ -7,32 +7,55 @@ import {
     signInWithPopup,
     signOut
 } from "firebase/auth";
+import getCredentials from "./config";
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+let firebaseConfig;
+let app, db, storage, auth;
+
+const initializeFirebase = async () => {
+    try {
+        const credentials = await getCredentials();
+
+        if (!credentials || !credentials.API_KEY) {
+            throw new Error("Firebase credentials are missing!");
+        }
+        firebaseConfig = {
+            apiKey: credentials.API_KEY,
+            authDomain: credentials.AUTH_DOMAIN,
+            projectId: credentials.PROJECT_ID,
+            storageBucket: credentials.STORAGE_BUCKET,
+            messagingSenderId: credentials.MESSAGING_SENDER_ID,
+            appId: credentials.APP_ID,
+            measurementId: credentials.MEASUREMENT_ID,
+        };
+
+        app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        storage = getStorage(app);
+        auth = getAuth(app);
+        return { app, db, storage, auth };
+    } catch (error) {
+        console.error("Error initializing Firebase:", error);
+        return null;
+    }
 };
+
+const firebaseServices = await initializeFirebase();
+if (!firebaseServices) {
+    throw new Error("Firebase initialization failed!");
+}
+
+({ app, db, storage, auth } = firebaseServices);
 
 if (!firebaseConfig.apiKey) {
     console.error("Firebase API Key is missing! Check your .env file.");
 }
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
-const auth = getAuth(app);
 
 const googleProvider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, googleProvider);
-        console.log("Result: ", result);
         return result;
     } catch (error) {
         console.error("Error during Google Sign in:", error);

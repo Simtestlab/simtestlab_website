@@ -1,9 +1,5 @@
 import axios from "axios";
-
-const GITHUB_USERNAME = process.env.REACT_APP_GITHUB_USERNAME
-const REPO_NAME = process.env.REACT_APP_REPO_NAME
-const BRANCH = process.env.REACT_APP_BRANCH;
-const GITHUB_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
+import getCredentials from "./config";
 
 const uploadToGithub = async (file) => {
     const reader = new FileReader();
@@ -14,9 +10,13 @@ const uploadToGithub = async (file) => {
 
             const fileName = `${Date.now()}-${file.name}`;
 
-            console.log("Token: ", GITHUB_TOKEN);
-
             try {
+                const credentials = await getCredentials();
+                const GITHUB_USERNAME = credentials.GITHUB_USERNAME;
+                const REPO_NAME = credentials.REPO_NAME;
+                const BRANCH = credentials.BRANCH;
+                const GITHUB_TOKEN = credentials.ACCESS_TOKEN;
+
                 const response = await axios.put(
                     `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${fileName}`,
                     {
@@ -31,13 +31,10 @@ const uploadToGithub = async (file) => {
                         },
                     }
                 );
-                console.log("GitHub Response:", response);
 
                 const imageUrl = response.data.content.download_url;
-                console.log("Image uploaded successfully:", imageUrl);
                 resolve(imageUrl);
             } catch (error) {
-                console.error("Github upload Failed:", error);
                 reject(error);
             }
         };

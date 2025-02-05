@@ -19,7 +19,6 @@ const EditDocument = () => {
     const fetchDocument = useCallback(async () => {
         try {
             const document = await getDocumentById(docId);
-            console.log("Fetched Document: ", document);
 
             if (!document) {
                 setError("Document not found.");
