@@ -83,7 +83,7 @@ export const saveDocument = async (title, description, content, tags) => {
     const createdAt = Timestamp.fromDate(new Date());
 
     try {
-        await addDoc(collection(db, "documents"), {
+        await addDoc(collection(db, "Blog_DB"), {
             title,
             userId: auth.currentUser.uid,
             description,
@@ -106,12 +106,12 @@ export const saveDocument = async (title, description, content, tags) => {
 };
 
 export const getDocuments = async () => {
-    const snapshot = await getDocs(collection(db, "documents"));
+    const snapshot = await getDocs(collection(db, "Blog_DB"));
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
 export const getDocumentById = async (docId) => {
-    const docRef = doc(db, "documents", docId);
+    const docRef = doc(db, "Blog_DB", docId);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -122,7 +122,7 @@ export const getDocumentById = async (docId) => {
 };
 
 export const updateDocument = async (docId, updatedData) => {
-    const docRef = doc(db, "documents", docId);
+    const docRef = doc(db, "Blog_DB", docId);
     try {
         await updateDoc(docRef, {
             ...updatedData,

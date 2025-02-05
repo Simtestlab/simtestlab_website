@@ -29,7 +29,7 @@ const BlogHome = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "documents"));
+                const querySnapshot = await getDocs(collection(db, "Blog_DB"));
                 const postsData = querySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
