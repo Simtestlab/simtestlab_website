@@ -117,19 +117,19 @@ export default function ProfileGrid() {
                                     }}
                                 >
                                     <Typography variant="h6">
-                                        <strong>{profile.Name}</strong>
+                                        <strong>{profile.Name} | </strong> {profile.title}
                                     </Typography>
                                     <Typography variant="body2">
-                                        {profile.email} <strong>|</strong> {profile.phone}
+                                        
                                     </Typography>
                                     <Typography variant="body2">
-                                        <strong>Location:</strong> {profile.address}
+                                        <strong>Location:</strong> {profile.location}
                                     </Typography>
                                     <Typography variant="body2">
                                         <strong>Description:</strong> {profile.description}
                                     </Typography>
                                     <Typography variant="body2">
-                                        <strong>DOB:</strong> {profile.dob} <strong>|</strong> <strong>Status:</strong>{" "}
+                                        <strong>Status: </strong>
                                         <span
                                             style={{
                                                 color: CardStyles(profile.Status).color,
