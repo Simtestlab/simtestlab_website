@@ -15,6 +15,7 @@ import EditorPage from './components/Editor';
 import EditDocument from './components/EditDocument';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./config/firebaseConfig";
+import Candidate from './components/Candidate';
 import './App.css';
 import BlogList from './components/BlogList';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -59,6 +60,7 @@ function App() {
                   <Contact />
                 </>
               } />
+              <Route path='/candidate' element={<Candidate />}/>
               <Route path="/career" element={<Career />} />
               <Route path="/blogs" element={<BlogHome />} />
               <Route path="/:slug" element={<BlogPost />} />
