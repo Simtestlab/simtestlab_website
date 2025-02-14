@@ -73,7 +73,7 @@ export default function ProfileGrid() {
                     alignItems: "center",
                     padding: "5px",
                     backgroundColor: "#ffffff",
-                    minHeight: "100vh",
+                    minHeight: "50vh",
                 }}
             >
                 <Grid container spacing={3} justifyContent="space-evenly" alignItems="stretch">
