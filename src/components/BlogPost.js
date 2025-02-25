@@ -30,6 +30,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { auth } from '../config/firebaseConfig';
 import Contact from "./Contact";
 import { Helmet } from "react-helmet-async";
+import SidebarNavigation from "./Sidebar";
+import { v4 as uuidv4 } from "uuid";
 
 const fadeIn = {
     '@keyframes fadeIn': {
@@ -42,6 +44,7 @@ const fadeIn = {
 const BlogPost = () => {
     const { slug } = useParams();
     const [post, setPost] = useState(null);
+    const [headings, setHeadings] = useState([]);
     const [loadedImages, setLoadedImages] = useState(0);
     const [scrolled, setScrolled] = useState(false);
     const defaultProfile = "https://via.placeholder.com/50";
@@ -64,7 +67,11 @@ const BlogPost = () => {
                 post.title.toLowerCase().replace(/\s+/g, "-") === slug
             );
 
-            setPost(foundPost);
+            if (foundPost) {
+                setPost(foundPost);
+                const extractedHeadings = extractHeadings(foundPost.content);
+                setHeadings(extractedHeadings);
+            }
         };
 
         fetchPost();
@@ -97,6 +104,23 @@ const BlogPost = () => {
 
         return () => observer.disconnect();
     }, [post, handleImageLoad]);
+
+    const extractHeadings = (markdownContent) => {
+        const lines = markdownContent.split("\n");
+        const headings = [];
+
+        lines.forEach((line) => {
+            const match = line.match(/^(#{1,3})\s(.+)/);
+            if (match) {
+                const level = match[1].length;
+                const text = match[2].trim();
+                const id = uuidv4();
+
+                headings.push({ id, level, text });
+            }
+        });
+        return headings;
+    }
 
     if (!post) return (
         <Container>
@@ -186,7 +210,12 @@ const BlogPost = () => {
                     </Slide>
                 </Toolbar>
             </AppBar>
-
+                            
+            <Box sx={{ display: "flex"}}>
+                <Box sx={{ width: 300, p: 2 }}>
+                    <SidebarNavigation headings={headings} />
+                </Box>
+            
             <Container maxWidth="lg">
                 <Fade in={true} timeout={800}>
                     <Card sx={{
@@ -370,6 +399,7 @@ const BlogPost = () => {
                     </Card>
                 </Fade>
             </Container>
+            </Box>
             <Contact />
         </>
     );
