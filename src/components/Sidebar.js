@@ -4,6 +4,15 @@ import { TreeItem } from "@mui/x-tree-view/TreeItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
+const scrollToHeading = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+        const yOffset = -80;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+    }
+};
+
 const SidebarNavigation = ({ headings }) => {
     const buildTree = (headings) => {
         const tree = [];
@@ -42,17 +51,17 @@ const SidebarNavigation = ({ headings }) => {
             defaultExpandIcon={<ChevronRightIcon />}
         >
             {treeData.map((item) => (
-                <NavigationTreeItem key={item.id} item={item} />
+                <NavigationTreeItem key={item.id} item={item} onItemClick={scrollToHeading}/>
             ))}
         </SimpleTreeView>
     );
 };
 
-const NavigationTreeItem = ({ item }) => {
+const NavigationTreeItem = ({ item, onItemClick }) => {
     return (
-        <TreeItem itemId={item.id} label={item.text}>
+        <TreeItem itemId={item.id} label={item.text} onClick={() => onItemClick(item.id)} >
             {item.children.map((subItem) => (
-                <NavigationTreeItem key={subItem.id} item={subItem} />
+                <NavigationTreeItem key={subItem.id} item={subItem} onItemClick={scrollToHeading}/>
             ))}
         </TreeItem>
     );

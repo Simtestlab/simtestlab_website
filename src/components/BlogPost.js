@@ -29,7 +29,6 @@ import { auth } from '../config/firebaseConfig';
 import Contact from "./Contact";
 import { Helmet } from "react-helmet-async";
 import SidebarNavigation from "./Sidebar";
-import { v4 as uuidv4 } from "uuid";
 
 const fadeIn = {
     '@keyframes fadeIn': {
@@ -66,6 +65,7 @@ const BlogPost = () => {
             );
 
             if (foundPost) {
+                console.log("Markdown: ", foundPost.content);
                 setPost(foundPost);
                 const extractedHeadings = extractHeadings(foundPost.content);
                 setHeadings(extractedHeadings);
@@ -112,7 +112,8 @@ const BlogPost = () => {
             if (match) {
                 const level = match[1].length;
                 const text = match[2].trim();
-                const id = uuidv4();
+                
+                const id = text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
 
                 headings.push({ id, level, text });
             }
@@ -131,12 +132,27 @@ const BlogPost = () => {
     marked.setOptions({
         breaks: true,
         gfm: true,
-        highlight: function (code, lang) {
+        highlight: function (code) {
             return hljs.highlightAuto(code).value;
         },
+        renderer: new marked.Renderer(),
     });
+    
+    const renderer = new marked.Renderer();
+    
+    renderer.heading = (textObj) => {
+        const text = textObj.text;
+        const headingLevel = textObj.depth;
 
-    const htmlContent = post.content ? DOMPurify.sanitize(marked(post.content)) : "";
+        const id = text
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]+/g, "");
+
+        return `<h${headingLevel} id="${id}">${text}</h${headingLevel}>`;
+    };
+
+    const htmlContent = post.content ? DOMPurify.sanitize(marked(post.content, { renderer })) : "";
     const postDate = post.createdAt?.seconds ? new Date(post.createdAt.seconds * 1000) : null;
     const updatedDate = post.updatedAt?.seconds ? new Date(post.updatedAt.seconds * 1000) : null;
 
