@@ -40,7 +40,6 @@ const SidebarNavigation = ({ headings }) => {
         <SimpleTreeView
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ width: 300, bgcolor: "background.paper", p: 2, boxShadow: 2 }}
         >
             {treeData.map((item) => (
                 <NavigationTreeItem key={item.id} item={item} />

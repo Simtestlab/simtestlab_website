@@ -6,8 +6,7 @@ import {
     Skeleton,
     Container,
     Typography,
-    Card,
-    CardContent,
+    Drawer,
     Box,
     AppBar,
     Toolbar,
@@ -210,197 +209,206 @@ const BlogPost = () => {
                     </Slide>
                 </Toolbar>
             </AppBar>
-                            
-            <Box sx={{ display: "flex"}}>
-                <Box sx={{ width: 300, p: 2 }}>
+            <Box sx={{ display: "flex", width: "100vw", height: "100vh" }}>
+                <Drawer
+                    variant="permanent"
+                    sx={{
+                        width: 320,
+                        flexShrink: 0,
+                        height: "calc(100vh - 64px)",
+                        "& .MuiDrawer-paper": {
+                            width: 320,
+                            boxSizing: "border-box",
+                            backgroundColor: "#f8f9fa",
+                            p: 2,
+                            height: "calc(100vh - 64px)",
+                            top: "64px",
+                            position: "fixed",
+                        },
+                    }}
+                >
                     <SidebarNavigation headings={headings} />
-                </Box>
-            
-            <Container maxWidth="lg">
-                <Fade in={true} timeout={800}>
-                    <Card sx={{
-                        my: 2,
-                        p: 3,
-                        boxShadow: 3,
-                        borderRadius: 4,
-                        transition: 'transform 0.3s, box-shadow 0.3s',
-                        '&:hover': {
-                            transform: 'translateY(-4px)',
-                            boxShadow: 6
-                        }
+                </Drawer>
+
+                <Box sx={{ flexGrow: 1, width: "calc(100vw - 320px)", overflowY: "auto", height: "100vh" }}>
+                    <Container disableGutters sx={{
+                        width: "100%",
+                        maxWidth: "100%",
+                        flexGrow: 1,
+                        overflowY: "auto",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "20px",
                     }}>
-                        <CardContent>
-                            <Box sx={fadeIn}>
-                                <Typography variant="h2" sx={{
-                                    fontWeight: 800,
-                                    mb: 3,
-                                    fontSize: { xs: '2rem', md: '2.5rem' },
-                                    lineHeight: 1.2,
-                                    fontFamily: "'Playfair Display', serif"
-                                }}>
-                                    {post.title}
-                                </Typography>
-                            </Box>
-
-                            <Slide direction="up" in={true} timeout={600}>
-                                <Box sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 2,
-                                    mb: 4,
-                                    p: 2,
-                                    borderRadius: 2,
-                                    bgcolor: 'background.paper',
-                                    boxShadow: 1,
-                                    transition: 'transform 0.3s',
-                                    '&:hover': {
-                                        transform: 'translateX(8px)'
-                                    }
-                                }}>
-                                    <Avatar
-                                        src={post.authorPhoto || defaultProfile}
-                                        sx={{
-                                            width: 56,
-                                            height: 56,
-                                            border: "2px solid #fff",
-                                            boxShadow: 3,
-                                            transition: 'transform 0.3s',
-                                            '&:hover': {
-                                                transform: 'scale(1.1)'
-                                            }
-                                        }}
-                                    />
-                                    <Box>
-                                        <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                                            {post.userName || "Anonymous"}
-                                        </Typography>
-                                        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-                                            {postDate && (
-                                                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                                    Published: {formatDistanceToNow(postDate, { addSuffix: true })}
-                                                </Typography>
-                                            )}
-                                            {updatedDate && postDate?.getTime() !== updatedDate?.getTime() && (
-                                                <Zoom in={true}>
-                                                    <Chip
-                                                        label={`Updated ${formatDistanceToNow(updatedDate, { addSuffix: true })}`}
-                                                        size="small"
-                                                        sx={{
-                                                            height: '22px',
-                                                            fontSize: '0.75rem',
-                                                            bgcolor: 'action.selected',
-                                                            transition: 'all 0.3s'
-                                                        }}
-                                                    />
-                                                </Zoom>
-                                            )}
-                                            {user && post.userId === user.uid && (
-                                            <IconButton
-                                                component={Link}
-                                                to={`/edit/${post.id}`}
-                                                sx={{
-                                                    color: "primary.main",
-                                                    backgroundColor: "rgba(0, 0, 0, 0.05)",
-                                                    "&:hover": {
-                                                        backgroundColor: "rgba(0, 0, 0, 0.1)",
-                                                    },
-                                                    width: 36,
-                                                    height: 36,
-                                                    borderRadius: "50%",
-                                                    marginLeft: "auto"
-                                                }}
-                                            >
-                                                <EditIcon />
-                                            </IconButton>
-                                            )}
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Slide>
-
-                            <Box
-                                sx={{
-                                    "& h1": {
-                                        fontSize: "2.5rem",
+                        <Fade in={true} timeout={800}>
+                            <Box>
+                                <Box>
+                                    <Typography variant="h2" sx={{
                                         fontWeight: 800,
                                         mb: 3,
-                                        mt: 4,
-                                        fontFamily: "'Playfair Display', serif",
-                                        ...fadeIn
-                                    },
-                                    "& h2": {
-                                        fontSize: "2rem",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                        mt: 3,
+                                        fontSize: { xs: '2rem', md: '2.5rem' },
+                                        lineHeight: 1.2,
                                         fontFamily: "'Playfair Display', serif"
-                                    },
-                                    "& h3": {
-                                        fontSize: "1.75rem",
-                                        fontWeight: 600,
-                                        mb: 2,
-                                        mt: 3
-                                    },
-                                    "& p": {
-                                        fontSize: "1.2rem",
-                                        color: "text.primary",
-                                        mb: 3,
-                                        lineHeight: 1.8,
-                                        fontFamily: "'Merriweather', serif"
-                                    },
-                                    "& img": {
-                                        maxWidth: "100%",
-                                        height: "auto",
-                                        borderRadius: 2,
-                                        my: 3,
-                                        boxShadow: 3,
-                                        opacity: loadedImages ? 1 : 0,
-                                        transition: 'opacity 0.5s ease-in',
-                                    },
-                                    "& pre": {
-                                        backgroundColor: "#1e1e1e",
-                                        color: "#fff",
-                                        padding: "10px",
-                                        borderRadius: "8px",
-                                        overflowX: "auto",
-                                        transform: 'translateX(-20px)',
-                                        opacity: 0,
-                                        animation: 'slideIn 0.5s ease-out forwards',
-                                        animationDelay: '0.3s',
-                                        '@keyframes slideIn': {
-                                            to: {
-                                                transform: 'translateX(0)',
-                                                opacity: 1
+                                    }}>
+                                        {post.title}
+                                    </Typography>
+                                </Box>
+
+                                <Slide direction="up" in={true} timeout={600}>
+                                    <Box sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 2,
+                                        mb: 4,
+                                    }}>
+                                        <Avatar
+                                            src={post.authorPhoto || defaultProfile}
+                                            sx={{
+                                                width: 56,
+                                                height: 56,
+                                                border: "2px solid #fff",
+                                                boxShadow: 3,
+                                                transition: 'transform 0.3s',
+                                                '&:hover': {
+                                                    transform: 'scale(1.1)'
+                                                }
+                                            }}
+                                        />
+                                        <Box>
+                                            <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                                {post.userName || "Anonymous"}
+                                            </Typography>
+                                            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                                {postDate && (
+                                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                                        Published: {formatDistanceToNow(postDate, { addSuffix: true })}
+                                                    </Typography>
+                                                )}
+                                                {updatedDate && postDate?.getTime() !== updatedDate?.getTime() && (
+                                                    <Zoom in={true}>
+                                                        <Chip
+                                                            label={`Updated ${formatDistanceToNow(updatedDate, { addSuffix: true })}`}
+                                                            size="small"
+                                                            sx={{
+                                                                height: '22px',
+                                                                fontSize: '0.75rem',
+                                                                bgcolor: 'action.selected',
+                                                                transition: 'all 0.3s'
+                                                            }}
+                                                        />
+                                                    </Zoom>
+                                                )}
+                                                {user && post.userId === user.uid && (
+                                                    <IconButton
+                                                        component={Link}
+                                                        to={`/edit/${post.id}`}
+                                                        sx={{
+                                                            color: "primary.main",
+                                                            backgroundColor: "rgba(0, 0, 0, 0.05)",
+                                                            "&:hover": {
+                                                                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                                                            },
+                                                            width: 36,
+                                                            height: 36,
+                                                            borderRadius: "50%",
+                                                            marginLeft: "auto"
+                                                        }}
+                                                    >
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                )}
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Slide>
+
+                                <Box
+                                    sx={{
+                                        "& h1": {
+                                            fontSize: "2.5rem",
+                                            fontWeight: 800,
+                                            mb: 3,
+                                            mt: 4,
+                                            fontFamily: "'Playfair Display', serif",
+                                            ...fadeIn
+                                        },
+                                        "& h2": {
+                                            fontSize: "2rem",
+                                            fontWeight: 700,
+                                            mb: 2,
+                                            mt: 3,
+                                            fontFamily: "'Playfair Display', serif"
+                                        },
+                                        "& h3": {
+                                            fontSize: "1.75rem",
+                                            fontWeight: 600,
+                                            mb: 2,
+                                            mt: 3
+                                        },
+                                        "& p": {
+                                            fontSize: "1.2rem",
+                                            color: "text.primary",
+                                            mb: 3,
+                                            lineHeight: 1.8,
+                                            fontFamily: "'Merriweather', serif"
+                                        },
+                                        "& img": {
+                                            maxWidth: "100%",
+                                            height: "auto",
+                                            borderRadius: 2,
+                                            my: 3,
+                                            boxShadow: 3,
+                                            opacity: loadedImages ? 1 : 0,
+                                            transition: 'opacity 0.5s ease-in',
+                                        },
+                                        "& pre": {
+                                            backgroundColor: "#1e1e1e",
+                                            color: "#fff",
+                                            padding: "10px",
+                                            borderRadius: "8px",
+                                            overflowX: "auto",
+                                            transform: 'translateX(-20px)',
+                                            opacity: 0,
+                                            animation: 'slideIn 0.5s ease-out forwards',
+                                            animationDelay: '0.3s',
+                                            '@keyframes slideIn': {
+                                                to: {
+                                                    transform: 'translateX(0)',
+                                                    opacity: 1
+                                                }
                                             }
+                                        },
+                                        "& blockquote": {
+                                            borderLeft: "4px solid",
+                                            borderColor: "primary.main",
+                                            pl: 3,
+                                            my: 3,
+                                            color: "text.secondary",
+                                            fontStyle: "italic",
+                                            opacity: 0,
+                                            animation: 'fadeIn 0.6s ease-out forwards',
+                                            animationDelay: '0.2s'
+                                        },
+                                        "& code": {
+                                            fontFamily: "'Fira Code', monospace",
+                                            fontSize: "0.9rem",
                                         }
-                                    },
-                                    "& blockquote": {
-                                        borderLeft: "4px solid",
-                                        borderColor: "primary.main",
-                                        pl: 3,
-                                        my: 3,
-                                        color: "text.secondary",
-                                        fontStyle: "italic",
-                                        opacity: 0,
-                                        animation: 'fadeIn 0.6s ease-out forwards',
-                                        animationDelay: '0.2s'
-                                    },
-                                    "& code": {
-                                        fontFamily: "'Fira Code', monospace",
-                                        fontSize: "0.9rem",
-                                    }
-                                }}
-                                dangerouslySetInnerHTML={{ __html: htmlContent }}
-                            />
-                            {Array.from(document.querySelectorAll('img')).forEach(img => {
-                                img.onload = handleImageLoad;
-                            })}
-                        </CardContent>
-                    </Card>
-                </Fade>
-            </Container>
+                                    }}
+                                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                                />
+                                {Array.from(document.querySelectorAll('img')).forEach(img => {
+                                    img.onload = handleImageLoad;
+                                })}
+                            </Box>
+                        </Fade>
+                    </Container>
+                </Box>
             </Box>
-            <Contact />
+
+            <Box sx={{ width: "100vw", mt: 2 }}>
+                <Contact />
+            </Box>
         </>
     );
 };
