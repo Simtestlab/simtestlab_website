@@ -6,7 +6,6 @@ import {
     Skeleton,
     Container,
     Typography,
-    Drawer,
     Box,
     AppBar,
     Toolbar,
@@ -209,38 +208,41 @@ const BlogPost = () => {
                     </Slide>
                 </Toolbar>
             </AppBar>
-            <Box sx={{ display: "flex", width: "100vw", height: "100vh" }}>
-                <Drawer
-                    variant="permanent"
+            <Box sx={{ display: "flex", width: "100%", height: "100vh", overflow: "hidden" }}>
+                <Box
                     sx={{
-                        width: 320,
                         flexShrink: 0,
-                        height: "calc(100vh - 64px)",
-                        "& .MuiDrawer-paper": {
-                            width: 320,
-                            boxSizing: "border-box",
-                            backgroundColor: "#f8f9fa",
-                            p: 2,
-                            height: "calc(100vh - 64px)",
-                            top: "64px",
-                            position: "fixed",
-                        },
+                        width: 320,
+                        height: "100%",
+                        left: 0,
+                        top: 64,
+                        backgroundColor: "#f8f9fa",
+                        padding: "20px",
+                        borderRight: "1px solid #ddd",
+                        overflowY: "auto",
                     }}
                 >
                     <SidebarNavigation headings={headings} />
-                </Drawer>
+                </Box>
 
-                <Box sx={{ flexGrow: 1, width: "calc(100vw - 320px)", overflowY: "auto", height: "100vh" }}>
-                    <Container disableGutters sx={{
-                        width: "100%",
-                        maxWidth: "100%",
-                        flexGrow: 1,
-                        overflowY: "auto",
+                <Box
+                    sx={{
+                        flexGrow: 1,                  
                         height: "100%",
+                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
-                        padding: "20px",
-                    }}>
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: "100%",
+                            flexGrow: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            overflowY: "auto",
+                        }}
+                        >
                         <Fade in={true} timeout={800}>
                             <Box>
                                 <Box>
@@ -402,7 +404,7 @@ const BlogPost = () => {
                                 })}
                             </Box>
                         </Fade>
-                    </Container>
+                    </Box>
                 </Box>
             </Box>
 
