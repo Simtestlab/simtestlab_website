@@ -4,16 +4,28 @@ import { TreeItem } from "@mui/x-tree-view/TreeItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-const scrollToHeading = (id) => {
+const scrollToHeading = (id, contentRef) => {
     const element = document.getElementById(id);
     if (element) {
-        const yOffset = -80;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        const headerHeight = document.querySelector('.MuiAppBar-root')?.offsetHeight || 64;
+        const extraPadding = 20;
+
+        const contentRect = contentRef.current.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        const scrollPosition = elementRect.top - contentRect.top + contentRef.current.scrollTop - headerHeight - extraPadding;
+
+        contentRef.current.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth"
+        })
+
+        setTimeout(() => {
+            element.focus({ preventScroll: true });
+        }, 100);
     }
 };
 
-const SidebarNavigation = ({ headings }) => {
+const SidebarNavigation = ({ headings, contentRef }) => {
     const buildTree = (headings) => {
         const tree = [];
         const stack = [];
@@ -43,25 +55,48 @@ const SidebarNavigation = ({ headings }) => {
 
     const treeData = buildTree(headings);
 
-    console.log("Tree Data: ", treeData);
-
     return (
         <SimpleTreeView
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}
         >
             {treeData.map((item) => (
-                <NavigationTreeItem key={item.id} item={item} onItemClick={scrollToHeading}/>
+                <NavigationTreeItem key={item.id} item={item} onItemClick={(id) => scrollToHeading(id, contentRef)}/>
             ))}
         </SimpleTreeView>
     );
 };
 
 const NavigationTreeItem = ({ item, onItemClick }) => {
+    const hasChildren = item.children && item.children.length > 0;
+
+    const handleSingleClick = (e) => {
+        if (!hasChildren) {
+            onItemClick(item.id);
+        }
+    };
+
+    const handleDoubleClick = (e) => {
+        if (hasChildren) {
+            onItemClick(item.id);
+        }
+    };
+
     return (
-        <TreeItem itemId={item.id} label={item.text} onClick={() => onItemClick(item.id)} >
+        <TreeItem
+            itemId={item.id}
+            label={item.text} 
+            onClick={handleSingleClick}
+            onDoubleClick={handleDoubleClick}
+            sx={{
+                '& .MuiTreeItem-content': {
+                    padding: "4px 8px",
+                    cursor: "pointer"
+                }
+            }}
+        >
             {item.children.map((subItem) => (
-                <NavigationTreeItem key={subItem.id} item={subItem} onItemClick={scrollToHeading}/>
+                <NavigationTreeItem key={subItem.id} item={subItem} onItemClick={onItemClick}/>
             ))}
         </TreeItem>
     );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import {
     Fade,
     Grow,
@@ -48,6 +48,8 @@ const BlogPost = () => {
     const trigger = useScrollTrigger({ threshold: 100 });
     const user = auth.currentUser;
 
+    const contentRef = useRef(null);
+
     const handleImageLoad = useCallback(() => {
         setLoadedImages(prev => prev + 1);
     }, []);
@@ -65,7 +67,6 @@ const BlogPost = () => {
             );
 
             if (foundPost) {
-                console.log("Markdown: ", foundPost.content);
                 setPost(foundPost);
                 const extractedHeadings = extractHeadings(foundPost.content);
                 setHeadings(extractedHeadings);
@@ -238,7 +239,7 @@ const BlogPost = () => {
                         overflowY: "auto",
                     }}
                 >
-                    <SidebarNavigation headings={headings} />
+                    <SidebarNavigation headings={headings} contentRef={contentRef} />
                 </Box>
 
                 <Box
@@ -251,12 +252,14 @@ const BlogPost = () => {
                     }}
                 >
                     <Box
+                        ref={contentRef}
                         sx={{
                             width: "100%",
                             flexGrow: 1,
                             display: "flex",
                             flexDirection: "column",
                             overflowY: "auto",
+                            scrollBehavior: "smooth",
                         }}
                         >
                         <Fade in={true} timeout={800}>
