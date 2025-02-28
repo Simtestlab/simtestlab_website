@@ -4,7 +4,7 @@ import { TreeItem } from "@mui/x-tree-view/TreeItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-const scrollToHeading = (id, contentRef) => {
+const scrollToHeading = (id, contentRef, onClose) => {
     const element = document.getElementById(id);
     if (element) {
         const headerHeight = document.querySelector('.MuiAppBar-root')?.offsetHeight || 64;
@@ -22,10 +22,14 @@ const scrollToHeading = (id, contentRef) => {
         setTimeout(() => {
             element.focus({ preventScroll: true });
         }, 100);
+
+        if (onClose) {
+            onClose();
+        }
     }
 };
 
-const SidebarNavigation = ({ headings, contentRef }) => {
+const SidebarNavigation = ({ headings, contentRef, onClose }) => {
     const buildTree = (headings) => {
         const tree = [];
         const stack = [];
@@ -61,7 +65,7 @@ const SidebarNavigation = ({ headings, contentRef }) => {
             defaultExpandIcon={<ChevronRightIcon />}
         >
             {treeData.map((item) => (
-                <NavigationTreeItem key={item.id} item={item} onItemClick={(id) => scrollToHeading(id, contentRef)}/>
+                <NavigationTreeItem key={item.id} item={item} onItemClick={(id) => scrollToHeading(id, contentRef, onClose)}/>
             ))}
         </SimpleTreeView>
     );

@@ -11,7 +11,10 @@ import {
     Toolbar,
     Avatar,
     Chip,
-    IconButton
+    IconButton,
+    Drawer,
+    useMediaQuery,
+    useTheme
 } from "@mui/material";
 import { useParams, Link } from "react-router-dom";
 import { useScrollTrigger, Zoom } from "@mui/material";
@@ -29,6 +32,7 @@ import { auth } from '../config/firebaseConfig';
 import Contact from "./Contact";
 import { Helmet } from "react-helmet-async";
 import SidebarNavigation from "./Sidebar";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const fadeIn = {
     '@keyframes fadeIn': {
@@ -47,12 +51,19 @@ const BlogPost = () => {
     const defaultProfile = "https://via.placeholder.com/50";
     const trigger = useScrollTrigger({ threshold: 100 });
     const user = auth.currentUser;
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const contentRef = useRef(null);
 
     const handleImageLoad = useCallback(() => {
         setLoadedImages(prev => prev + 1);
     }, []);
+
+    const toggleSidebar = () => {
+        setSidebarOpen((prev) => !prev);
+    };
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -184,6 +195,11 @@ const BlogPost = () => {
                 }}
             >
                 <Toolbar sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    {isMobile && (
+                        <IconButton onClick={toggleSidebar}>
+                            <MenuIcon />
+                        </IconButton>
+                    )}
                     <Zoom in={trigger}>
                         <IconButton
                             component={Link}
@@ -226,7 +242,17 @@ const BlogPost = () => {
                 </Toolbar>
             </AppBar>
             <Box sx={{ display: "flex", width: "100%", height: "100vh", overflow: "hidden" }}>
-                <Box
+                {isMobile ? (
+                    <Drawer
+                        anchor="left"
+                        open={sidebarOpen}
+                        onClose={toggleSidebar}
+                        PaperProps={{ sx: { width: 300, p: 2, m: 2 } }}
+                    >
+                        <SidebarNavigation headings={headings} contentRef={contentRef} onClose={toggleSidebar}/>
+                    </Drawer>
+                ) : (
+                    <Box
                     sx={{
                         flexShrink: 0,
                         width: 320,
@@ -237,10 +263,13 @@ const BlogPost = () => {
                         padding: "20px",
                         borderRight: "1px solid #ddd",
                         overflowY: "auto",
+                        m: 2,
+                        borderRadius: 2,
                     }}
                 >
                     <SidebarNavigation headings={headings} contentRef={contentRef} />
                 </Box>
+                )}
 
                 <Box
                     sx={{
