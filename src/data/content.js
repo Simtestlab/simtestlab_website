@@ -308,7 +308,7 @@ const content = {
       address_line_1: "Masagoundenchettipalayam Coimbatore",
       address_line_2: "Tamil Nadu, India - 641 107",
       email: "support@simtestlab.se",
-      phone: "+91 72005 12732",      
+      phone: "+91 95976 61235",      
       gst_number: "GSTIN: 33AAHCI4078E1ZO",
       cin_number: "CIN: U26517TZ2023PTC029990"
     },
@@ -317,7 +317,7 @@ const content = {
         address_line_1: "Kolapalli, Cherangode, The Nilgiris",
         address_line_2: "Tamil Nadu, India - 643 253",
         email: "support@simtestlab.se",
-        phone: "+91 72005 12732"
+        phone: "+91 95976 61235"
     },
 
     socialLinks: [
