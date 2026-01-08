@@ -1,95 +1,73 @@
+# Welcome to your Lovable project
 
-# Simtestlab Website
+## Project info
 
-Simtestlab is a comprehensive website that provides detailed information about our services, employees, and contact information. The website is built using React, and includes various features such as sliders, responsive design, and interactive sections.
+**URL**: https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11
 
-## Table of Contents
+## How can I edit this code?
 
-1. [Introduction](#introduction)
-2. [Implementation](#implementation)
-3. [Setup and Run](#setup-and-run)
-4. [Project Structure](#project-structure)
-5. [Dependencies](#dependencies)
+There are several ways of editing your application.
 
-## Introduction
+**Use Lovable**
 
-Simtestlab's website is designed to showcase our services, introduce our team, and provide a means for potential clients to contact us. The website is responsive and optimized for both desktop and mobile devices.
+Simply visit the [Lovable Project](https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11) and start prompting.
 
-## Implementation
+Changes made via Lovable will be committed automatically to this repo.
 
-The website is implemented using the following technologies:
+**Use your preferred IDE**
 
-- **React**: For building the user interface.
-- **Swiper**: For creating interactive sliders.
-- **Font Awesome**: For using icons.
-- **CSS**: For styling the components.
-- **JavaScript**: For adding interactivity.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-### Key Features
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-1. **Navigation Bar**: A fixed navigation bar with links to different sections of the website.
-2. **Hero Section**: A section with a video background, overlay text, and buttons.
-3. **About Section**: Includes a services tab with sliding content.
-4. **Employees Section**: Displays employee testimonials in a slider.
-5. **Services Section**: Shows detailed information about our services with an interactive slider.
-6. **Contact Section**: Provides contact information and links to social media.
+Follow these steps:
 
-## Setup and Run
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-### Prerequisites
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-Make sure you have the following installed on your system:
+# Step 3: Install the necessary dependencies.
+npm i
 
-- Node.js (version 14.x or later)
-- npm (version 6.x or later)
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-### Installation
+**Edit a file directly in GitHub**
 
-1. **Clone the repository**
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-   ```
-   git clone https://github.com/Simtestlab/simtestlab_website.git
-   cd simtestlab-website
-   ```
+**Use GitHub Codespaces**
 
-2. **Install dependencies**
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-   ```
-   npm install
-   ```
+## What technologies are used for this project?
 
-### Running the Website
+This project is built with:
 
-1. **Start the development server**
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-   ```
-   npm start
-   ```
+## How can I deploy this project?
 
-   This will start the React development server and open the website in your default web browser. The website will automatically reload if you make any changes to the code.
+Simply open [Lovable](https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11) and click on Share -> Publish.
 
-2. **Build for production**
+## Can I connect a custom domain to my Lovable project?
 
-   To create a production build of the website, run:
+Yes, you can!
 
-   ```
-   npm run build
-   ```
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-   This will generate optimized static files in the `build` directory.
-
-## Project Structure
-
-Here is a brief overview of the project's structure:
-
-The file inside the `src/data/content.js` contains all data or image location as java script objects
-
-## Dependencies
-
-The project relies on the following main dependencies:
-
-- **React**: A JavaScript library for building user interfaces.
-- **Swiper**: A modern slider library.
-- **Font Awesome**: A popular icon set and toolkit.
-- **CSS**: For styling the components.
-- **JavaScript**: For interactivity.
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
