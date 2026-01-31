@@ -1,73 +1,64 @@
-# Welcome to your Lovable project
 
-## Project info
+# SimTestLab Website
 
-**URL**: https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11
+A marketing website built with Vite, React, TypeScript and Tailwind CSS.
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+This repository contains the front-end for the SimTestLab website. It includes reusable UI components, page layouts, and a small Netlify serverless function used for sending email.
 
-**Use Lovable**
+Key features
+- Built with Vite + React + TypeScript
+- Styled with Tailwind CSS
+- Component-driven UI located in `src/components`
+- Netlify function(s) under `netlify/functions` (example: `send-email.js`)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11) and start prompting.
+## Quickstart
 
-Changes made via Lovable will be committed automatically to this repo.
+Prerequisites
+- Node.js (LTS)
+- yarn (or use npm with equivalent commands)
 
-**Use your preferred IDE**
+Install dependencies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+yarn install
 ```
 
-**Edit a file directly in GitHub**
+Run development server
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+yarn dev
+```
 
-**Use GitHub Codespaces**
+Build for production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+yarn build
+```
 
-## What technologies are used for this project?
+Preview production build
 
-This project is built with:
+```bash
+yarn preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+This project includes a `netlify.toml` and a serverless function folder; it's configured for deployment on Netlify. Push to your repository and connect it in Netlify, or use the Netlify CLI to deploy.
 
-Simply open [Lovable](https://lovable.dev/projects/8855bddd-2b1b-42a4-9be1-7bb07f824b11) and click on Share -> Publish.
+## Project Structure (important folders)
 
-## Can I connect a custom domain to my Lovable project?
+- `src/` — main app source
+	- `components/` — UI components and shared primitives
+	- `pages/` — top-level pages (Index, NotFound)
+	- `lib/` and `hooks/` — utilities and custom hooks
+- `netlify/functions/` — serverless functions used in production
+- `public/` — static assets
 
-Yes, you can!
+## Notes & Next steps
+- Check `netlify/functions/send-email.js` if you plan to use the contact/email feature.
+- Update the License and Contributors sections as needed.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Contact
+If you need help or want to contribute, open an issue or create a pull request.
