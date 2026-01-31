@@ -369,7 +369,7 @@ const Footer = () => {
                   <Phone className="h-4 w-4" />
                   <p>+91 95976 61235</p>
                 </div>
-                <p>GSTIN: 33AAHCI0407BF1ZQ</p>
+                <p>GSTIN: 33AAHCI4078E1ZO</p>
               </div>
             </motion.div>
 
